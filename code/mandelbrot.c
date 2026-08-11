@@ -15,7 +15,7 @@ Mandelbrot_check_return check_mandelbrot(double complex cpx_number){
     for(int i = 0; i < LIMIT; i++){
         f_x = cpow(f_x, 2) + cpx_number;
         if (cabs(f_x) > 2.0) {
-            return (Mandelbrot_check_return){0, f_x, i};
+            return (Mandelbrot_check_return){0, f_x, i+1};
         }
     }
 
