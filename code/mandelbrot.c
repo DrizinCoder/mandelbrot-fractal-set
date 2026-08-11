@@ -1,28 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <complex.h>
-#define LIMIT 1000
+#include "mandelbrot.h"
 
-typedef struct  {
-    int check;
-    double complex value;
-    int iterations_to_scape;
-} Mandelbrot_check_return;
-
-Mandelbrot_check_return check_mandelbrot(double complex cpx_number){
+Mandelbrot_check_return check_mandelbrot(double complex cpx_number, int max_iter){
     double complex f_x = 0.0;
 
-    for(int i = 0; i < LIMIT; i++){
+    for(int i = 0; i < max_iter; i++){
         f_x = cpow(f_x, 2) + cpx_number;
         if (cabs(f_x) > 2.0) {
             return (Mandelbrot_check_return){0, f_x, i+1};
         }
     }
 
-    return (Mandelbrot_check_return){1, f_x, LIMIT};
+    return (Mandelbrot_check_return){1, f_x, max_iter};
 }
 
-
+#ifndef NO_MAIN
 
 int main(int argc, char *argv[]) {
     /*int width = atoi(argv[1]);
@@ -45,7 +39,7 @@ int main(int argc, char *argv[]) {
 
     while (scanf("%lf %lf", &real, &imag) == 2) {
         double complex c = real + imag * I;
-        Mandelbrot_check_return result = check_mandelbrot(c);
+        Mandelbrot_check_return result = check_mandelbrot(c, 1000);
 
         if (result.check == 1) {
             printf("number: %.2f+%.2fi is in mandelbrot set\n", real, imag);
@@ -56,3 +50,4 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+#endif

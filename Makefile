@@ -2,7 +2,7 @@ compile:
 	gcc code/mandelbrot.c -o build/main
 
 compile-image-generator:
-	gcc code/image_generator.c -o build/image_generator -lm
+	gcc code/image_generator.c code/mandelbrot.c -DNO_MAIN -o build/image_generator -lm
 
 run-image_generator:
 	time -v ./build/image_generator 1620 1080 -2 1 -1 1 500

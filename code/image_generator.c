@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <complex.h>
+#include "mandelbrot.h"
 
 int mandelbrot(int px, int py, int width, int height, double minX, double maxX, double minY, double maxY, int max_iter) {
-
     double complex c;
 
-    double unidades_largura = maxX - minX;
-    double unidades_altura = maxY - minY;
+    double unidades_largura = maxX - minX; // Quantidade de unidades de largura do plano
+    double unidades_altura = maxY - minY; // Quantidade de unidades de altura do plano
 
-    double proporcao_x = (px / (double)width); // de 0 a 1
-    double proporcao_y = (py / (double)height); // de 0 a 1
+    double proporcao_x = (px / (double)width); // De 0 a 1
+    double proporcao_y = (py / (double)height); // De 0 a 1
 
     // Multiplica a proporção pelo tamanho total do plano matemático
     double deslocamento_x = unidades_largura * proporcao_x; 
@@ -20,21 +19,16 @@ int mandelbrot(int px, int py, int width, int height, double minX, double maxX, 
     double enquadramento_eixo_x = deslocamento_x + minX;
     double enquadramento_eixo_y = deslocamento_y + minY;
 
-    c = enquadramento_eixo_x + enquadramento_eixo_y * I;
+    // Número complexo que será calculado
+    c = enquadramento_eixo_x + enquadramento_eixo_y * I; 
 
-    double complex z = 0.0 + 0.0 * I;
-
-    int iter = 0;
-
-    while (cabs(z) <= 2.0 && iter < max_iter) {
-        
-        z = (z * z) + c;
-
-        iter++;
-    }
+    Mandelbrot_check_return result = check_mandelbrot(c, max_iter);
+    
+    int iter = result.iterations_to_scape;
 
     return iter;
 }
+
 int main(int argc, char *argv[]) {
     if (argc < 8) {
         printf("Uso: %s <width> <height> <minX> <maxX> <minY> <maxY> <max_iter>\n", argv[0]);
