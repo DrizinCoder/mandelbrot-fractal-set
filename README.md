@@ -7,7 +7,7 @@
         - 12 Threads
         - Performance-core Max Turbo Frequency: 4.4GHz
         - Efficient-core Max Turbo Frequency: 3.3GHz
-            - Intel® Smart Cache: 12MB
+        - Intel® Smart Cache: 12MB
 
     - **RAM**: 16GB
         - DDR5
