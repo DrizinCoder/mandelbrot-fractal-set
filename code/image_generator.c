@@ -1,22 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+#include <complex.h>
 
-int testFractalPattern(int px, int py, int width, int height, int max_iter) {
-    double x = (2.0 * px - width) / width;
-    double y = (2.0 * py - height) / height;
+int mandelbrot(int px, int py, int width, int height, double minX, double maxX, double minY, double maxY, int max_iter) {
 
-    double dist = (x * x + y * y);
-    double pattern = (1.0 + sin(dist * 10.0)) * 0.5;
+    double complex c;
 
-    int iter = (int)(pattern * max_iter);
+    double unidades_largura = maxX - minX;
+    double unidades_altura = maxY - minY;
+
+    double proporcao_x = (px / (double)width); // de 0 a 1
+    double proporcao_y = (py / (double)height); // de 0 a 1
+
+    // Multiplica a proporção pelo tamanho total do plano matemático
+    double deslocamento_x = unidades_largura * proporcao_x; 
+    double deslocamento_y = unidades_altura * proporcao_y;
+
+    // Soma o ponto de início (min) para achar a coordenada matemática exata
+    double enquadramento_eixo_x = deslocamento_x + minX;
+    double enquadramento_eixo_y = deslocamento_y + minY;
+
+    c = enquadramento_eixo_x + enquadramento_eixo_y * I;
+
+    double complex z = 0.0 + 0.0 * I;
+
+    int iter = 0;
+
+    while (cabs(z) <= 2.0 && iter < max_iter) {
+        
+        z = (z * z) + c;
+
+        iter++;
+    }
 
     return iter;
 }
-
 int main(int argc, char *argv[]) {
-    printf("Você digitou %d argumentos.\n", argc);
-
     if (argc < 8) {
         printf("Uso: %s <width> <height> <minX> <maxX> <minY> <maxY> <max_iter>\n", argv[0]);
         return 1;
@@ -46,9 +65,10 @@ int main(int argc, char *argv[]) {
     fprintf(file_image, "P6\n%d %d\n255\n", width, height);
 
     for (int py = 0; py < height; py++) {
+
          for (int px = 0; px < width; px++) {
 
-            int iter = testFractalPattern(px, py, width, height, max_iter);
+            int iter = mandelbrot(px, py, width, height, minX, maxX, minY, maxY, max_iter);
            
             unsigned char r, g, b;
 
