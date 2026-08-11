@@ -1,0 +1,20 @@
+number: 0.00+0.00i is in mandelbrot set
+number: -1.00+0.00i is in mandelbrot set
+number: -0.50+0.50i is in mandelbrot set
+number: 0.25+0.00i is in mandelbrot set
+number: -0.75+0.00i is in mandelbrot set
+number: -0.50+0.00i is in mandelbrot set
+number: -0.10+0.70i is in mandelbrot set
+number: 0.30+0.00i not is in mandelbrot set
+number: -1.30+0.00i is in mandelbrot set
+number: -1.50+0.00i not is in mandelbrot set
+number: 1.00+1.00i not is in mandelbrot set
+number: 2.00+0.00i not is in mandelbrot set
+number: -2.00+0.00i not is in mandelbrot set
+number: 0.00+1.00i not is in mandelbrot set
+number: 1.00+0.00i not is in mandelbrot set
+number: 0.50+0.50i not is in mandelbrot set
+number: -0.60+0.60i not is in mandelbrot set
+number: 1.50+0.00i not is in mandelbrot set
+number: 0.00+2.00i not is in mandelbrot set
+number: -2.50+0.00i not is in mandelbrot set
