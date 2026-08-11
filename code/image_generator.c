@@ -72,9 +72,7 @@ int main(int argc, char *argv[]) {
             } 
             // fora do limite
             else {
-                r = (iter * 9) % 256;
-                g = (iter * 5) % 256;
-                b = (iter * 11) % 256;
+                r= g = b = iter;
             }       
 
             fputc(r, file_image);
