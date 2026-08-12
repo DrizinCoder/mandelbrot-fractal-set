@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
             } 
             // fora do limite
             else {
-                r= g = b = iter;
+                r = g = b = (unsigned char)((iter * 255) / max_iter);
             }       
 
             fputc(r, file_image);
