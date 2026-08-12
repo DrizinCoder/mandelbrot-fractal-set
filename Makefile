@@ -1,32 +1,34 @@
+CC     = gcc
+CFLAGS = -O0 -g
+LIBS   = -lm
+
+# ── Build principal (requisito do enunciado) ──────────────────────────────────
 compile:
-	gcc code/mandelbrot.c -o build/main
-
-compile-image-generator:
-	gcc code/image_generator.c code/mandelbrot.c -DNO_MAIN -o build/image_generator -lm
-
-run-image_generator:
-	time -v ./build/image_generator 1620 1080 -2 1 -1 1 500
+	$(CC) $(CFLAGS) code/image_generator.c code/mandelbrot.c -o build/programa $(LIBS)
 
 run:
-	./build/main
+	./build/programa 1620 1080 -2 1 -1 1 500
 
-analytics-time:
-	/usr/bin/time -v ./build/main
-	
+# ── Medição de tempo com /usr/bin/time ───────────────────────────────────────
+analytics-time: compile
+	/usr/bin/time -v ./build/programa 1620 1080 -2 1 -1 1 1000
+
+# ── gprof ─────────────────────────────────────────────────────────────────────
 compile-profile:
-	gcc code/image_generator.c code/mandelbrot.c -pg -DNO_MAIN -o build/image_generator_profile -lm
+	$(CC) $(CFLAGS) -pg code/image_generator.c code/mandelbrot.c -o build/programa_profile $(LIBS)
 
 profile: compile-profile
-	@echo "Executando o gerador para coletar dados (isso pode levar alguns segundos)..."
-	./build/image_generator_profile 1620 1080 -2 1 -1 1 500
-	@echo "Gerando relatorio do gprof..."
-	gprof ./build/image_generator_profile gmon.out > profiling_report.txt
+	@echo "Executando para coletar dados de profiling..."
+	./build/programa_profile 1620 1080 -2 1 -1 1 500
+	@echo "Gerando relatório do gprof..."
+	gprof ./build/programa_profile gmon.out > profiling_report.txt
 	@echo "---------------------------------------------------------"
 	@echo "Relatório salvo em profiling_report.txt."
-	@echo "Aqui está o Top 10 gargalos (Top of flat profile):"
+	@echo "Top 10 gargalos (flat profile):"
 	@head -n 15 profiling_report.txt
 	@echo "---------------------------------------------------------"
 
+# ── Limpeza ───────────────────────────────────────────────────────────────────
 clean:
-	rm -f build/main build/image_generator build/image_generator_profile gmon.out profiling_report.txt perf_report.txt perf.data
+	rm -f build/programa build/programa_profile gmon.out profiling_report.txt perf_report.txt perf.data
 

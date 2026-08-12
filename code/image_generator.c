@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include <time.h>
 #include "mandelbrot.h"
 
 int mandelbrot(int px, int py, int width, int height, double minX, double maxX, double minY, double maxY, int max_iter) {
@@ -58,6 +60,10 @@ int main(int argc, char *argv[]) {
 
     fprintf(file_image, "P6\n%d %d\n255\n", width, height);
 
+    // --- Medição interna de tempo (clock_gettime) ---
+    struct timespec t_start, t_end;
+    clock_gettime(CLOCK_MONOTONIC, &t_start);
+
     for (int py = 0; py < height; py++) {
 
          for (int px = 0; px < width; px++) {
@@ -72,7 +78,8 @@ int main(int argc, char *argv[]) {
             } 
             // fora do limite
             else {
-                r = g = b = (unsigned char)((iter * 255) / max_iter);
+                double t = sqrt((double)iter / max_iter);
+                r = g = b = (unsigned char)(t * 255);
             }       
 
             fputc(r, file_image);
@@ -80,6 +87,12 @@ int main(int argc, char *argv[]) {
             fputc(b, file_image);
          }
     }
+
+    clock_gettime(CLOCK_MONOTONIC, &t_end);
+    double elapsed = (t_end.tv_sec - t_start.tv_sec) +
+                     (t_end.tv_nsec - t_start.tv_nsec) / 1e9;
+    printf("Tempo de processamento (clock_gettime): %.6f segundos\n", elapsed);
+    // -------------------------------------------------
 
     fclose(file_image);
     return 0;
