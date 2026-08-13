@@ -1,0 +1,3077 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 9  of event 'cpu_atom/cycles/P'
+# Event count (approx.): 2771176
+#
+# Children      Self  Command   Shared Object         Symbol                              
+# ........  ........  ........  ....................  ....................................
+#
+    72.37%     0.00%  programa  [kernel.kallsyms]     [.] entry_SYSCALL_64_after_hwframe
+            |
+            ---entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               |          
+               |--49.87%--__x64_sys_openat
+               |          do_sys_openat2
+               |          do_file_open
+               |          path_openat
+               |          do_open
+               |          do_truncate
+               |          notify_change
+               |          ext4_setattr
+               |          truncate_pagecache
+               |          truncate_inode_pages_range
+               |          |          
+               |          |--18.01%--truncate_cleanup_folio
+               |          |          ext4_invalidate_folio
+               |          |          block_invalidate_folio
+               |          |          filemap_release_folio
+               |          |          ext4_release_folio
+               |          |          jbd2_journal_try_to_free_buffers
+               |          |          try_to_free_buffers
+               |          |          drop_buffers.constprop.0
+               |          |          
+               |          |--16.67%--find_lock_entries
+               |          |          xas_move_index
+               |          |          
+               |           --15.18%--__folio_batch_release
+               |                     folios_put_refs
+               |                     __page_cache_release.part.0
+               |                     lru_gen_del_folio.constprop.0
+               |                     mod_lruvec_state
+               |                     mod_memcg_lruvec_state
+               |          
+               |--13.48%--__x64_sys_mprotect
+               |          do_mprotect_pkey
+               |          mprotect_fixup
+               |          vma_modify_flags
+               |          vma_modify
+               |          __split_vma
+               |          vma_prepare
+               |          vma_interval_tree_insert
+               |          
+                --9.02%--__x64_sys_execve
+                          do_execveat_common.isra.0
+                          bprm_execve
+                          bprm_execve.part.0
+                          exec_binprm
+                          load_elf_binary
+                          |          
+                          |--4.51%--load_elf_interp.isra.0
+                          |          elf_load
+                          |          vm_mmap
+                          |          vm_mmap_pgoff
+                          |          do_mmap
+                          |          mmap_region
+                          |          __mmap_region
+                          |          perf_event_mmap
+                          |          perf_event_mmap_event
+                          |          perf_iterate_sb.constprop.0
+                          |          perf_event_mmap_output
+                          |          
+                           --4.51%--elf_load
+                                     vm_mmap
+                                     vm_mmap_pgoff
+                                     do_mmap
+                                     mmap_region
+                                     __mmap_region
+                                     perf_event_mmap
+                                     perf_event_mmap_event
+                                     perf_iterate_sb.constprop.0
+                                     perf_iterate_ctx
+
+    72.37%     0.00%  programa  [kernel.kallsyms]     [.] do_syscall_64
+            |
+            ---do_syscall_64
+               x64_sys_call
+               |          
+               |--49.87%--__x64_sys_openat
+               |          do_sys_openat2
+               |          do_file_open
+               |          path_openat
+               |          do_open
+               |          do_truncate
+               |          notify_change
+               |          ext4_setattr
+               |          truncate_pagecache
+               |          truncate_inode_pages_range
+               |          |          
+               |          |--18.01%--truncate_cleanup_folio
+               |          |          ext4_invalidate_folio
+               |          |          block_invalidate_folio
+               |          |          filemap_release_folio
+               |          |          ext4_release_folio
+               |          |          jbd2_journal_try_to_free_buffers
+               |          |          try_to_free_buffers
+               |          |          drop_buffers.constprop.0
+               |          |          
+               |          |--16.67%--find_lock_entries
+               |          |          xas_move_index
+               |          |          
+               |           --15.18%--__folio_batch_release
+               |                     folios_put_refs
+               |                     __page_cache_release.part.0
+               |                     lru_gen_del_folio.constprop.0
+               |                     mod_lruvec_state
+               |                     mod_memcg_lruvec_state
+               |          
+               |--13.48%--__x64_sys_mprotect
+               |          do_mprotect_pkey
+               |          mprotect_fixup
+               |          vma_modify_flags
+               |          vma_modify
+               |          __split_vma
+               |          vma_prepare
+               |          vma_interval_tree_insert
+               |          
+                --9.02%--__x64_sys_execve
+                          do_execveat_common.isra.0
+                          bprm_execve
+                          bprm_execve.part.0
+                          exec_binprm
+                          load_elf_binary
+                          |          
+                          |--4.51%--load_elf_interp.isra.0
+                          |          elf_load
+                          |          vm_mmap
+                          |          vm_mmap_pgoff
+                          |          do_mmap
+                          |          mmap_region
+                          |          __mmap_region
+                          |          perf_event_mmap
+                          |          perf_event_mmap_event
+                          |          perf_iterate_sb.constprop.0
+                          |          perf_event_mmap_output
+                          |          
+                           --4.51%--elf_load
+                                     vm_mmap
+                                     vm_mmap_pgoff
+                                     do_mmap
+                                     mmap_region
+                                     __mmap_region
+                                     perf_event_mmap
+                                     perf_event_mmap_event
+                                     perf_iterate_sb.constprop.0
+                                     perf_iterate_ctx
+
+    72.37%     0.00%  programa  [kernel.kallsyms]     [.] x64_sys_call
+            |
+            ---x64_sys_call
+               |          
+               |--49.87%--__x64_sys_openat
+               |          do_sys_openat2
+               |          do_file_open
+               |          path_openat
+               |          do_open
+               |          do_truncate
+               |          notify_change
+               |          ext4_setattr
+               |          truncate_pagecache
+               |          truncate_inode_pages_range
+               |          |          
+               |          |--18.01%--truncate_cleanup_folio
+               |          |          ext4_invalidate_folio
+               |          |          block_invalidate_folio
+               |          |          filemap_release_folio
+               |          |          ext4_release_folio
+               |          |          jbd2_journal_try_to_free_buffers
+               |          |          try_to_free_buffers
+               |          |          drop_buffers.constprop.0
+               |          |          
+               |          |--16.67%--find_lock_entries
+               |          |          xas_move_index
+               |          |          
+               |           --15.18%--__folio_batch_release
+               |                     folios_put_refs
+               |                     __page_cache_release.part.0
+               |                     lru_gen_del_folio.constprop.0
+               |                     mod_lruvec_state
+               |                     mod_memcg_lruvec_state
+               |          
+               |--13.48%--__x64_sys_mprotect
+               |          do_mprotect_pkey
+               |          mprotect_fixup
+               |          vma_modify_flags
+               |          vma_modify
+               |          __split_vma
+               |          vma_prepare
+               |          vma_interval_tree_insert
+               |          
+                --9.02%--__x64_sys_execve
+                          do_execveat_common.isra.0
+                          bprm_execve
+                          bprm_execve.part.0
+                          exec_binprm
+                          load_elf_binary
+                          |          
+                          |--4.51%--load_elf_interp.isra.0
+                          |          elf_load
+                          |          vm_mmap
+                          |          vm_mmap_pgoff
+                          |          do_mmap
+                          |          mmap_region
+                          |          __mmap_region
+                          |          perf_event_mmap
+                          |          perf_event_mmap_event
+                          |          perf_iterate_sb.constprop.0
+                          |          perf_event_mmap_output
+                          |          
+                           --4.51%--elf_load
+                                     vm_mmap
+                                     vm_mmap_pgoff
+                                     do_mmap
+                                     mmap_region
+                                     __mmap_region
+                                     perf_event_mmap
+                                     perf_event_mmap_event
+                                     perf_iterate_sb.constprop.0
+                                     perf_iterate_ctx
+
+    49.87%     0.00%  programa  programa              [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               _IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               _IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] call_init (inlined)
+            |
+            ---call_init (inlined)
+               __libc_start_call_main
+               main
+               _IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               main
+               _IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  programa              [.] main
+            |
+            ---main
+               _IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] _IO_new_fopen (inlined)
+            |
+            ---_IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] __fopen_internal (inlined)
+            |
+            ---__fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] _IO_new_file_fopen (inlined)
+            |
+            ---_IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] _IO_file_open
+            |
+            ---_IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] __libc_open64 (inlined)
+            |
+            ---__libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] __syscall_cancel
+            |
+            ---__syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  libc.so.6             [.] __internal_syscall_cancel (inlined)
+            |
+            ---__internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] __x64_sys_openat
+            |
+            ---__x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] do_sys_openat2
+            |
+            ---do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] do_file_open
+            |
+            ---do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] path_openat
+            |
+            ---path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] do_open
+            |
+            ---do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] do_truncate
+            |
+            ---do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] notify_change
+            |
+            ---notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] ext4_setattr
+            |
+            ---ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] truncate_pagecache
+            |
+            ---truncate_pagecache
+               truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    49.87%     0.00%  programa  [kernel.kallsyms]     [.] truncate_inode_pages_range
+            |
+            ---truncate_inode_pages_range
+               |          
+               |--18.01%--truncate_cleanup_folio
+               |          ext4_invalidate_folio
+               |          block_invalidate_folio
+               |          filemap_release_folio
+               |          ext4_release_folio
+               |          jbd2_journal_try_to_free_buffers
+               |          try_to_free_buffers
+               |          drop_buffers.constprop.0
+               |          
+               |--16.67%--find_lock_entries
+               |          xas_move_index
+               |          
+                --15.18%--__folio_batch_release
+                          folios_put_refs
+                          __page_cache_release.part.0
+                          lru_gen_del_folio.constprop.0
+                          mod_lruvec_state
+                          mod_memcg_lruvec_state
+
+    34.32%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start_user
+            |
+            ---_dl_start_user
+               _dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               |          
+               |--20.83%--rtld_timer_accum (inlined)
+               |          rtld_timer_stop (inlined)
+               |          _dl_map_object_deps
+               |          |          
+               |          |--11.52%--strchr
+               |          |          
+               |           --9.31%--_dl_catch_exception
+               |                     set_catch (inlined)
+               |                     openaux
+               |                     _dl_map_new_object
+               |                     _dl_cache_libcmp
+               |          
+                --13.48%--__mprotect (inlined)
+                          entry_SYSCALL_64_after_hwframe
+                          do_syscall_64
+                          x64_sys_call
+                          __x64_sys_mprotect
+                          do_mprotect_pkey
+                          mprotect_fixup
+                          vma_modify_flags
+                          vma_modify
+                          __split_vma
+                          vma_prepare
+                          vma_interval_tree_insert
+
+    34.32%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start
+            |
+            ---_dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               |          
+               |--20.83%--rtld_timer_accum (inlined)
+               |          rtld_timer_stop (inlined)
+               |          _dl_map_object_deps
+               |          |          
+               |          |--11.52%--strchr
+               |          |          
+               |           --9.31%--_dl_catch_exception
+               |                     set_catch (inlined)
+               |                     openaux
+               |                     _dl_map_new_object
+               |                     _dl_cache_libcmp
+               |          
+                --13.48%--__mprotect (inlined)
+                          entry_SYSCALL_64_after_hwframe
+                          do_syscall_64
+                          x64_sys_call
+                          __x64_sys_mprotect
+                          do_mprotect_pkey
+                          mprotect_fixup
+                          vma_modify_flags
+                          vma_modify
+                          __split_vma
+                          vma_prepare
+                          vma_interval_tree_insert
+
+    34.32%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start_final (inlined)
+            |
+            ---_dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               |          
+               |--20.83%--rtld_timer_accum (inlined)
+               |          rtld_timer_stop (inlined)
+               |          _dl_map_object_deps
+               |          |          
+               |          |--11.52%--strchr
+               |          |          
+               |           --9.31%--_dl_catch_exception
+               |                     set_catch (inlined)
+               |                     openaux
+               |                     _dl_map_new_object
+               |                     _dl_cache_libcmp
+               |          
+                --13.48%--__mprotect (inlined)
+                          entry_SYSCALL_64_after_hwframe
+                          do_syscall_64
+                          x64_sys_call
+                          __x64_sys_mprotect
+                          do_mprotect_pkey
+                          mprotect_fixup
+                          vma_modify_flags
+                          vma_modify
+                          __split_vma
+                          vma_prepare
+                          vma_interval_tree_insert
+
+    34.32%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+            |
+            ---_dl_sysdep_start
+               dl_main
+               |          
+               |--20.83%--rtld_timer_accum (inlined)
+               |          rtld_timer_stop (inlined)
+               |          _dl_map_object_deps
+               |          |          
+               |          |--11.52%--strchr
+               |          |          
+               |           --9.31%--_dl_catch_exception
+               |                     set_catch (inlined)
+               |                     openaux
+               |                     _dl_map_new_object
+               |                     _dl_cache_libcmp
+               |          
+                --13.48%--__mprotect (inlined)
+                          entry_SYSCALL_64_after_hwframe
+                          do_syscall_64
+                          x64_sys_call
+                          __x64_sys_mprotect
+                          do_mprotect_pkey
+                          mprotect_fixup
+                          vma_modify_flags
+                          vma_modify
+                          __split_vma
+                          vma_prepare
+                          vma_interval_tree_insert
+
+    34.32%     0.00%  programa  ld-linux-x86-64.so.2  [.] dl_main
+            |
+            ---dl_main
+               |          
+               |--20.83%--rtld_timer_accum (inlined)
+               |          rtld_timer_stop (inlined)
+               |          _dl_map_object_deps
+               |          |          
+               |          |--11.52%--strchr
+               |          |          
+               |           --9.31%--_dl_catch_exception
+               |                     set_catch (inlined)
+               |                     openaux
+               |                     _dl_map_new_object
+               |                     _dl_cache_libcmp
+               |          
+                --13.48%--__mprotect (inlined)
+                          entry_SYSCALL_64_after_hwframe
+                          do_syscall_64
+                          x64_sys_call
+                          __x64_sys_mprotect
+                          do_mprotect_pkey
+                          mprotect_fixup
+                          vma_modify_flags
+                          vma_modify
+                          __split_vma
+                          vma_prepare
+                          vma_interval_tree_insert
+
+    20.83%     0.00%  programa  ld-linux-x86-64.so.2  [.] rtld_timer_accum (inlined)
+            |
+            ---rtld_timer_accum (inlined)
+               rtld_timer_stop (inlined)
+               _dl_map_object_deps
+               |          
+               |--11.52%--strchr
+               |          
+                --9.31%--_dl_catch_exception
+                          set_catch (inlined)
+                          openaux
+                          _dl_map_new_object
+                          _dl_cache_libcmp
+
+    20.83%     0.00%  programa  ld-linux-x86-64.so.2  [.] rtld_timer_stop (inlined)
+            |
+            ---rtld_timer_stop (inlined)
+               _dl_map_object_deps
+               |          
+               |--11.52%--strchr
+               |          
+                --9.31%--_dl_catch_exception
+                          set_catch (inlined)
+                          openaux
+                          _dl_map_new_object
+                          _dl_cache_libcmp
+
+    20.83%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_map_object_deps
+            |
+            ---_dl_map_object_deps
+               |          
+               |--11.52%--strchr
+               |          
+                --9.31%--_dl_catch_exception
+                          set_catch (inlined)
+                          openaux
+                          _dl_map_new_object
+                          _dl_cache_libcmp
+
+    18.01%    18.01%  programa  [kernel.kallsyms]     [k] drop_buffers.constprop.0
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               _IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               truncate_cleanup_folio
+               ext4_invalidate_folio
+               block_invalidate_folio
+               filemap_release_folio
+               ext4_release_folio
+               jbd2_journal_try_to_free_buffers
+               try_to_free_buffers
+               drop_buffers.constprop.0
+
+    18.01%     0.00%  programa  [kernel.kallsyms]     [.] truncate_cleanup_folio
+            |
+            ---truncate_cleanup_folio
+               ext4_invalidate_folio
+               block_invalidate_folio
+               filemap_release_folio
+               ext4_release_folio
+               jbd2_journal_try_to_free_buffers
+               try_to_free_buffers
+               drop_buffers.constprop.0
+
+    18.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_invalidate_folio
+            |
+            ---ext4_invalidate_folio
+               block_invalidate_folio
+               filemap_release_folio
+               ext4_release_folio
+               jbd2_journal_try_to_free_buffers
+               try_to_free_buffers
+               drop_buffers.constprop.0
+
+    18.01%     0.00%  programa  [kernel.kallsyms]     [.] block_invalidate_folio
+            |
+            ---block_invalidate_folio
+               filemap_release_folio
+               ext4_release_folio
+               jbd2_journal_try_to_free_buffers
+               try_to_free_buffers
+               drop_buffers.constprop.0
+
+    18.01%     0.00%  programa  [kernel.kallsyms]     [.] filemap_release_folio
+            |
+            ---filemap_release_folio
+               ext4_release_folio
+               jbd2_journal_try_to_free_buffers
+               try_to_free_buffers
+               drop_buffers.constprop.0
+
+    18.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_release_folio
+            |
+            ---ext4_release_folio
+               jbd2_journal_try_to_free_buffers
+               try_to_free_buffers
+               drop_buffers.constprop.0
+
+    18.01%     0.00%  programa  [kernel.kallsyms]     [.] jbd2_journal_try_to_free_buffers
+            |
+            ---jbd2_journal_try_to_free_buffers
+               try_to_free_buffers
+               drop_buffers.constprop.0
+
+    18.01%     0.00%  programa  [kernel.kallsyms]     [.] try_to_free_buffers
+            |
+            ---try_to_free_buffers
+               drop_buffers.constprop.0
+
+    16.67%    16.67%  programa  [kernel.kallsyms]     [k] xas_move_index
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               _IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               find_lock_entries
+               xas_move_index
+
+    16.67%     0.00%  programa  [kernel.kallsyms]     [.] find_lock_entries
+            |
+            ---find_lock_entries
+               xas_move_index
+
+    15.18%    15.18%  programa  [kernel.kallsyms]     [k] mod_memcg_lruvec_state
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               _IO_new_fopen (inlined)
+               __fopen_internal (inlined)
+               _IO_new_file_fopen (inlined)
+               _IO_file_open
+               __libc_open64 (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_openat
+               do_sys_openat2
+               do_file_open
+               path_openat
+               do_open
+               do_truncate
+               notify_change
+               ext4_setattr
+               truncate_pagecache
+               truncate_inode_pages_range
+               __folio_batch_release
+               folios_put_refs
+               __page_cache_release.part.0
+               lru_gen_del_folio.constprop.0
+               mod_lruvec_state
+               mod_memcg_lruvec_state
+
+    15.18%     0.00%  programa  [kernel.kallsyms]     [.] __folio_batch_release
+            |
+            ---__folio_batch_release
+               folios_put_refs
+               __page_cache_release.part.0
+               lru_gen_del_folio.constprop.0
+               mod_lruvec_state
+               mod_memcg_lruvec_state
+
+    15.18%     0.00%  programa  [kernel.kallsyms]     [.] folios_put_refs
+            |
+            ---folios_put_refs
+               __page_cache_release.part.0
+               lru_gen_del_folio.constprop.0
+               mod_lruvec_state
+               mod_memcg_lruvec_state
+
+    15.18%     0.00%  programa  [kernel.kallsyms]     [.] __page_cache_release.part.0
+            |
+            ---__page_cache_release.part.0
+               lru_gen_del_folio.constprop.0
+               mod_lruvec_state
+               mod_memcg_lruvec_state
+
+    15.18%     0.00%  programa  [kernel.kallsyms]     [.] lru_gen_del_folio.constprop.0
+            |
+            ---lru_gen_del_folio.constprop.0
+               mod_lruvec_state
+               mod_memcg_lruvec_state
+
+    15.18%     0.00%  programa  [kernel.kallsyms]     [.] mod_lruvec_state
+            |
+            ---mod_lruvec_state
+               mod_memcg_lruvec_state
+
+    13.48%    13.48%  programa  [kernel.kallsyms]     [k] vma_interval_tree_insert
+            |
+            ---_dl_start_user
+               _dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               __mprotect (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_mprotect
+               do_mprotect_pkey
+               mprotect_fixup
+               vma_modify_flags
+               vma_modify
+               __split_vma
+               vma_prepare
+               vma_interval_tree_insert
+
+    13.48%     0.00%  programa  ld-linux-x86-64.so.2  [.] __mprotect (inlined)
+            |
+            ---__mprotect (inlined)
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_mprotect
+               do_mprotect_pkey
+               mprotect_fixup
+               vma_modify_flags
+               vma_modify
+               __split_vma
+               vma_prepare
+               vma_interval_tree_insert
+
+    13.48%     0.00%  programa  [kernel.kallsyms]     [.] __x64_sys_mprotect
+            |
+            ---__x64_sys_mprotect
+               do_mprotect_pkey
+               mprotect_fixup
+               vma_modify_flags
+               vma_modify
+               __split_vma
+               vma_prepare
+               vma_interval_tree_insert
+
+    13.48%     0.00%  programa  [kernel.kallsyms]     [.] do_mprotect_pkey
+            |
+            ---do_mprotect_pkey
+               mprotect_fixup
+               vma_modify_flags
+               vma_modify
+               __split_vma
+               vma_prepare
+               vma_interval_tree_insert
+
+    13.48%     0.00%  programa  [kernel.kallsyms]     [.] mprotect_fixup
+            |
+            ---mprotect_fixup
+               vma_modify_flags
+               vma_modify
+               __split_vma
+               vma_prepare
+               vma_interval_tree_insert
+
+    13.48%     0.00%  programa  [kernel.kallsyms]     [.] vma_modify_flags
+            |
+            ---vma_modify_flags
+               vma_modify
+               __split_vma
+               vma_prepare
+               vma_interval_tree_insert
+
+    13.48%     0.00%  programa  [kernel.kallsyms]     [.] vma_modify
+            |
+            ---vma_modify
+               __split_vma
+               vma_prepare
+               vma_interval_tree_insert
+
+    13.48%     0.00%  programa  [kernel.kallsyms]     [.] __split_vma
+            |
+            ---__split_vma
+               vma_prepare
+               vma_interval_tree_insert
+
+    13.48%     0.00%  programa  [kernel.kallsyms]     [.] vma_prepare
+            |
+            ---vma_prepare
+               vma_interval_tree_insert
+
+    11.52%    11.52%  programa  ld-linux-x86-64.so.2  [.] strchr
+            |
+            ---_dl_start_user
+               _dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               rtld_timer_accum (inlined)
+               rtld_timer_stop (inlined)
+               _dl_map_object_deps
+               strchr
+
+     9.31%     9.31%  programa  ld-linux-x86-64.so.2  [.] _dl_cache_libcmp
+            |
+            ---_dl_start_user
+               _dl_start
+               _dl_start_final (inlined)
+               _dl_sysdep_start
+               dl_main
+               rtld_timer_accum (inlined)
+               rtld_timer_stop (inlined)
+               _dl_map_object_deps
+               _dl_catch_exception
+               set_catch (inlined)
+               openaux
+               _dl_map_new_object
+               _dl_cache_libcmp
+
+     9.31%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_catch_exception
+            |
+            ---_dl_catch_exception
+               set_catch (inlined)
+               openaux
+               _dl_map_new_object
+               _dl_cache_libcmp
+
+     9.31%     0.00%  programa  ld-linux-x86-64.so.2  [.] set_catch (inlined)
+            |
+            ---set_catch (inlined)
+               openaux
+               _dl_map_new_object
+               _dl_cache_libcmp
+
+     9.31%     0.00%  programa  ld-linux-x86-64.so.2  [.] openaux
+            |
+            ---openaux
+               _dl_map_new_object
+               _dl_cache_libcmp
+
+     9.31%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_map_new_object
+            |
+            ---_dl_map_new_object
+               _dl_cache_libcmp
+
+     9.02%     0.00%  programa  [unknown]             [k] 0x00007704740f818b
+            |
+            ---0x7704740f818b
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               load_elf_binary
+               |          
+               |--4.51%--load_elf_interp.isra.0
+               |          elf_load
+               |          vm_mmap
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __mmap_region
+               |          perf_event_mmap
+               |          perf_event_mmap_event
+               |          perf_iterate_sb.constprop.0
+               |          perf_event_mmap_output
+               |          
+                --4.51%--elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          __mmap_region
+                          perf_event_mmap
+                          perf_event_mmap_event
+                          perf_iterate_sb.constprop.0
+                          perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] __x64_sys_execve
+            |
+            ---__x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               load_elf_binary
+               |          
+               |--4.51%--load_elf_interp.isra.0
+               |          elf_load
+               |          vm_mmap
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __mmap_region
+               |          perf_event_mmap
+               |          perf_event_mmap_event
+               |          perf_iterate_sb.constprop.0
+               |          perf_event_mmap_output
+               |          
+                --4.51%--elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          __mmap_region
+                          perf_event_mmap
+                          perf_event_mmap_event
+                          perf_iterate_sb.constprop.0
+                          perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] do_execveat_common.isra.0
+            |
+            ---do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               load_elf_binary
+               |          
+               |--4.51%--load_elf_interp.isra.0
+               |          elf_load
+               |          vm_mmap
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __mmap_region
+               |          perf_event_mmap
+               |          perf_event_mmap_event
+               |          perf_iterate_sb.constprop.0
+               |          perf_event_mmap_output
+               |          
+                --4.51%--elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          __mmap_region
+                          perf_event_mmap
+                          perf_event_mmap_event
+                          perf_iterate_sb.constprop.0
+                          perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] bprm_execve
+            |
+            ---bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               load_elf_binary
+               |          
+               |--4.51%--load_elf_interp.isra.0
+               |          elf_load
+               |          vm_mmap
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __mmap_region
+               |          perf_event_mmap
+               |          perf_event_mmap_event
+               |          perf_iterate_sb.constprop.0
+               |          perf_event_mmap_output
+               |          
+                --4.51%--elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          __mmap_region
+                          perf_event_mmap
+                          perf_event_mmap_event
+                          perf_iterate_sb.constprop.0
+                          perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] bprm_execve.part.0
+            |
+            ---bprm_execve.part.0
+               exec_binprm
+               load_elf_binary
+               |          
+               |--4.51%--load_elf_interp.isra.0
+               |          elf_load
+               |          vm_mmap
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __mmap_region
+               |          perf_event_mmap
+               |          perf_event_mmap_event
+               |          perf_iterate_sb.constprop.0
+               |          perf_event_mmap_output
+               |          
+                --4.51%--elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          __mmap_region
+                          perf_event_mmap
+                          perf_event_mmap_event
+                          perf_iterate_sb.constprop.0
+                          perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] exec_binprm
+            |
+            ---exec_binprm
+               load_elf_binary
+               |          
+               |--4.51%--load_elf_interp.isra.0
+               |          elf_load
+               |          vm_mmap
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __mmap_region
+               |          perf_event_mmap
+               |          perf_event_mmap_event
+               |          perf_iterate_sb.constprop.0
+               |          perf_event_mmap_output
+               |          
+                --4.51%--elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          __mmap_region
+                          perf_event_mmap
+                          perf_event_mmap_event
+                          perf_iterate_sb.constprop.0
+                          perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] load_elf_binary
+            |
+            ---load_elf_binary
+               |          
+               |--4.51%--load_elf_interp.isra.0
+               |          elf_load
+               |          vm_mmap
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __mmap_region
+               |          perf_event_mmap
+               |          perf_event_mmap_event
+               |          perf_iterate_sb.constprop.0
+               |          perf_event_mmap_output
+               |          
+                --4.51%--elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          __mmap_region
+                          perf_event_mmap
+                          perf_event_mmap_event
+                          perf_iterate_sb.constprop.0
+                          perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] elf_load
+            |
+            ---elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] vm_mmap
+            |
+            ---vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] vm_mmap_pgoff
+            |
+            ---vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] do_mmap
+            |
+            ---do_mmap
+               mmap_region
+               __mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] mmap_region
+            |
+            ---mmap_region
+               __mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] __mmap_region
+            |
+            ---__mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] perf_event_mmap
+            |
+            ---perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] perf_event_mmap_event
+            |
+            ---perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     9.02%     0.00%  programa  [kernel.kallsyms]     [.] perf_iterate_sb.constprop.0
+            |
+            ---perf_iterate_sb.constprop.0
+               |          
+               |--4.51%--perf_event_mmap_output
+               |          
+                --4.51%--perf_iterate_ctx
+
+     6.80%     6.80%  programa  [kernel.kallsyms]     [k] native_irq_return_iret
+            |
+            ---_start
+
+     6.80%     0.00%  programa  ld-linux-x86-64.so.2  [.] _start
+            |
+            ---_start
+
+     4.51%     4.51%  programa  [kernel.kallsyms]     [k] perf_event_mmap_output
+            |
+            ---0x7704740f818b
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               load_elf_binary
+               load_elf_interp.isra.0
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               perf_event_mmap_output
+
+     4.51%     4.51%  programa  [kernel.kallsyms]     [k] perf_iterate_ctx
+            |
+            ---0x7704740f818b
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               perf_iterate_ctx
+
+     4.51%     0.00%  programa  [kernel.kallsyms]     [.] load_elf_interp.isra.0
+            |
+            ---load_elf_interp.isra.0
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __mmap_region
+               perf_event_mmap
+               perf_event_mmap_event
+               perf_iterate_sb.constprop.0
+               perf_event_mmap_output
+
+
+
+# Samples: 54K of event 'cpu_core/cycles/P'
+# Event count (approx.): 59450672075
+#
+# Children      Self  Command   Shared Object      Symbol                                    
+# ........  ........  ........  .................  ..........................................
+#
+   100.00%     0.00%  programa  programa           [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.96%--main
+                          |          
+                           --99.80%--mandelbrot
+                                     |          
+                                     |--77.60%--check_mandelbrot
+                                     |          |          
+                                     |          |--45.12%--__cpow
+                                     |          |          |          
+                                     |          |          |--30.25%--__clog
+                                     |          |          |          |          
+                                     |          |          |          |--13.34%--__ieee754_atan2_fma
+                                     |          |          |          |          |          
+                                     |          |          |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --9.87%--__x2y2m1
+                                     |          |          |                     |          
+                                     |          |          |                      --8.63%--__qsort_r (inlined)
+                                     |          |          |                                |          
+                                     |          |          |                                |--6.82%--qsort_r_mergesort
+                                     |          |          |                                |          |          
+                                     |          |          |                                |          |--4.95%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          |          
+                                     |          |          |                                |          |           --2.69%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |                     |          
+                                     |          |          |                                |          |                      --1.37%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          
+                                     |          |          |                                |           --0.64%--compare
+                                     |          |          |                                |          
+                                     |          |          |                                 --0.74%--__memmove_avx_unaligned_erms
+                                     |          |          |          
+                                     |          |          |--5.09%--__hypot (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --2.80%--kernel (inlined)
+                                     |          |          |          
+                                     |          |          |--4.39%--__ieee754_log_fma
+                                     |          |          |          
+                                     |          |          |--1.13%--__ieee754_atan2_fma
+                                     |          |          |          
+                                     |          |           --1.07%--__log1p_fma
+                                     |          |          
+                                     |          |--21.36%--__cexp
+                                     |          |          |          
+                                     |          |           --13.81%--__sincos_fma
+                                     |          |                     |          
+                                     |          |                     |--4.10%--do_sin (inlined)
+                                     |          |                     |          
+                                     |          |                     |--2.96%--do_cos (inlined)
+                                     |          |                     |          
+                                     |          |                     |--1.66%--reduce_sincos (inlined)
+                                     |          |                     |          
+                                     |          |                      --1.53%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          
+                                     |          |--3.44%--__ieee754_exp_fma
+                                     |          |          
+                                     |          |--1.12%--__clog
+                                     |          |          
+                                     |           --0.85%--__sincos_fma
+                                     |          
+                                     |--19.74%--__hypot (inlined)
+                                     |          |          
+                                     |           --16.22%--kernel (inlined)
+                                     |          
+                                      --0.75%--__cexp
+
+   100.00%     0.00%  programa  libc.so.6          [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.96%--main
+                          |          
+                           --99.80%--mandelbrot
+                                     |          
+                                     |--77.60%--check_mandelbrot
+                                     |          |          
+                                     |          |--45.12%--__cpow
+                                     |          |          |          
+                                     |          |          |--30.25%--__clog
+                                     |          |          |          |          
+                                     |          |          |          |--13.34%--__ieee754_atan2_fma
+                                     |          |          |          |          |          
+                                     |          |          |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --9.87%--__x2y2m1
+                                     |          |          |                     |          
+                                     |          |          |                      --8.63%--__qsort_r (inlined)
+                                     |          |          |                                |          
+                                     |          |          |                                |--6.82%--qsort_r_mergesort
+                                     |          |          |                                |          |          
+                                     |          |          |                                |          |--4.95%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          |          
+                                     |          |          |                                |          |           --2.69%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |                     |          
+                                     |          |          |                                |          |                      --1.37%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          
+                                     |          |          |                                |           --0.64%--compare
+                                     |          |          |                                |          
+                                     |          |          |                                 --0.74%--__memmove_avx_unaligned_erms
+                                     |          |          |          
+                                     |          |          |--5.09%--__hypot (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --2.80%--kernel (inlined)
+                                     |          |          |          
+                                     |          |          |--4.39%--__ieee754_log_fma
+                                     |          |          |          
+                                     |          |          |--1.13%--__ieee754_atan2_fma
+                                     |          |          |          
+                                     |          |           --1.07%--__log1p_fma
+                                     |          |          
+                                     |          |--21.36%--__cexp
+                                     |          |          |          
+                                     |          |           --13.81%--__sincos_fma
+                                     |          |                     |          
+                                     |          |                     |--4.10%--do_sin (inlined)
+                                     |          |                     |          
+                                     |          |                     |--2.96%--do_cos (inlined)
+                                     |          |                     |          
+                                     |          |                     |--1.66%--reduce_sincos (inlined)
+                                     |          |                     |          
+                                     |          |                      --1.53%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          
+                                     |          |--3.44%--__ieee754_exp_fma
+                                     |          |          
+                                     |          |--1.12%--__clog
+                                     |          |          
+                                     |           --0.85%--__sincos_fma
+                                     |          
+                                     |--19.74%--__hypot (inlined)
+                                     |          |          
+                                     |           --16.22%--kernel (inlined)
+                                     |          
+                                      --0.75%--__cexp
+
+   100.00%     0.00%  programa  libc.so.6          [.] call_init (inlined)
+            |
+            ---call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.96%--main
+                          |          
+                           --99.80%--mandelbrot
+                                     |          
+                                     |--77.60%--check_mandelbrot
+                                     |          |          
+                                     |          |--45.12%--__cpow
+                                     |          |          |          
+                                     |          |          |--30.25%--__clog
+                                     |          |          |          |          
+                                     |          |          |          |--13.34%--__ieee754_atan2_fma
+                                     |          |          |          |          |          
+                                     |          |          |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --9.87%--__x2y2m1
+                                     |          |          |                     |          
+                                     |          |          |                      --8.63%--__qsort_r (inlined)
+                                     |          |          |                                |          
+                                     |          |          |                                |--6.82%--qsort_r_mergesort
+                                     |          |          |                                |          |          
+                                     |          |          |                                |          |--4.95%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          |          
+                                     |          |          |                                |          |           --2.69%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |                     |          
+                                     |          |          |                                |          |                      --1.37%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          
+                                     |          |          |                                |           --0.64%--compare
+                                     |          |          |                                |          
+                                     |          |          |                                 --0.74%--__memmove_avx_unaligned_erms
+                                     |          |          |          
+                                     |          |          |--5.09%--__hypot (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --2.80%--kernel (inlined)
+                                     |          |          |          
+                                     |          |          |--4.39%--__ieee754_log_fma
+                                     |          |          |          
+                                     |          |          |--1.13%--__ieee754_atan2_fma
+                                     |          |          |          
+                                     |          |           --1.07%--__log1p_fma
+                                     |          |          
+                                     |          |--21.36%--__cexp
+                                     |          |          |          
+                                     |          |           --13.81%--__sincos_fma
+                                     |          |                     |          
+                                     |          |                     |--4.10%--do_sin (inlined)
+                                     |          |                     |          
+                                     |          |                     |--2.96%--do_cos (inlined)
+                                     |          |                     |          
+                                     |          |                     |--1.66%--reduce_sincos (inlined)
+                                     |          |                     |          
+                                     |          |                      --1.53%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          
+                                     |          |--3.44%--__ieee754_exp_fma
+                                     |          |          
+                                     |          |--1.12%--__clog
+                                     |          |          
+                                     |           --0.85%--__sincos_fma
+                                     |          
+                                     |--19.74%--__hypot (inlined)
+                                     |          |          
+                                     |           --16.22%--kernel (inlined)
+                                     |          
+                                      --0.75%--__cexp
+
+   100.00%     0.00%  programa  libc.so.6          [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               |          
+                --99.96%--main
+                          |          
+                           --99.80%--mandelbrot
+                                     |          
+                                     |--77.60%--check_mandelbrot
+                                     |          |          
+                                     |          |--45.12%--__cpow
+                                     |          |          |          
+                                     |          |          |--30.25%--__clog
+                                     |          |          |          |          
+                                     |          |          |          |--13.34%--__ieee754_atan2_fma
+                                     |          |          |          |          |          
+                                     |          |          |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --9.87%--__x2y2m1
+                                     |          |          |                     |          
+                                     |          |          |                      --8.63%--__qsort_r (inlined)
+                                     |          |          |                                |          
+                                     |          |          |                                |--6.82%--qsort_r_mergesort
+                                     |          |          |                                |          |          
+                                     |          |          |                                |          |--4.95%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          |          
+                                     |          |          |                                |          |           --2.69%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |                     |          
+                                     |          |          |                                |          |                      --1.37%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          
+                                     |          |          |                                |           --0.64%--compare
+                                     |          |          |                                |          
+                                     |          |          |                                 --0.74%--__memmove_avx_unaligned_erms
+                                     |          |          |          
+                                     |          |          |--5.09%--__hypot (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --2.80%--kernel (inlined)
+                                     |          |          |          
+                                     |          |          |--4.39%--__ieee754_log_fma
+                                     |          |          |          
+                                     |          |          |--1.13%--__ieee754_atan2_fma
+                                     |          |          |          
+                                     |          |           --1.07%--__log1p_fma
+                                     |          |          
+                                     |          |--21.36%--__cexp
+                                     |          |          |          
+                                     |          |           --13.81%--__sincos_fma
+                                     |          |                     |          
+                                     |          |                     |--4.10%--do_sin (inlined)
+                                     |          |                     |          
+                                     |          |                     |--2.96%--do_cos (inlined)
+                                     |          |                     |          
+                                     |          |                     |--1.66%--reduce_sincos (inlined)
+                                     |          |                     |          
+                                     |          |                      --1.53%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          
+                                     |          |--3.44%--__ieee754_exp_fma
+                                     |          |          
+                                     |          |--1.12%--__clog
+                                     |          |          
+                                     |           --0.85%--__sincos_fma
+                                     |          
+                                     |--19.74%--__hypot (inlined)
+                                     |          |          
+                                     |           --16.22%--kernel (inlined)
+                                     |          
+                                      --0.75%--__cexp
+
+    99.99%     0.07%  programa  programa           [.] main
+            |          
+             --99.92%--main
+                       |          
+                        --99.80%--mandelbrot
+                                  |          
+                                  |--77.60%--check_mandelbrot
+                                  |          |          
+                                  |          |--45.12%--__cpow
+                                  |          |          |          
+                                  |          |          |--30.25%--__clog
+                                  |          |          |          |          
+                                  |          |          |          |--13.34%--__ieee754_atan2_fma
+                                  |          |          |          |          |          
+                                  |          |          |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+                                  |          |          |          |          
+                                  |          |          |           --9.87%--__x2y2m1
+                                  |          |          |                     |          
+                                  |          |          |                      --8.63%--__qsort_r (inlined)
+                                  |          |          |                                |          
+                                  |          |          |                                |--6.82%--qsort_r_mergesort
+                                  |          |          |                                |          |          
+                                  |          |          |                                |          |--4.95%--msort_with_tmp (inlined)
+                                  |          |          |                                |          |          |          
+                                  |          |          |                                |          |           --2.69%--msort_with_tmp (inlined)
+                                  |          |          |                                |          |                     |          
+                                  |          |          |                                |          |                      --1.37%--msort_with_tmp (inlined)
+                                  |          |          |                                |          |          
+                                  |          |          |                                |           --0.64%--compare
+                                  |          |          |                                |          
+                                  |          |          |                                 --0.74%--__memmove_avx_unaligned_erms
+                                  |          |          |          
+                                  |          |          |--5.09%--__hypot (inlined)
+                                  |          |          |          |          
+                                  |          |          |           --2.80%--kernel (inlined)
+                                  |          |          |          
+                                  |          |          |--4.39%--__ieee754_log_fma
+                                  |          |          |          
+                                  |          |          |--1.13%--__ieee754_atan2_fma
+                                  |          |          |          
+                                  |          |           --1.07%--__log1p_fma
+                                  |          |          
+                                  |          |--21.36%--__cexp
+                                  |          |          |          
+                                  |          |           --13.81%--__sincos_fma
+                                  |          |                     |          
+                                  |          |                     |--4.10%--do_sin (inlined)
+                                  |          |                     |          
+                                  |          |                     |--2.96%--do_cos (inlined)
+                                  |          |                     |          
+                                  |          |                     |--1.66%--reduce_sincos (inlined)
+                                  |          |                     |          
+                                  |          |                      --1.53%--libc_feholdsetround_sse_ctx (inlined)
+                                  |          |          
+                                  |          |--3.44%--__ieee754_exp_fma
+                                  |          |          
+                                  |          |--1.12%--__clog
+                                  |          |          
+                                  |           --0.85%--__sincos_fma
+                                  |          
+                                  |--19.74%--__hypot (inlined)
+                                  |          |          
+                                  |           --16.22%--kernel (inlined)
+                                  |          
+                                   --0.75%--__cexp
+
+    99.81%     0.08%  programa  programa           [.] mandelbrot
+            |          
+             --99.73%--mandelbrot
+                       |          
+                       |--77.60%--check_mandelbrot
+                       |          |          
+                       |          |--45.12%--__cpow
+                       |          |          |          
+                       |          |          |--30.25%--__clog
+                       |          |          |          |          
+                       |          |          |          |--13.34%--__ieee754_atan2_fma
+                       |          |          |          |          |          
+                       |          |          |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+                       |          |          |          |          
+                       |          |          |           --9.87%--__x2y2m1
+                       |          |          |                     |          
+                       |          |          |                      --8.63%--__qsort_r (inlined)
+                       |          |          |                                |          
+                       |          |          |                                |--6.82%--qsort_r_mergesort
+                       |          |          |                                |          |          
+                       |          |          |                                |          |--4.95%--msort_with_tmp (inlined)
+                       |          |          |                                |          |          |          
+                       |          |          |                                |          |           --2.69%--msort_with_tmp (inlined)
+                       |          |          |                                |          |                     |          
+                       |          |          |                                |          |                      --1.37%--msort_with_tmp (inlined)
+                       |          |          |                                |          |          
+                       |          |          |                                |           --0.64%--compare
+                       |          |          |                                |          
+                       |          |          |                                 --0.74%--__memmove_avx_unaligned_erms
+                       |          |          |          
+                       |          |          |--5.09%--__hypot (inlined)
+                       |          |          |          |          
+                       |          |          |           --2.80%--kernel (inlined)
+                       |          |          |          
+                       |          |          |--4.39%--__ieee754_log_fma
+                       |          |          |          
+                       |          |          |--1.13%--__ieee754_atan2_fma
+                       |          |          |          
+                       |          |           --1.07%--__log1p_fma
+                       |          |          
+                       |          |--21.36%--__cexp
+                       |          |          |          
+                       |          |           --13.81%--__sincos_fma
+                       |          |                     |          
+                       |          |                     |--4.10%--do_sin (inlined)
+                       |          |                     |          
+                       |          |                     |--2.96%--do_cos (inlined)
+                       |          |                     |          
+                       |          |                     |--1.66%--reduce_sincos (inlined)
+                       |          |                     |          
+                       |          |                      --1.53%--libc_feholdsetround_sse_ctx (inlined)
+                       |          |          
+                       |          |--3.44%--__ieee754_exp_fma
+                       |          |          
+                       |          |--1.12%--__clog
+                       |          |          
+                       |           --0.85%--__sincos_fma
+                       |          
+                       |--19.74%--__hypot (inlined)
+                       |          |          
+                       |           --16.22%--kernel (inlined)
+                       |          
+                        --0.75%--__cexp
+
+    78.44%     4.99%  programa  programa           [.] check_mandelbrot
+            |          
+            |--73.45%--check_mandelbrot
+            |          |          
+            |          |--45.12%--__cpow
+            |          |          |          
+            |          |          |--30.25%--__clog
+            |          |          |          |          
+            |          |          |          |--13.34%--__ieee754_atan2_fma
+            |          |          |          |          |          
+            |          |          |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+            |          |          |          |          
+            |          |          |           --9.87%--__x2y2m1
+            |          |          |                     |          
+            |          |          |                      --8.63%--__qsort_r (inlined)
+            |          |          |                                |          
+            |          |          |                                |--6.82%--qsort_r_mergesort
+            |          |          |                                |          |          
+            |          |          |                                |          |--4.95%--msort_with_tmp (inlined)
+            |          |          |                                |          |          |          
+            |          |          |                                |          |           --2.69%--msort_with_tmp (inlined)
+            |          |          |                                |          |                     |          
+            |          |          |                                |          |                      --1.37%--msort_with_tmp (inlined)
+            |          |          |                                |          |          
+            |          |          |                                |           --0.64%--compare
+            |          |          |                                |          
+            |          |          |                                 --0.74%--__memmove_avx_unaligned_erms
+            |          |          |          
+            |          |          |--5.09%--__hypot (inlined)
+            |          |          |          |          
+            |          |          |           --2.80%--kernel (inlined)
+            |          |          |          
+            |          |          |--4.39%--__ieee754_log_fma
+            |          |          |          
+            |          |          |--1.13%--__ieee754_atan2_fma
+            |          |          |          
+            |          |           --1.07%--__log1p_fma
+            |          |          
+            |          |--21.36%--__cexp
+            |          |          |          
+            |          |           --13.81%--__sincos_fma
+            |          |                     |          
+            |          |                     |--4.10%--do_sin (inlined)
+            |          |                     |          
+            |          |                     |--2.96%--do_cos (inlined)
+            |          |                     |          
+            |          |                     |--1.66%--reduce_sincos (inlined)
+            |          |                     |          
+            |          |                      --1.53%--libc_feholdsetround_sse_ctx (inlined)
+            |          |          
+            |          |--3.44%--__ieee754_exp_fma
+            |          |          
+            |          |--1.12%--__clog
+            |          |          
+            |           --0.85%--__sincos_fma
+            |          
+             --4.99%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       |          
+                        --4.98%--mandelbrot
+                                  |          
+                                   --4.15%--check_mandelbrot
+
+    46.25%     2.72%  programa  libm.so.6          [.] __cpow
+            |          
+            |--43.53%--__cpow
+            |          |          
+            |          |--30.25%--__clog
+            |          |          |          
+            |          |          |--13.34%--__ieee754_atan2_fma
+            |          |          |          |          
+            |          |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+            |          |          |          
+            |          |           --9.87%--__x2y2m1
+            |          |                     |          
+            |          |                      --8.63%--__qsort_r (inlined)
+            |          |                                |          
+            |          |                                |--6.82%--qsort_r_mergesort
+            |          |                                |          |          
+            |          |                                |          |--4.95%--msort_with_tmp (inlined)
+            |          |                                |          |          |          
+            |          |                                |          |           --2.69%--msort_with_tmp (inlined)
+            |          |                                |          |                     |          
+            |          |                                |          |                      --1.37%--msort_with_tmp (inlined)
+            |          |                                |          |          
+            |          |                                |           --0.64%--compare
+            |          |                                |          
+            |          |                                 --0.74%--__memmove_avx_unaligned_erms
+            |          |          
+            |          |--5.09%--__hypot (inlined)
+            |          |          |          
+            |          |           --2.80%--kernel (inlined)
+            |          |          
+            |          |--4.39%--__ieee754_log_fma
+            |          |          
+            |          |--1.13%--__ieee754_atan2_fma
+            |          |          
+            |           --1.07%--__log1p_fma
+            |          
+             --2.72%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       |          
+                        --2.35%--check_mandelbrot
+                                  |          
+                                   --1.99%--__cpow
+
+    33.25%     8.17%  programa  libm.so.6          [.] __clog
+            |          
+            |--25.08%--__clog
+            |          |          
+            |          |--13.34%--__ieee754_atan2_fma
+            |          |          |          
+            |          |           --1.58%--libc_feholdsetround_sse_ctx (inlined)
+            |          |          
+            |           --9.87%--__x2y2m1
+            |                     |          
+            |                      --8.63%--__qsort_r (inlined)
+            |                                |          
+            |                                |--6.82%--qsort_r_mergesort
+            |                                |          |          
+            |                                |          |--4.95%--msort_with_tmp (inlined)
+            |                                |          |          |          
+            |                                |          |           --2.69%--msort_with_tmp (inlined)
+            |                                |          |                     |          
+            |                                |          |                      --1.37%--msort_with_tmp (inlined)
+            |                                |          |          
+            |                                |           --0.64%--compare
+            |                                |          
+            |                                 --0.74%--__memmove_avx_unaligned_erms
+            |          
+             --8.17%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       |          
+                       |--7.41%--__cpow
+                       |          |          
+                       |          |--5.53%--__clog
+                       |          |          
+                       |           --0.67%--__hypot (inlined)
+                       |          
+                        --0.76%--__clog
+
+    24.83%     0.00%  programa  libm.so.6          [.] __hypot (inlined)
+            |
+            ---__hypot (inlined)
+               |          
+                --19.02%--kernel (inlined)
+
+    24.48%    24.48%  programa  libm.so.6          [.] hypot@@GLIBC_2.35
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               mandelbrot
+               |          
+               |--19.31%--__hypot (inlined)
+               |          |          
+               |           --16.18%--kernel (inlined)
+               |          
+                --5.17%--check_mandelbrot
+                          |          
+                           --4.77%--__cpow
+                                     |          
+                                      --4.42%--__hypot (inlined)
+                                                |          
+                                                 --2.80%--kernel (inlined)
+
+    23.25%     8.28%  programa  libm.so.6          [.] __cexp
+            |          
+            |--14.97%--__cexp
+            |          |          
+            |           --13.81%--__sincos_fma
+            |                     |          
+            |                     |--4.10%--do_sin (inlined)
+            |                     |          
+            |                     |--2.96%--do_cos (inlined)
+            |                     |          
+            |                     |--1.66%--reduce_sincos (inlined)
+            |                     |          
+            |                      --1.53%--libc_feholdsetround_sse_ctx (inlined)
+            |          
+             --8.28%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       |          
+                        --7.92%--check_mandelbrot
+                                  |          
+                                   --6.77%--__cexp
+
+    19.02%     0.00%  programa  libm.so.6          [.] kernel (inlined)
+            |
+            ---kernel (inlined)
+
+    15.07%    14.59%  programa  libm.so.6          [.] __sincos_fma
+            |          
+             --14.59%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       |          
+                        --14.18%--__cexp
+                                  |          
+                                   --13.77%--__sincos_fma
+                                             |          
+                                             |--4.09%--do_sin (inlined)
+                                             |          
+                                             |--2.95%--do_cos (inlined)
+                                             |          
+                                             |--1.65%--reduce_sincos (inlined)
+                                             |          
+                                              --1.52%--libc_feholdsetround_sse_ctx (inlined)
+
+    14.89%    14.47%  programa  libm.so.6          [.] __ieee754_atan2_fma
+            |          
+             --14.47%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       |          
+                       |--13.75%--__clog
+                       |          |          
+                       |           --13.33%--__ieee754_atan2_fma
+                       |                     |          
+                       |                      --1.58%--libc_feholdsetround_sse_ctx (inlined)
+                       |          
+                        --0.72%--__ieee754_atan2_fma
+
+    10.05%     1.19%  programa  libm.so.6          [.] __x2y2m1
+            |          
+            |--8.86%--__x2y2m1
+            |          |          
+            |           --8.63%--__qsort_r (inlined)
+            |                     |          
+            |                     |--6.82%--qsort_r_mergesort
+            |                     |          |          
+            |                     |          |--4.95%--msort_with_tmp (inlined)
+            |                     |          |          |          
+            |                     |          |           --2.69%--msort_with_tmp (inlined)
+            |                     |          |                     |          
+            |                     |          |                      --1.37%--msort_with_tmp (inlined)
+            |                     |          |          
+            |                     |           --0.64%--compare
+            |                     |          
+            |                      --0.74%--__memmove_avx_unaligned_erms
+            |          
+             --1.19%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       __clog
+                       |          
+                        --1.05%--__x2y2m1
+
+     8.72%     0.00%  programa  libc.so.6          [.] __qsort_r (inlined)
+            |
+            ---__qsort_r (inlined)
+               |          
+               |--6.82%--qsort_r_mergesort
+               |          |          
+               |          |--4.95%--msort_with_tmp (inlined)
+               |          |          |          
+               |          |           --2.69%--msort_with_tmp (inlined)
+               |          |                     |          
+               |          |                      --1.37%--msort_with_tmp (inlined)
+               |          |          
+               |           --0.64%--compare
+               |          
+                --0.74%--__memmove_avx_unaligned_erms
+
+     7.08%     1.09%  programa  libc.so.6          [.] qsort_r_mergesort
+            |          
+            |--5.98%--qsort_r_mergesort
+            |          |          
+            |          |--4.73%--msort_with_tmp (inlined)
+            |          |          |          
+            |          |           --2.69%--msort_with_tmp (inlined)
+            |          |                     |          
+            |          |                      --1.37%--msort_with_tmp (inlined)
+            |          |          
+            |           --0.64%--compare
+            |          
+             --1.09%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       __clog
+                       __x2y2m1
+                       |          
+                        --1.06%--__qsort_r (inlined)
+                                  |          
+                                   --0.89%--qsort_r_mergesort
+
+     4.82%     0.00%  programa  libc.so.6          [.] msort_with_tmp (inlined)
+            |
+            ---msort_with_tmp (inlined)
+               |          
+                --2.69%--msort_with_tmp (inlined)
+                          |          
+                           --1.37%--msort_with_tmp (inlined)
+
+     4.74%     4.43%  programa  libm.so.6          [.] __ieee754_log_fma
+            |          
+             --4.43%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       |          
+                        --4.07%--__ieee754_log_fma
+
+     4.35%     4.35%  programa  libc.so.6          [.] msort_with_tmp.part.0
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               mandelbrot
+               check_mandelbrot
+               __cpow
+               __clog
+               __x2y2m1
+               __qsort_r (inlined)
+               |          
+                --4.29%--qsort_r_mergesort
+                          |          
+                           --3.94%--msort_with_tmp (inlined)
+                                     |          
+                                      --2.35%--msort_with_tmp (inlined)
+                                                |          
+                                                 --1.30%--msort_with_tmp (inlined)
+
+     4.10%     0.00%  programa  libm.so.6          [.] do_sin (inlined)
+            |
+            ---do_sin (inlined)
+
+     3.80%     3.40%  programa  libm.so.6          [.] __ieee754_exp_fma
+            |          
+             --3.40%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       |          
+                        --3.03%--__ieee754_exp_fma
+
+     2.96%     0.00%  programa  libm.so.6          [.] do_cos (inlined)
+            |
+            ---do_cos (inlined)
+
+     1.66%     0.00%  programa  libm.so.6          [.] reduce_sincos (inlined)
+            |
+            ---reduce_sincos (inlined)
+
+     1.58%     0.00%  programa  libm.so.6          [.] libc_feholdsetround_sse_ctx (inlined)
+            |
+            ---libc_feholdsetround_sse_ctx (inlined)
+
+     1.53%     0.00%  programa  libm.so.6          [.] libc_feholdsetround_sse_ctx (inlined)
+            |
+            ---libc_feholdsetround_sse_ctx (inlined)
+
+     1.44%     0.94%  programa  libm.so.6          [.] compare
+            |          
+             --0.94%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       __clog
+                       __x2y2m1
+                       __qsort_r (inlined)
+                       qsort_r_mergesort
+                       |          
+                        --0.57%--msort_with_tmp (inlined)
+
+     1.43%     1.19%  programa  libc.so.6          [.] __memmove_avx_unaligned_erms
+            |          
+             --1.19%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       __clog
+                       __x2y2m1
+                       __qsort_r (inlined)
+                       |          
+                       |--0.62%--__memmove_avx_unaligned_erms
+                       |          
+                        --0.57%--qsort_r_mergesort
+
+     1.11%     1.07%  programa  libm.so.6          [.] __log1p_fma
+            |          
+             --1.07%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       |          
+                        --1.03%--__log1p_fma
+
+     1.00%     1.00%  programa  libc.so.6          [.] __GI___qsort_r
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               mandelbrot
+               check_mandelbrot
+               __cpow
+               __clog
+               __x2y2m1
+               |          
+                --0.85%--__qsort_r (inlined)
+
+     0.84%     0.41%  programa  programa           [.] cabs@plt
+     0.84%     0.41%  programa  libm.so.6          [.] __atan2_finite@GLIBC_2.15@plt
+     0.81%     0.44%  programa  libm.so.6          [.] __sincos_ifunc@plt
+     0.80%     0.40%  programa  programa           [.] cpow@plt
+     0.80%     0.38%  programa  libm.so.6          [.] __cabs
+     0.76%     0.40%  programa  libm.so.6          [.] __exp_finite@GLIBC_2.15@plt
+     0.65%     0.31%  programa  libm.so.6          [.] __log_finite@GLIBC_2.15@plt
+     0.43%     0.00%  programa  libm.so.6          [.] signArctan2 (inlined)
+     0.42%     0.00%  programa  libm.so.6          [.] asuint64 (inlined)
+     0.41%     0.24%  programa  libc.so.6          [.] memcpy@@GLIBC_2.14@plt
+     0.40%     0.00%  programa  libm.so.6          [.] stmxcsr_inline_asm (inlined)
+     0.40%     0.00%  programa  libm.so.6          [.] libc_feresetround_sse_ctx (inlined)
+     0.39%     0.00%  programa  libc.so.6          [.] get_swap_type (inlined)
+     0.38%     0.00%  programa  libm.so.6          [.] libc_feresetround_sse_ctx (inlined)
+     0.36%     0.00%  programa  libm.so.6          [.] asdouble (inlined)
+     0.36%     0.00%  programa  libm.so.6          [.] stmxcsr_inline_asm (inlined)
+     0.28%     0.00%  programa  libm.so.6          [.] mul_split (inlined)
+     0.21%     0.00%  programa  libc.so.6          [.] msort_with_tmp (inlined)
+     0.21%     0.09%  programa  libm.so.6          [.] qsort@plt
+     0.20%     0.00%  programa  libm.so.6          [.] add_split (inlined)
+     0.18%     0.09%  programa  libc.so.6          [.] qsort
+     0.12%     0.00%  programa  [kernel.kallsyms]  [.] asm_sysvec_apic_timer_interrupt
+     0.12%     0.00%  programa  [kernel.kallsyms]  [.] sysvec_apic_timer_interrupt
+     0.12%     0.00%  programa  libm.so.6          [.] libc_feholdsetround_sse_ctx (inlined)
+     0.09%     0.00%  programa  [kernel.kallsyms]  [.] __sysvec_apic_timer_interrupt
+     0.09%     0.00%  programa  [kernel.kallsyms]  [.] hrtimer_interrupt
+     0.08%     0.00%  programa  [kernel.kallsyms]  [.] __hrtimer_run_queues
+     0.07%     0.00%  programa  [kernel.kallsyms]  [.] tick_nohz_handler
+     0.07%     0.03%  programa  libm.so.6          [.] __log1p_ifunc@plt
+     0.06%     0.05%  programa  libc.so.6          [.] fputc
+     0.05%     0.00%  programa  [kernel.kallsyms]  [.] entry_SYSCALL_64_after_hwframe
+     0.05%     0.00%  programa  [kernel.kallsyms]  [.] x64_sys_call
+     0.05%     0.00%  programa  [kernel.kallsyms]  [.] do_syscall_64
+     0.05%     0.00%  programa  [kernel.kallsyms]  [.] update_process_times
+     0.05%     0.00%  programa  libc.so.6          [.] __syscall_cancel
+     0.05%     0.00%  programa  libc.so.6          [.] __internal_syscall_cancel (inlined)
+     0.05%     0.00%  programa  libc.so.6          [.] _IO_new_file_overflow (inlined)
+     0.05%     0.00%  programa  libc.so.6          [.] _IO_new_do_write (inlined)
+     0.05%     0.00%  programa  libc.so.6          [.] new_do_write (inlined)
+     0.05%     0.00%  programa  libc.so.6          [.] _IO_new_file_write (inlined)
+     0.05%     0.00%  programa  libc.so.6          [.] __libc_write (inlined)
+     0.04%     0.00%  programa  [kernel.kallsyms]  [.] __x64_sys_write
+     0.04%     0.00%  programa  [kernel.kallsyms]  [.] ksys_write
+     0.04%     0.00%  programa  [kernel.kallsyms]  [.] vfs_write
+     0.04%     0.00%  programa  [kernel.kallsyms]  [.] sched_tick
+     0.03%     0.01%  programa  programa           [.] fputc@plt
+     0.03%     0.00%  programa  [kernel.kallsyms]  [.] irq_exit_rcu
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] __irq_exit_rcu
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] tick_do_update_jiffies64
+     0.02%     0.00%  programa  [kernel.kallsyms]  [k] handle_softirqs
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] ext4_file_write_iter
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] ext4_buffered_write_iter
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] fsnotify
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] __fsnotify_parent
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] generic_perform_write
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] send_to_group
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] ext4_da_write_begin
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] fsnotify_handle_inode_event.isra.0
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] run_timer_softirq
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] __filemap_get_folio_mpol
+     0.02%     0.00%  programa  [kernel.kallsyms]  [.] inotify_handle_inode_event
+     0.01%     0.01%  programa  libm.so.6          [.] __muldc3
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] __run_timers
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] tmigr_handle_remote
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] tmigr_handle_remote_up
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] task_tick_fair
+     0.01%     0.00%  programa  [kernel.kallsyms]  [k] sched_balance_trigger
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] call_timer_fn
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] tmigr_handle_remote_cpu
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] timer_expire_remote
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] update_wall_time
+     0.01%     0.01%  programa  [kernel.kallsyms]  [.] nohz_balancer_kick
+     0.01%     0.00%  programa  [kernel.kallsyms]  [k] filemap_add_folio
+     0.01%     0.01%  programa  [kernel.kallsyms]  [k] native_write_msr
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] fsnotify_insert_event
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] __wake_up
+     0.01%     0.00%  programa  [kernel.kallsyms]  [k] __filemap_add_folio
+     0.01%     0.01%  programa  [kernel.kallsyms]  [k] qi_check_fault
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] fq_flush_timeout
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] intel_flush_iotlb_all
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] cache_tag_flush_all
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] cache_tag_flush_range
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] qi_batch_flush_descs
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] qi_submit_sync
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] update_cfs_group
+     0.01%     0.00%  programa  [kernel.kallsyms]  [k] __wake_up_common
+     0.01%     0.01%  programa  [kernel.kallsyms]  [k] calc_global_load
+     0.01%     0.01%  programa  [kernel.kallsyms]  [k] native_irq_return_iret
+     0.01%     0.00%  programa  libc.so.6          [.] memcpy (inlined)
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] perf_event_task_tick
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] perf_adjust_freq_unthr_context
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] x86_pmu_enable
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] intel_pmu_enable_all
+     0.01%     0.01%  programa  [kernel.kallsyms]  [k] sync_regs
+     0.01%     0.01%  programa  [kernel.kallsyms]  [k] __raw_spin_lock_irqsave
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] _raw_spin_lock_irqsave
+     0.01%     0.00%  programa  [kernel.kallsyms]  [k] __kmalloc_noprof
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] reweight_entity
+     0.01%     0.01%  programa  [kernel.kallsyms]  [k] __update_load_avg_se
+     0.01%     0.00%  programa  [kernel.kallsyms]  [k] timekeeping_update_from_shadow
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] __timekeeping_advance
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] asm_common_interrupt
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] common_interrupt
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] default_wake_function
+     0.01%     0.00%  programa  [kernel.kallsyms]  [.] try_to_wake_up
+     0.01%     0.01%  programa  [kernel.kallsyms]  [k] _find_next_bit
+     0.00%     0.00%  programa  libm.so.6          [.] __ieee754_sqrt (inlined)
+     0.00%     0.00%  programa  libm.so.6          [.] __sqrt
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] filemap_alloc_folio_noprof
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] folio_alloc_noprof
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] alloc_pages_mpol
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __alloc_frozen_pages_noprof
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] get_page_from_freelist
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] ktime_get_update_offsets_now
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] irqentry_exit
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] schedule
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __schedule
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] pick_next_task
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] pick_next_task_fair
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] ep_poll_callback
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] __update_load_avg_cfs_rq
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] xas_store
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] native_apic_msr_eoi
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] place_entity
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] tick_program_event
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] clockevents_program_event
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] kick_ilb
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] rtl8169_interrupt
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __common_interrupt
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] handle_edge_irq
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] handle_irq_event
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __handle_irq_event_percpu
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] pollwake
+     0.00%     0.00%  programa  programa           [.] sqrt@plt
+     0.00%     0.00%  programa  libc.so.6          [.] _IO_new_fclose (inlined)
+     0.00%     0.00%  programa  libc.so.6          [.] __close_nocancel
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __x64_sys_close
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] fput_close_sync
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __fput
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ext4_release_file
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ext4_alloc_da_blocks
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] filemap_flush
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] filemap_writeback
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] do_writepages
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ext4_writepages
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ext4_do_writepages
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] folios_put_refs
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __folio_batch_release
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] rmqueue.isra.0
+     0.00%     0.00%  programa  libm.so.6          [.] libc_feresetround_sse_ctx (inlined)
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] __memcg_slab_free_hook
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] net_rx_action
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __napi_poll
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] rtl8169_poll
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] napi_complete_done
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] netif_receive_skb_list_internal
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __netif_receive_skb_list_core
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ipv6_list_rcv
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ip6_sublist_rcv
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ip6_list_rcv_finish.constprop.0
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ip6_mc_input
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ip6_input
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ip6_input_finish
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ip6_protocol_deliver_rcu
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] icmpv6_rcv
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] sk_skb_reason_drop
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] kfree_skbmem
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] kmem_cache_free
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] arch_scale_freq_tick
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] nf_conntrack_tcp_packet
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] tcp_keepalive_timer
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] tcp_write_wakeup
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] tcp_xmit_probe_skb
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __tcp_transmit_skb
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] inet6_csk_xmit
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ip6_xmit
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] nf_hook_slow
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ipv6_conntrack_local
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] nf_conntrack_in
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] update_cfs_rq_load_avg
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] create_empty_buffers
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ext4_block_write_begin
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] _raw_spin_unlock_irqrestore
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] __hrtimer_next_event_base
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] hrtimer_update_next_event
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] _raw_spin_lock
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] mod_memcg_lruvec_state
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] lruvec_stat_mod_folio
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] native_read_msr
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] ntp_tick_length
+     0.00%     0.00%  programa  [unknown]          [.] 0x877a056487e99800
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] __calc_delta.constprop.0
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] obj_cgroup_charge_account
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __memcg_slab_post_alloc_hook
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] workingset_update_node
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] rcu_core
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] rcu_core_si
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] set_next_entity
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] put_prev_entity
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __enqueue_entity
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] psi_group_change
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] rps_timer
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] queue_work_on
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __queue_work
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __queue_work.part.0
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] kick_pool
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] wake_up_process
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ttwu_do_activate
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] enqueue_task
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] ttwu_queue_wakelist
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] pvclock_gtod_notify
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] raw_notifier_call_chain
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] irq_work_tick
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] kernel_init_pages
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] post_alloc_hook
+     0.00%     0.00%  programa  libm.so.6          [.] __sqrt_finite@GLIBC_2.15
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] read_tsc
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ktime_get
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] copy_folio_from_iter_atomic
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] call_function_single_prep_ipi
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] smp_call_function_single_async
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] generic_exec_single
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __smp_call_single_queue
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] idle_cpu
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] xas_load
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] filemap_get_entry
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] mpage_prepare_extent_to_map
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] ext4_fc_track_inode
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] file_modified
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] file_update_time_flags
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __mark_inode_dirty
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ext4_dirty_inode
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __ext4_mark_inode_dirty
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ext4_reserve_inode_write
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] __irqentry_text_end
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] filemap_get_folios_tag
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] mpage_map_and_submit_extent
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] mpage_map_and_submit_buffers
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] filemap_get_folios
+     0.00%     0.00%  programa  libc.so.6          [.] _IO_new_fopen (inlined)
+     0.00%     0.00%  programa  libc.so.6          [.] __fopen_internal (inlined)
+     0.00%     0.00%  programa  libc.so.6          [.] _IO_new_file_fopen (inlined)
+     0.00%     0.00%  programa  libc.so.6          [.] _IO_file_open
+     0.00%     0.00%  programa  libc.so.6          [.] __libc_open64 (inlined)
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __x64_sys_openat
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] do_sys_openat2
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] do_file_open
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] path_openat
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] do_open
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] do_truncate
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] notify_change
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] ext4_setattr
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] truncate_pagecache
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] truncate_inode_pages_range
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] __free_one_page
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] free_unref_folios
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] free_frozen_page_commit.isra.0
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] free_pcppages_bulk
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] __rcu_read_lock
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __mem_cgroup_uncharge_folios
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] uncharge_folio
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] lru_gen_del_folio.constprop.0
+     0.00%     0.00%  programa  [kernel.kallsyms]  [k] find_lock_entries
+     0.00%     0.00%  programa  [kernel.kallsyms]  [.] __page_cache_release.part.0
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
