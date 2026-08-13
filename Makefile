@@ -70,23 +70,6 @@ profile-perf: compile hardware-info
 	@head -n 30 reports/$(MACHINE_NAME)/perf/perf_report.txt
 	@echo "---------------------------------------------------------"
 
-# ── Valgrind (Callgrind e Cachegrind) ─────────────────────────────────────────
-profile-valgrind: compile hardware-info
-	mkdir -p pictures reports/$(MACHINE_NAME)/valgrind
-	@echo "========================================================="
-	@echo "Executando Callgrind (Atenção: MUITO LENTO devido ao overhead!)..."
-	@echo "========================================================="
-	valgrind --tool=callgrind --callgrind-out-file=reports/$(MACHINE_NAME)/valgrind/callgrind.out ./build/programa 1620 1080 -2 1 -1 1 500
-	callgrind_annotate reports/$(MACHINE_NAME)/valgrind/callgrind.out > reports/$(MACHINE_NAME)/valgrind/callgrind_report.txt
-	@echo "========================================================="
-	@echo "Executando Cachegrind (Atenção: MUITO LENTO!)..."
-	@echo "========================================================="
-	valgrind --tool=cachegrind --cachegrind-out-file=reports/$(MACHINE_NAME)/valgrind/cachegrind.out ./build/programa 1620 1080 -2 1 -1 1 500
-	cg_annotate reports/$(MACHINE_NAME)/valgrind/cachegrind.out > reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
-	@echo "========================================================="
-	@echo "Relatórios do Valgrind salvos em reports/$(MACHINE_NAME)/valgrind/"
-	@echo "========================================================="
-
 # ── Todas as análises ─────────────────────────────────────────────────────────
 analyze-all: clean analytics-time profile profile-perf
 	@echo "========================================================="
