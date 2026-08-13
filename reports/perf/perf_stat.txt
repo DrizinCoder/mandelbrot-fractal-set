@@ -1,0 +1,28 @@
+# started on Thu Aug 13 10:22:28 2026
+
+
+ Performance counter stats for './build/programa 1620 1080 -2 1 -1 1 500':
+
+    33,451,269,469      cpu_atom/cycles/                                                        (0.17%)
+    59,438,064,590      cpu_core/cycles/                                                        (99.83%)
+    70,214,966,139      cpu_atom/instructions/                                                  (0.17%)
+   174,871,119,217      cpu_core/instructions/                                                  (99.83%)
+        30,530,573      cpu_atom/cache-misses/                                                  (0.17%)
+           600,934      cpu_core/cache-misses/                                                  (99.83%)
+        60,745,975      cpu_atom/cache-references/                                              (0.17%)
+         2,088,155      cpu_core/cache-references/                                              (99.83%)
+        32,335,483      cpu_atom/branch-misses/                                                 (0.17%)
+        19,377,080      cpu_core/branch-misses/                                                 (99.83%)
+    11,962,886,962      cpu_atom/branches/                                                      (0.17%)
+    29,663,797,604      cpu_core/branches/                                                      (99.83%)
+   <not supported>      cpu_atom/L1-dcache-load-misses/                                       
+         3,899,491      cpu_core/L1-dcache-load-misses/                                         (99.83%)
+            46,865      cpu_atom/LLC-load-misses/                                               (0.17%)
+            43,914      cpu_core/LLC-load-misses/                                               (99.83%)
+
+      13.650233640 seconds time elapsed
+
+      13.637138000 seconds user
+       0.010998000 seconds sys
+
+

@@ -1,0 +1,1145 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 55K of event 'cpu_core/cycles/P'
+# Event count (approx.): 59475326681
+#
+# Children      Self  Command   Shared Object         Symbol                                   
+# ........  ........  ........  ....................  .........................................
+#
+   100.00%     0.00%  programa  programa              [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.96%--main
+                          |          
+                           --99.80%--mandelbrot
+                                     |          
+                                     |--77.52%--check_mandelbrot
+                                     |          |          
+                                     |          |--44.90%--__cpow
+                                     |          |          |          
+                                     |          |          |--29.72%--__clog
+                                     |          |          |          |          
+                                     |          |          |          |--13.11%--__ieee754_atan2_fma
+                                     |          |          |          |          |          
+                                     |          |          |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --9.89%--__x2y2m1
+                                     |          |          |                     |          
+                                     |          |          |                      --8.54%--__qsort_r (inlined)
+                                     |          |          |                                |          
+                                     |          |          |                                |--6.62%--qsort_r_mergesort
+                                     |          |          |                                |          |          
+                                     |          |          |                                |          |--4.72%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          |          
+                                     |          |          |                                |          |           --2.52%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |                     |          
+                                     |          |          |                                |          |                      --1.26%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          
+                                     |          |          |                                |           --0.67%--compare
+                                     |          |          |                                |          
+                                     |          |          |                                 --0.79%--__memmove_avx_unaligned_erms
+                                     |          |          |          
+                                     |          |          |--5.38%--__hypot (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --2.95%--kernel (inlined)
+                                     |          |          |          
+                                     |          |          |--4.34%--__ieee754_log_fma
+                                     |          |          |          
+                                     |          |          |--1.16%--__ieee754_atan2_fma
+                                     |          |          |          
+                                     |          |           --1.14%--__log1p_fma
+                                     |          |          
+                                     |          |--21.43%--__cexp
+                                     |          |          |          
+                                     |          |           --13.91%--__sincos_fma
+                                     |          |                     |          
+                                     |          |                     |--4.21%--do_sin (inlined)
+                                     |          |                     |          
+                                     |          |                     |--2.87%--do_cos (inlined)
+                                     |          |                     |          
+                                     |          |                     |--1.69%--reduce_sincos (inlined)
+                                     |          |                     |          
+                                     |          |                      --1.51%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          
+                                     |          |--3.47%--__ieee754_exp_fma
+                                     |          |          
+                                     |          |--1.17%--__clog
+                                     |          |          
+                                     |           --0.75%--__sincos_fma
+                                     |          
+                                     |--19.84%--__hypot (inlined)
+                                     |          |          
+                                     |           --16.18%--kernel (inlined)
+                                     |          
+                                      --0.80%--__cexp
+
+   100.00%     0.00%  programa  libc.so.6             [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.96%--main
+                          |          
+                           --99.80%--mandelbrot
+                                     |          
+                                     |--77.52%--check_mandelbrot
+                                     |          |          
+                                     |          |--44.90%--__cpow
+                                     |          |          |          
+                                     |          |          |--29.72%--__clog
+                                     |          |          |          |          
+                                     |          |          |          |--13.11%--__ieee754_atan2_fma
+                                     |          |          |          |          |          
+                                     |          |          |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --9.89%--__x2y2m1
+                                     |          |          |                     |          
+                                     |          |          |                      --8.54%--__qsort_r (inlined)
+                                     |          |          |                                |          
+                                     |          |          |                                |--6.62%--qsort_r_mergesort
+                                     |          |          |                                |          |          
+                                     |          |          |                                |          |--4.72%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          |          
+                                     |          |          |                                |          |           --2.52%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |                     |          
+                                     |          |          |                                |          |                      --1.26%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          
+                                     |          |          |                                |           --0.67%--compare
+                                     |          |          |                                |          
+                                     |          |          |                                 --0.79%--__memmove_avx_unaligned_erms
+                                     |          |          |          
+                                     |          |          |--5.38%--__hypot (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --2.95%--kernel (inlined)
+                                     |          |          |          
+                                     |          |          |--4.34%--__ieee754_log_fma
+                                     |          |          |          
+                                     |          |          |--1.16%--__ieee754_atan2_fma
+                                     |          |          |          
+                                     |          |           --1.14%--__log1p_fma
+                                     |          |          
+                                     |          |--21.43%--__cexp
+                                     |          |          |          
+                                     |          |           --13.91%--__sincos_fma
+                                     |          |                     |          
+                                     |          |                     |--4.21%--do_sin (inlined)
+                                     |          |                     |          
+                                     |          |                     |--2.87%--do_cos (inlined)
+                                     |          |                     |          
+                                     |          |                     |--1.69%--reduce_sincos (inlined)
+                                     |          |                     |          
+                                     |          |                      --1.51%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          
+                                     |          |--3.47%--__ieee754_exp_fma
+                                     |          |          
+                                     |          |--1.17%--__clog
+                                     |          |          
+                                     |           --0.75%--__sincos_fma
+                                     |          
+                                     |--19.84%--__hypot (inlined)
+                                     |          |          
+                                     |           --16.18%--kernel (inlined)
+                                     |          
+                                      --0.80%--__cexp
+
+   100.00%     0.00%  programa  libc.so.6             [.] call_init (inlined)
+            |
+            ---call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.96%--main
+                          |          
+                           --99.80%--mandelbrot
+                                     |          
+                                     |--77.52%--check_mandelbrot
+                                     |          |          
+                                     |          |--44.90%--__cpow
+                                     |          |          |          
+                                     |          |          |--29.72%--__clog
+                                     |          |          |          |          
+                                     |          |          |          |--13.11%--__ieee754_atan2_fma
+                                     |          |          |          |          |          
+                                     |          |          |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --9.89%--__x2y2m1
+                                     |          |          |                     |          
+                                     |          |          |                      --8.54%--__qsort_r (inlined)
+                                     |          |          |                                |          
+                                     |          |          |                                |--6.62%--qsort_r_mergesort
+                                     |          |          |                                |          |          
+                                     |          |          |                                |          |--4.72%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          |          
+                                     |          |          |                                |          |           --2.52%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |                     |          
+                                     |          |          |                                |          |                      --1.26%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          
+                                     |          |          |                                |           --0.67%--compare
+                                     |          |          |                                |          
+                                     |          |          |                                 --0.79%--__memmove_avx_unaligned_erms
+                                     |          |          |          
+                                     |          |          |--5.38%--__hypot (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --2.95%--kernel (inlined)
+                                     |          |          |          
+                                     |          |          |--4.34%--__ieee754_log_fma
+                                     |          |          |          
+                                     |          |          |--1.16%--__ieee754_atan2_fma
+                                     |          |          |          
+                                     |          |           --1.14%--__log1p_fma
+                                     |          |          
+                                     |          |--21.43%--__cexp
+                                     |          |          |          
+                                     |          |           --13.91%--__sincos_fma
+                                     |          |                     |          
+                                     |          |                     |--4.21%--do_sin (inlined)
+                                     |          |                     |          
+                                     |          |                     |--2.87%--do_cos (inlined)
+                                     |          |                     |          
+                                     |          |                     |--1.69%--reduce_sincos (inlined)
+                                     |          |                     |          
+                                     |          |                      --1.51%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          
+                                     |          |--3.47%--__ieee754_exp_fma
+                                     |          |          
+                                     |          |--1.17%--__clog
+                                     |          |          
+                                     |           --0.75%--__sincos_fma
+                                     |          
+                                     |--19.84%--__hypot (inlined)
+                                     |          |          
+                                     |           --16.18%--kernel (inlined)
+                                     |          
+                                      --0.80%--__cexp
+
+   100.00%     0.00%  programa  libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               |          
+                --99.96%--main
+                          |          
+                           --99.80%--mandelbrot
+                                     |          
+                                     |--77.52%--check_mandelbrot
+                                     |          |          
+                                     |          |--44.90%--__cpow
+                                     |          |          |          
+                                     |          |          |--29.72%--__clog
+                                     |          |          |          |          
+                                     |          |          |          |--13.11%--__ieee754_atan2_fma
+                                     |          |          |          |          |          
+                                     |          |          |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --9.89%--__x2y2m1
+                                     |          |          |                     |          
+                                     |          |          |                      --8.54%--__qsort_r (inlined)
+                                     |          |          |                                |          
+                                     |          |          |                                |--6.62%--qsort_r_mergesort
+                                     |          |          |                                |          |          
+                                     |          |          |                                |          |--4.72%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          |          
+                                     |          |          |                                |          |           --2.52%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |                     |          
+                                     |          |          |                                |          |                      --1.26%--msort_with_tmp (inlined)
+                                     |          |          |                                |          |          
+                                     |          |          |                                |           --0.67%--compare
+                                     |          |          |                                |          
+                                     |          |          |                                 --0.79%--__memmove_avx_unaligned_erms
+                                     |          |          |          
+                                     |          |          |--5.38%--__hypot (inlined)
+                                     |          |          |          |          
+                                     |          |          |           --2.95%--kernel (inlined)
+                                     |          |          |          
+                                     |          |          |--4.34%--__ieee754_log_fma
+                                     |          |          |          
+                                     |          |          |--1.16%--__ieee754_atan2_fma
+                                     |          |          |          
+                                     |          |           --1.14%--__log1p_fma
+                                     |          |          
+                                     |          |--21.43%--__cexp
+                                     |          |          |          
+                                     |          |           --13.91%--__sincos_fma
+                                     |          |                     |          
+                                     |          |                     |--4.21%--do_sin (inlined)
+                                     |          |                     |          
+                                     |          |                     |--2.87%--do_cos (inlined)
+                                     |          |                     |          
+                                     |          |                     |--1.69%--reduce_sincos (inlined)
+                                     |          |                     |          
+                                     |          |                      --1.51%--libc_feholdsetround_sse_ctx (inlined)
+                                     |          |          
+                                     |          |--3.47%--__ieee754_exp_fma
+                                     |          |          
+                                     |          |--1.17%--__clog
+                                     |          |          
+                                     |           --0.75%--__sincos_fma
+                                     |          
+                                     |--19.84%--__hypot (inlined)
+                                     |          |          
+                                     |           --16.18%--kernel (inlined)
+                                     |          
+                                      --0.80%--__cexp
+
+    99.98%     0.06%  programa  programa              [.] main
+            |          
+             --99.92%--main
+                       |          
+                        --99.80%--mandelbrot
+                                  |          
+                                  |--77.52%--check_mandelbrot
+                                  |          |          
+                                  |          |--44.90%--__cpow
+                                  |          |          |          
+                                  |          |          |--29.72%--__clog
+                                  |          |          |          |          
+                                  |          |          |          |--13.11%--__ieee754_atan2_fma
+                                  |          |          |          |          |          
+                                  |          |          |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+                                  |          |          |          |          
+                                  |          |          |           --9.89%--__x2y2m1
+                                  |          |          |                     |          
+                                  |          |          |                      --8.54%--__qsort_r (inlined)
+                                  |          |          |                                |          
+                                  |          |          |                                |--6.62%--qsort_r_mergesort
+                                  |          |          |                                |          |          
+                                  |          |          |                                |          |--4.72%--msort_with_tmp (inlined)
+                                  |          |          |                                |          |          |          
+                                  |          |          |                                |          |           --2.52%--msort_with_tmp (inlined)
+                                  |          |          |                                |          |                     |          
+                                  |          |          |                                |          |                      --1.26%--msort_with_tmp (inlined)
+                                  |          |          |                                |          |          
+                                  |          |          |                                |           --0.67%--compare
+                                  |          |          |                                |          
+                                  |          |          |                                 --0.79%--__memmove_avx_unaligned_erms
+                                  |          |          |          
+                                  |          |          |--5.38%--__hypot (inlined)
+                                  |          |          |          |          
+                                  |          |          |           --2.95%--kernel (inlined)
+                                  |          |          |          
+                                  |          |          |--4.34%--__ieee754_log_fma
+                                  |          |          |          
+                                  |          |          |--1.16%--__ieee754_atan2_fma
+                                  |          |          |          
+                                  |          |           --1.14%--__log1p_fma
+                                  |          |          
+                                  |          |--21.43%--__cexp
+                                  |          |          |          
+                                  |          |           --13.91%--__sincos_fma
+                                  |          |                     |          
+                                  |          |                     |--4.21%--do_sin (inlined)
+                                  |          |                     |          
+                                  |          |                     |--2.87%--do_cos (inlined)
+                                  |          |                     |          
+                                  |          |                     |--1.69%--reduce_sincos (inlined)
+                                  |          |                     |          
+                                  |          |                      --1.51%--libc_feholdsetround_sse_ctx (inlined)
+                                  |          |          
+                                  |          |--3.47%--__ieee754_exp_fma
+                                  |          |          
+                                  |          |--1.17%--__clog
+                                  |          |          
+                                  |           --0.75%--__sincos_fma
+                                  |          
+                                  |--19.84%--__hypot (inlined)
+                                  |          |          
+                                  |           --16.18%--kernel (inlined)
+                                  |          
+                                   --0.80%--__cexp
+
+    99.81%     0.08%  programa  programa              [.] mandelbrot
+            |          
+             --99.73%--mandelbrot
+                       |          
+                       |--77.52%--check_mandelbrot
+                       |          |          
+                       |          |--44.90%--__cpow
+                       |          |          |          
+                       |          |          |--29.72%--__clog
+                       |          |          |          |          
+                       |          |          |          |--13.11%--__ieee754_atan2_fma
+                       |          |          |          |          |          
+                       |          |          |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+                       |          |          |          |          
+                       |          |          |           --9.89%--__x2y2m1
+                       |          |          |                     |          
+                       |          |          |                      --8.54%--__qsort_r (inlined)
+                       |          |          |                                |          
+                       |          |          |                                |--6.62%--qsort_r_mergesort
+                       |          |          |                                |          |          
+                       |          |          |                                |          |--4.72%--msort_with_tmp (inlined)
+                       |          |          |                                |          |          |          
+                       |          |          |                                |          |           --2.52%--msort_with_tmp (inlined)
+                       |          |          |                                |          |                     |          
+                       |          |          |                                |          |                      --1.26%--msort_with_tmp (inlined)
+                       |          |          |                                |          |          
+                       |          |          |                                |           --0.67%--compare
+                       |          |          |                                |          
+                       |          |          |                                 --0.79%--__memmove_avx_unaligned_erms
+                       |          |          |          
+                       |          |          |--5.38%--__hypot (inlined)
+                       |          |          |          |          
+                       |          |          |           --2.95%--kernel (inlined)
+                       |          |          |          
+                       |          |          |--4.34%--__ieee754_log_fma
+                       |          |          |          
+                       |          |          |--1.16%--__ieee754_atan2_fma
+                       |          |          |          
+                       |          |           --1.14%--__log1p_fma
+                       |          |          
+                       |          |--21.43%--__cexp
+                       |          |          |          
+                       |          |           --13.91%--__sincos_fma
+                       |          |                     |          
+                       |          |                     |--4.21%--do_sin (inlined)
+                       |          |                     |          
+                       |          |                     |--2.87%--do_cos (inlined)
+                       |          |                     |          
+                       |          |                     |--1.69%--reduce_sincos (inlined)
+                       |          |                     |          
+                       |          |                      --1.51%--libc_feholdsetround_sse_ctx (inlined)
+                       |          |          
+                       |          |--3.47%--__ieee754_exp_fma
+                       |          |          
+                       |          |--1.17%--__clog
+                       |          |          
+                       |           --0.75%--__sincos_fma
+                       |          
+                       |--19.84%--__hypot (inlined)
+                       |          |          
+                       |           --16.18%--kernel (inlined)
+                       |          
+                        --0.80%--__cexp
+
+    78.36%     4.94%  programa  programa              [.] check_mandelbrot
+            |          
+            |--73.43%--check_mandelbrot
+            |          |          
+            |          |--44.90%--__cpow
+            |          |          |          
+            |          |          |--29.72%--__clog
+            |          |          |          |          
+            |          |          |          |--13.11%--__ieee754_atan2_fma
+            |          |          |          |          |          
+            |          |          |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+            |          |          |          |          
+            |          |          |           --9.89%--__x2y2m1
+            |          |          |                     |          
+            |          |          |                      --8.54%--__qsort_r (inlined)
+            |          |          |                                |          
+            |          |          |                                |--6.62%--qsort_r_mergesort
+            |          |          |                                |          |          
+            |          |          |                                |          |--4.72%--msort_with_tmp (inlined)
+            |          |          |                                |          |          |          
+            |          |          |                                |          |           --2.52%--msort_with_tmp (inlined)
+            |          |          |                                |          |                     |          
+            |          |          |                                |          |                      --1.26%--msort_with_tmp (inlined)
+            |          |          |                                |          |          
+            |          |          |                                |           --0.67%--compare
+            |          |          |                                |          
+            |          |          |                                 --0.79%--__memmove_avx_unaligned_erms
+            |          |          |          
+            |          |          |--5.38%--__hypot (inlined)
+            |          |          |          |          
+            |          |          |           --2.95%--kernel (inlined)
+            |          |          |          
+            |          |          |--4.34%--__ieee754_log_fma
+            |          |          |          
+            |          |          |--1.16%--__ieee754_atan2_fma
+            |          |          |          
+            |          |           --1.14%--__log1p_fma
+            |          |          
+            |          |--21.43%--__cexp
+            |          |          |          
+            |          |           --13.91%--__sincos_fma
+            |          |                     |          
+            |          |                     |--4.21%--do_sin (inlined)
+            |          |                     |          
+            |          |                     |--2.87%--do_cos (inlined)
+            |          |                     |          
+            |          |                     |--1.69%--reduce_sincos (inlined)
+            |          |                     |          
+            |          |                      --1.51%--libc_feholdsetround_sse_ctx (inlined)
+            |          |          
+            |          |--3.47%--__ieee754_exp_fma
+            |          |          
+            |          |--1.17%--__clog
+            |          |          
+            |           --0.75%--__sincos_fma
+            |          
+             --4.94%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       |          
+                        --4.93%--mandelbrot
+                                  |          
+                                   --4.10%--check_mandelbrot
+
+    46.02%     2.66%  programa  libm.so.6             [.] __cpow
+            |          
+            |--43.35%--__cpow
+            |          |          
+            |          |--29.72%--__clog
+            |          |          |          
+            |          |          |--13.11%--__ieee754_atan2_fma
+            |          |          |          |          
+            |          |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+            |          |          |          
+            |          |           --9.89%--__x2y2m1
+            |          |                     |          
+            |          |                      --8.54%--__qsort_r (inlined)
+            |          |                                |          
+            |          |                                |--6.62%--qsort_r_mergesort
+            |          |                                |          |          
+            |          |                                |          |--4.72%--msort_with_tmp (inlined)
+            |          |                                |          |          |          
+            |          |                                |          |           --2.52%--msort_with_tmp (inlined)
+            |          |                                |          |                     |          
+            |          |                                |          |                      --1.26%--msort_with_tmp (inlined)
+            |          |                                |          |          
+            |          |                                |           --0.67%--compare
+            |          |                                |          
+            |          |                                 --0.79%--__memmove_avx_unaligned_erms
+            |          |          
+            |          |--5.38%--__hypot (inlined)
+            |          |          |          
+            |          |           --2.95%--kernel (inlined)
+            |          |          
+            |          |--4.34%--__ieee754_log_fma
+            |          |          
+            |          |--1.16%--__ieee754_atan2_fma
+            |          |          
+            |           --1.14%--__log1p_fma
+            |          
+             --2.66%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       |          
+                        --2.27%--check_mandelbrot
+                                  |          
+                                   --1.92%--__cpow
+
+    32.80%     8.00%  programa  libm.so.6             [.] __clog
+            |          
+            |--24.80%--__clog
+            |          |          
+            |          |--13.11%--__ieee754_atan2_fma
+            |          |          |          
+            |          |           --1.61%--libc_feholdsetround_sse_ctx (inlined)
+            |          |          
+            |           --9.89%--__x2y2m1
+            |                     |          
+            |                      --8.54%--__qsort_r (inlined)
+            |                                |          
+            |                                |--6.62%--qsort_r_mergesort
+            |                                |          |          
+            |                                |          |--4.72%--msort_with_tmp (inlined)
+            |                                |          |          |          
+            |                                |          |           --2.52%--msort_with_tmp (inlined)
+            |                                |          |                     |          
+            |                                |          |                      --1.26%--msort_with_tmp (inlined)
+            |                                |          |          
+            |                                |           --0.67%--compare
+            |                                |          
+            |                                 --0.79%--__memmove_avx_unaligned_erms
+            |          
+             --8.00%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       |          
+                       |--7.18%--__cpow
+                       |          |          
+                       |          |--5.28%--__clog
+                       |          |          
+                       |           --0.67%--__hypot (inlined)
+                       |          
+                        --0.82%--__clog
+
+    25.23%     0.00%  programa  libm.so.6             [.] __hypot (inlined)
+            |
+            ---__hypot (inlined)
+               |          
+                --19.13%--kernel (inlined)
+
+    24.89%    24.89%  programa  libm.so.6             [.] hypot@@GLIBC_2.35
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               |          
+                --24.89%--mandelbrot
+                          |          
+                          |--19.41%--__hypot (inlined)
+                          |          |          
+                          |           --16.15%--kernel (inlined)
+                          |          
+                           --5.48%--check_mandelbrot
+                                     |          
+                                      --5.04%--__cpow
+                                                |          
+                                                 --4.71%--__hypot (inlined)
+                                                           |          
+                                                            --2.95%--kernel (inlined)
+
+    23.45%     8.38%  programa  libm.so.6             [.] __cexp
+            |          
+            |--15.07%--__cexp
+            |          |          
+            |           --13.91%--__sincos_fma
+            |                     |          
+            |                     |--4.21%--do_sin (inlined)
+            |                     |          
+            |                     |--2.87%--do_cos (inlined)
+            |                     |          
+            |                     |--1.69%--reduce_sincos (inlined)
+            |                     |          
+            |                      --1.51%--libc_feholdsetround_sse_ctx (inlined)
+            |          
+             --8.38%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       |          
+                        --7.97%--check_mandelbrot
+                                  |          
+                                   --6.75%--__cexp
+
+    19.13%     0.00%  programa  libm.so.6             [.] kernel (inlined)
+            |
+            ---kernel (inlined)
+
+    15.02%    14.59%  programa  libm.so.6             [.] __sincos_fma
+            |          
+             --14.59%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       |          
+                        --14.59%--check_mandelbrot
+                                  |          
+                                   --14.25%--__cexp
+                                             |          
+                                              --13.89%--__sincos_fma
+                                                        |          
+                                                        |--4.20%--do_sin (inlined)
+                                                        |          
+                                                        |--2.87%--do_cos (inlined)
+                                                        |          
+                                                        |--1.69%--reduce_sincos (inlined)
+                                                        |          
+                                                         --1.51%--libc_feholdsetround_sse_ctx (inlined)
+
+    14.68%    14.28%  programa  libm.so.6             [.] __ieee754_atan2_fma
+            |          
+             --14.28%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       |          
+                       |--13.52%--__clog
+                       |          |          
+                       |           --13.11%--__ieee754_atan2_fma
+                       |                     |          
+                       |                      --1.61%--libc_feholdsetround_sse_ctx (inlined)
+                       |          
+                        --0.75%--__ieee754_atan2_fma
+
+    10.06%     1.22%  programa  libm.so.6             [.] __x2y2m1
+            |          
+            |--8.84%--__x2y2m1
+            |          |          
+            |           --8.54%--__qsort_r (inlined)
+            |                     |          
+            |                     |--6.62%--qsort_r_mergesort
+            |                     |          |          
+            |                     |          |--4.72%--msort_with_tmp (inlined)
+            |                     |          |          |          
+            |                     |          |           --2.52%--msort_with_tmp (inlined)
+            |                     |          |                     |          
+            |                     |          |                      --1.26%--msort_with_tmp (inlined)
+            |                     |          |          
+            |                     |           --0.67%--compare
+            |                     |          
+            |                      --0.79%--__memmove_avx_unaligned_erms
+            |          
+             --1.22%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       __clog
+                       |          
+                        --1.08%--__x2y2m1
+
+     8.59%     0.00%  programa  libc.so.6             [.] __qsort_r (inlined)
+            |
+            ---__qsort_r (inlined)
+               |          
+               |--6.62%--qsort_r_mergesort
+               |          |          
+               |          |--4.72%--msort_with_tmp (inlined)
+               |          |          |          
+               |          |           --2.52%--msort_with_tmp (inlined)
+               |          |                     |          
+               |          |                      --1.26%--msort_with_tmp (inlined)
+               |          |          
+               |           --0.67%--compare
+               |          
+                --0.79%--__memmove_avx_unaligned_erms
+
+     7.00%     1.12%  programa  libc.so.6             [.] qsort_r_mergesort
+            |          
+            |--5.88%--qsort_r_mergesort
+            |          |          
+            |          |--4.57%--msort_with_tmp (inlined)
+            |          |          |          
+            |          |           --2.52%--msort_with_tmp (inlined)
+            |          |                     |          
+            |          |                      --1.26%--msort_with_tmp (inlined)
+            |          |          
+            |           --0.67%--compare
+            |          
+             --1.12%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       __clog
+                       __x2y2m1
+                       |          
+                        --1.04%--__qsort_r (inlined)
+                                  |          
+                                   --0.84%--qsort_r_mergesort
+
+     4.70%     4.34%  programa  libm.so.6             [.] __ieee754_log_fma
+            |          
+             --4.34%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       |          
+                        --3.99%--__ieee754_log_fma
+
+     4.70%     0.00%  programa  libc.so.6             [.] msort_with_tmp (inlined)
+            |
+            ---msort_with_tmp (inlined)
+               |          
+                --2.52%--msort_with_tmp (inlined)
+                          |          
+                           --1.26%--msort_with_tmp (inlined)
+
+     4.21%     0.00%  programa  libm.so.6             [.] do_sin (inlined)
+            |
+            ---do_sin (inlined)
+
+     4.18%     4.18%  programa  libc.so.6             [.] msort_with_tmp.part.0
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               mandelbrot
+               check_mandelbrot
+               __cpow
+               __clog
+               __x2y2m1
+               __qsort_r (inlined)
+               |          
+                --4.12%--qsort_r_mergesort
+                          |          
+                           --3.79%--msort_with_tmp (inlined)
+                                     |          
+                                      --2.19%--msort_with_tmp (inlined)
+                                                |          
+                                                 --1.18%--msort_with_tmp (inlined)
+
+     3.88%     3.47%  programa  libm.so.6             [.] __ieee754_exp_fma
+            |          
+             --3.47%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       |          
+                        --3.06%--__ieee754_exp_fma
+
+     2.87%     0.00%  programa  libm.so.6             [.] do_cos (inlined)
+            |
+            ---do_cos (inlined)
+
+     1.69%     0.00%  programa  libm.so.6             [.] reduce_sincos (inlined)
+            |
+            ---reduce_sincos (inlined)
+
+     1.61%     0.00%  programa  libm.so.6             [.] libc_feholdsetround_sse_ctx (inlined)
+            |
+            ---libc_feholdsetround_sse_ctx (inlined)
+
+     1.51%     0.00%  programa  libm.so.6             [.] libc_feholdsetround_sse_ctx (inlined)
+            |
+            ---libc_feholdsetround_sse_ctx (inlined)
+
+     1.45%     1.23%  programa  libc.so.6             [.] __memmove_avx_unaligned_erms
+            |          
+             --1.23%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       __clog
+                       __x2y2m1
+                       __qsort_r (inlined)
+                       |          
+                       |--0.71%--__memmove_avx_unaligned_erms
+                       |          
+                        --0.52%--qsort_r_mergesort
+
+     1.45%     1.00%  programa  libm.so.6             [.] compare
+            |          
+             --1.00%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       __clog
+                       __x2y2m1
+                       __qsort_r (inlined)
+                       qsort_r_mergesort
+                       |          
+                        --0.58%--msort_with_tmp (inlined)
+
+     1.17%     1.12%  programa  libm.so.6             [.] __log1p_fma
+            |          
+             --1.12%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       check_mandelbrot
+                       __cpow
+                       |          
+                        --1.09%--__log1p_fma
+
+     1.05%     1.05%  programa  libc.so.6             [.] __GI___qsort_r
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               main
+               mandelbrot
+               check_mandelbrot
+               __cpow
+               __clog
+               __x2y2m1
+               |          
+                --0.86%--__qsort_r (inlined)
+
+     0.85%     0.41%  programa  libm.so.6             [.] __atan2_finite@GLIBC_2.15@plt
+     0.83%     0.42%  programa  libm.so.6             [.] __sincos_ifunc@plt
+     0.80%     0.41%  programa  libm.so.6             [.] __exp_finite@GLIBC_2.15@plt
+     0.79%     0.37%  programa  programa              [.] cpow@plt
+     0.77%     0.36%  programa  programa              [.] cabs@plt
+     0.77%     0.41%  programa  libm.so.6             [.] __cabs
+     0.71%     0.35%  programa  libm.so.6             [.] __log_finite@GLIBC_2.15@plt
+     0.42%     0.00%  programa  libc.so.6             [.] get_swap_type (inlined)
+     0.41%     0.00%  programa  libm.so.6             [.] stmxcsr_inline_asm (inlined)
+     0.41%     0.00%  programa  libm.so.6             [.] asdouble (inlined)
+     0.39%     0.23%  programa  libc.so.6             [.] memcpy@@GLIBC_2.14@plt
+     0.38%     0.00%  programa  libm.so.6             [.] libc_feresetround_sse_ctx (inlined)
+     0.38%     0.00%  programa  libm.so.6             [.] asuint64 (inlined)
+     0.38%     0.00%  programa  libm.so.6             [.] stmxcsr_inline_asm (inlined)
+     0.38%     0.00%  programa  libm.so.6             [.] libc_feresetround_sse_ctx (inlined)
+     0.37%     0.00%  programa  libm.so.6             [.] signArctan2 (inlined)
+     0.28%     0.00%  programa  libm.so.6             [.] mul_split (inlined)
+     0.23%     0.12%  programa  libm.so.6             [.] qsort@plt
+     0.22%     0.00%  programa  libm.so.6             [.] add_split (inlined)
+     0.17%     0.05%  programa  libc.so.6             [.] qsort
+     0.15%     0.00%  programa  libc.so.6             [.] msort_with_tmp (inlined)
+     0.12%     0.00%  programa  libm.so.6             [.] libc_feholdsetround_sse_ctx (inlined)
+     0.07%     0.00%  programa  [kernel.kallsyms]     [.] asm_sysvec_apic_timer_interrupt
+     0.07%     0.00%  programa  [kernel.kallsyms]     [.] sysvec_apic_timer_interrupt
+     0.07%     0.06%  programa  libc.so.6             [.] fputc
+     0.06%     0.04%  programa  libm.so.6             [.] __log1p_ifunc@plt
+     0.06%     0.00%  programa  [kernel.kallsyms]     [.] __sysvec_apic_timer_interrupt
+     0.06%     0.00%  programa  [kernel.kallsyms]     [.] hrtimer_interrupt
+     0.06%     0.00%  programa  [kernel.kallsyms]     [.] __hrtimer_run_queues
+     0.06%     0.00%  programa  [kernel.kallsyms]     [.] tick_nohz_handler
+     0.05%     0.00%  programa  libc.so.6             [.] __syscall_cancel
+     0.05%     0.00%  programa  libc.so.6             [.] __internal_syscall_cancel (inlined)
+     0.05%     0.00%  programa  [kernel.kallsyms]     [.] entry_SYSCALL_64_after_hwframe
+     0.05%     0.00%  programa  [kernel.kallsyms]     [.] do_syscall_64
+     0.05%     0.00%  programa  [kernel.kallsyms]     [.] x64_sys_call
+     0.05%     0.00%  programa  [kernel.kallsyms]     [.] update_process_times
+     0.04%     0.00%  programa  libc.so.6             [.] _IO_new_file_overflow (inlined)
+     0.04%     0.00%  programa  libc.so.6             [.] _IO_new_do_write (inlined)
+     0.04%     0.00%  programa  libc.so.6             [.] new_do_write (inlined)
+     0.04%     0.00%  programa  libc.so.6             [.] _IO_new_file_write (inlined)
+     0.04%     0.00%  programa  libc.so.6             [.] __libc_write (inlined)
+     0.04%     0.00%  programa  [kernel.kallsyms]     [.] __x64_sys_write
+     0.04%     0.00%  programa  [kernel.kallsyms]     [.] ksys_write
+     0.04%     0.00%  programa  [kernel.kallsyms]     [.] sched_tick
+     0.04%     0.00%  programa  [kernel.kallsyms]     [.] vfs_write
+     0.03%     0.00%  programa  [kernel.kallsyms]     [.] ext4_file_write_iter
+     0.03%     0.00%  programa  [kernel.kallsyms]     [.] ext4_buffered_write_iter
+     0.03%     0.01%  programa  programa              [.] fputc@plt
+     0.03%     0.02%  programa  libm.so.6             [.] __muldc3
+     0.02%     0.00%  programa  [kernel.kallsyms]     [.] task_tick_fair
+     0.02%     0.00%  programa  [kernel.kallsyms]     [.] generic_perform_write
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_da_write_begin
+     0.01%     0.01%  programa  [kernel.kallsyms]     [k] update_cfs_group
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] file_update_time_flags
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] file_modified
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] __fsnotify_parent
+     0.01%     0.00%  programa  libc.so.6             [.] memcpy (inlined)
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] tick_do_update_jiffies64
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] update_wall_time
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_block_write_begin
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] fsnotify
+     0.01%     0.00%  programa  [kernel.kallsyms]     [k] timekeeping_update_from_shadow
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] __timekeeping_advance
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] sched_balance_trigger
+     0.01%     0.00%  programa  [kernel.kallsyms]     [k] perf_event_task_tick
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] perf_adjust_freq_unthr_context
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] __mark_inode_dirty
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_dirty_inode
+     0.01%     0.00%  programa  [kernel.kallsyms]     [k] inotify_handle_inode_event
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] send_to_group
+     0.01%     0.00%  programa  programa              [.] sqrt@plt
+     0.01%     0.01%  programa  libm.so.6             [.] __sqrt_finite@GLIBC_2.15
+     0.01%     0.00%  programa  libm.so.6             [.] __ieee754_sqrt (inlined)
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] reweight_entity
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] __ext4_mark_inode_dirty
+     0.01%     0.01%  programa  [kernel.kallsyms]     [k] native_write_msr
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] x86_pmu_enable
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] intel_pmu_enable_all
+     0.01%     0.00%  programa  [kernel.kallsyms]     [k] update_curr
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] nohz_balancer_kick
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] fsnotify_handle_inode_event.isra.0
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_fill_raw_inode
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_mark_iloc_dirty
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_do_update_inode.isra.0
+     0.01%     0.00%  programa  [kernel.kallsyms]     [k] sched_use_asym_prio.isra.0
+     0.01%     0.00%  programa  [kernel.kallsyms]     [.] ext4_da_get_block_prep
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] ext4_inode_csum_set
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __filemap_get_folio_mpol
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] filemap_add_folio
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __wake_up_common
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] fsnotify_insert_event
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __wake_up
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] qi_submit_sync
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] irq_exit_rcu
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __irq_exit_rcu
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] handle_softirqs
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] run_timer_softirq
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] tmigr_handle_remote
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] tmigr_handle_remote_up
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] tmigr_handle_remote_cpu
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] timer_expire_remote
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __run_timers
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] call_timer_fn
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] fq_flush_timeout
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] intel_flush_iotlb_all
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] cache_tag_flush_all
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] cache_tag_flush_range
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] qi_batch_flush_descs
+     0.00%     0.00%  programa  libm.so.6             [.] __sqrt
+     0.00%     0.00%  programa  libm.so.6             [.] libc_feresetround_sse_ctx (inlined)
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] create_empty_buffers
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] _find_next_bit
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] native_apic_msr_eoi
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __raw_spin_lock_irqsave
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] _raw_spin_lock_irqsave
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] ktime_get_update_offsets_now
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] update_vsyscall
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] native_irq_return_iret
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] update_se
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ext4_da_map_blocks.constprop.0
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ext4_insert_delayed_blocks
+     0.00%     0.00%  programa  libc.so.6             [.] _IO_new_fopen (inlined)
+     0.00%     0.00%  programa  libc.so.6             [.] __fopen_internal (inlined)
+     0.00%     0.00%  programa  libc.so.6             [.] _IO_new_file_fopen (inlined)
+     0.00%     0.00%  programa  libc.so.6             [.] _IO_file_open
+     0.00%     0.00%  programa  libc.so.6             [.] __libc_open64 (inlined)
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __x64_sys_openat
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_sys_openat2
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_file_open
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] path_openat
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_open
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_truncate
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] notify_change
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ext4_setattr
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] truncate_pagecache
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] truncate_inode_pages_range
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] _nv029056rm
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] crc32c_arch
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ext4_inode_csum
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] up_write
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] entry_SYSRETQ_unsafe_stack
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __update_load_avg_cfs_rq
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] update_cfs_rq_load_avg
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] qi_check_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] balance_dirty_pages_ratelimited_flags
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __memcg_slab_post_alloc_hook
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __kmalloc_noprof
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] lru_gen_add_folio
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] folio_add_lru
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __folio_batch_add_and_move
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] folio_batch_move_lru
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] lru_add
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __update_load_avg_se
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ep_poll_callback
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] idle_cpu
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] jbd2_write_access_granted
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ext4_reserve_inode_write
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __ext4_journal_get_write_access
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] jbd2_journal_get_write_access
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] update_vdso_time_data
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] inode_set_ctime_current
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] inode_update_time
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] _find_next_and_bit
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __calc_delta.constprop.0
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] place_entity
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] check_cpu_stall
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] rcu_sched_clock_irq
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] rcu_pending
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] irqentry_exit
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] update_entity_lag
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] get_jiffies_update
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] tmigr_requires_handle_remote
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] _raw_spin_lock
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] avg_vruntime
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __css_rstat_updated
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __es_remove_extent
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ext4_es_insert_delayed_extent
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] __dquot_alloc_space
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ext4_da_reserve_space
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] start_this_handle
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __ext4_journal_start_sb
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] jbd2__journal_start
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start_user
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start_final (inlined)
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] dl_main
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] rtld_timer_accum (inlined)
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] rtld_timer_stop (inlined)
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] find_lock_entries
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] free_pcppages_bulk
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __folio_batch_release
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] folios_put_refs
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] free_unref_folios
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] free_frozen_page_commit.isra.0
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] delete_from_page_cache_batch
+     0.00%     0.00%  programa  libc.so.6             [.] __mpn_mul_1
+     0.00%     0.00%  programa  libc.so.6             [.] __printf (inlined)
+     0.00%     0.00%  programa  libc.so.6             [.] __vfprintf_internal
+     0.00%     0.00%  programa  libc.so.6             [.] __printf_buffer
+     0.00%     0.00%  programa  libc.so.6             [.] __printf_fp_l_buffer
+     0.00%     0.00%  programa  libc.so.6             [.] __printf_fp_buffer_1 (inlined)
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] vm_mmap_pgoff
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] do_lookup_x
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_relocate_object
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_protect_relro (inlined)
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_relocate_object_no_relro
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] elf_dynamic_do_Rela (inlined)
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] elf_machine_rela (inlined)
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] resolve_map (inlined)
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_lookup_symbol_x
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] vma_interval_tree_insert
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_map_object_deps
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_catch_exception
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] set_catch (inlined)
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] openaux
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_map_new_object
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_map_object_from_fd
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_map_segments (inlined)
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] __mmap64 (inlined)
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __x64_sys_mmap
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] ksys_mmap_pgoff
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_mmap
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] mmap_region
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __mmap_region
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __mmap_new_vma
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] vma_link_file
+     0.00%     0.00%  programa  [unknown]             [k] 0x000076b6178f818b
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __x64_sys_execve
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_execveat_common.isra.0
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] bprm_execve
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] bprm_execve.part.0
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] exec_binprm
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] load_elf_binary
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] next_uptodate_folio
+     0.00%     0.00%  programa  ld-linux-x86-64.so.2  [.] _start
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] asm_exc_page_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] exc_page_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_user_addr_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] handle_mm_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] __handle_mm_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] handle_pte_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] do_read_fault
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] filemap_map_pages
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] smp_call_function_many_cond
+     0.00%     0.00%  programa  [kernel.kallsyms]     [k] begin_current_label_crit_section
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] setup_arg_pages
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] relocate_vma_down
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] elf_load
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] move_page_tables
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] move_ptes
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] vm_mmap
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] flush_tlb_mm_range
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] native_flush_tlb_multi
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] security_mmap_file
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] apparmor_mmap_file
+     0.00%     0.00%  programa  [kernel.kallsyms]     [.] on_each_cpu_cond_mask
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
