@@ -13,9 +13,13 @@ run:
 	./build/programa 1620 1080 -2 1 -1 1 500
 
 # ── Medição de tempo com /usr/bin/time ───────────────────────────────────────
-analytics-time: compile
-	mkdir -p pictures
-	/usr/bin/time -v ./build/programa 1620 1080 -2 1 -1 1 1000
+analytics-time: compile hardware-info
+	mkdir -p pictures reports/$(MACHINE_NAME)/time
+	@echo "Executando com /usr/bin/time (medição detalhada de tempo e recursos)..."
+	/usr/bin/time -v ./build/programa 1620 1080 -2 1 -1 1 500 2>&1 | tee reports/$(MACHINE_NAME)/time/time_report.txt
+	@echo "---------------------------------------------------------"
+	@echo "Relatório salvo em reports/$(MACHINE_NAME)/time/time_report.txt."
+	@echo "---------------------------------------------------------"
 
 # ── Relatório de Hardware ───────────────────────────────────────────────────────
 hardware-info:
