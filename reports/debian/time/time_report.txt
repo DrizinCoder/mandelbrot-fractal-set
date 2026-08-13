@@ -5,22 +5,22 @@ maxX: 1.000000
 minY: -1.000000
 maxY: 1.000000
 max_iter: 500
-Tempo de processamento (clock_gettime): 14.915238 segundos
+Tempo de processamento (clock_gettime): 1.449648 segundos
 	Command being timed: "./build/programa 1620 1080 -2 1 -1 1 500"
-	User time (seconds): 14.90
-	System time (seconds): 0.01
+	User time (seconds): 1.44
+	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:14.91
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.45
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2148
+	Maximum resident set size (kbytes): 1828
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 95
-	Voluntary context switches: 1
-	Involuntary context switches: 103
+	Minor (reclaiming a frame) page faults: 92
+	Voluntary context switches: 2
+	Involuntary context switches: 23
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 10256
