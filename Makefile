@@ -6,7 +6,7 @@ MACHINE_NAME := $(shell hostname)
 
 # ── Build principal (requisito do enunciado) ──────────────────────────────────
 compile:
-	$(CC) $(CFLAGS) code/image_generator.c code/mandelbrot.c -o build/programa $(LIBS)
+	$(CC) $(CFLAGS)  code/complex.c code/image_generator.c code/mandelbrot.c -o build/programa $(LIBS)
 
 run:
 	mkdir -p pictures
@@ -42,7 +42,7 @@ hardware-info:
 
 # ── gprof ─────────────────────────────────────────────────────────────────────
 compile-profile:
-	$(CC) $(CFLAGS) -pg code/image_generator.c code/mandelbrot.c -o build/programa_profile $(LIBS)
+	$(CC) $(CFLAGS) -pg code/complex.c code/image_generator.c code/mandelbrot.c -o build/programa_profile $(LIBS)
 
 profile: compile-profile hardware-info
 	mkdir -p pictures reports/$(MACHINE_NAME)/gprof
