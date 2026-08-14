@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include "complex.h"
 #include "mandelbrot.h"
 
 int mandelbrot(int px, int py, int width, int height, double minX, double maxX, double minY, double maxY, int max_iter) {
-    double complex c;
+    Complex_number c;
 
     double unidades_largura = maxX - minX; // Quantidade de unidades de largura do plano
     double unidades_altura = maxY - minY; // Quantidade de unidades de altura do plano
@@ -22,7 +23,7 @@ int mandelbrot(int px, int py, int width, int height, double minX, double maxX, 
     double enquadramento_eixo_y = deslocamento_y + minY;
 
     // Número complexo que será calculado
-    c = enquadramento_eixo_x + enquadramento_eixo_y * I; 
+    c = (Complex_number){enquadramento_eixo_x, enquadramento_eixo_y};
 
     Mandelbrot_check_return result = check_mandelbrot(c, max_iter);
     
