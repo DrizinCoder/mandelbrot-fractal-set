@@ -6,7 +6,7 @@ MACHINE_NAME := $(shell hostname)
 
 # ── Build principal (requisito do enunciado) ──────────────────────────────────
 compile:
-	$(CC) $(CFLAGS) code/image_generator.c code/mandelbrot.c -o build/programa $(LIBS)
+	$(CC) $(CFLAGS)  code/complex.c code/image_generator.c code/mandelbrot.c -o build/programa $(LIBS)
 
 run:
 	mkdir -p pictures
