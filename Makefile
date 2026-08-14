@@ -74,10 +74,55 @@ profile-perf: compile hardware-info
 	@head -n 30 reports/$(MACHINE_NAME)/perf/perf_report.txt
 	@echo "---------------------------------------------------------"
 
+# ── Valgrind (Callgrind + Cachegrind) ────────────────────────────────────────
+profile-valgrind: compile hardware-info
+	mkdir -p pictures reports/$(MACHINE_NAME)/valgrind
+	@echo "[Callgrind] Contando instruções e chamadas por função..."
+	valgrind --tool=callgrind \
+		--callgrind-out-file=reports/$(MACHINE_NAME)/valgrind/callgrind.out \
+		./build/programa 1620 1080 -2 1 -1 1 500
+	@echo "[Callgrind] Gerando relatório de texto..."
+	callgrind_annotate --auto=yes reports/$(MACHINE_NAME)/valgrind/callgrind.out \
+		> reports/$(MACHINE_NAME)/valgrind/callgrind_report.txt
+	@echo "---------------------------------------------------------"
+	@echo "Top funções (Callgrind):"
+	@head -n 40 reports/$(MACHINE_NAME)/valgrind/callgrind_report.txt
+	@echo "---------------------------------------------------------"
+	@echo "[Cachegrind] Analisando acessos e misses de cache (L1/L2)..."
+	valgrind --tool=cachegrind \
+		--cachegrind-out-file=reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
+		./build/programa 1620 1080 -2 1 -1 1 500
+	@echo "[Cachegrind] Gerando relatório anotado por linha..."
+	cg_annotate --auto=yes reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
+		> reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
+	@echo "---------------------------------------------------------"
+	@echo "Resumo de cache (Cachegrind):"
+	@head -n 30 reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
+	@echo "---------------------------------------------------------"
+	@echo "Relatórios salvos em reports/$(MACHINE_NAME)/valgrind/"
+
+# ── strace ───────────────────────────────────────────────────────────────────
+profile-strace: compile hardware-info
+	mkdir -p pictures reports/$(MACHINE_NAME)/strace
+	@echo "[strace] Rastreando syscalls do programa..."
+	strace -c -o reports/$(MACHINE_NAME)/strace/strace_report.txt \
+		./build/programa 1620 1080 -2 1 -1 1 500
+	@echo "---------------------------------------------------------"
+	@echo "Resumo de syscalls:"
+	@cat reports/$(MACHINE_NAME)/strace/strace_report.txt
+	@echo "---------------------------------------------------------"
+	@echo "Top 3 syscalls mais frequentes:"
+	@tail -n +3 reports/$(MACHINE_NAME)/strace/strace_report.txt \
+		| grep -v 'total\|calls\|errors\|---' \
+		| sort -k4 -rn \
+		| head -n 3
+	@echo "---------------------------------------------------------"
+	@echo "Relatório salvo em reports/$(MACHINE_NAME)/strace/strace_report.txt"
+
 # ── Todas as análises ─────────────────────────────────────────────────────────
-analyze-all: clean analytics-time profile profile-perf
+analyze-all: clean analytics-time profile profile-perf profile-valgrind profile-strace
 	@echo "========================================================="
-	@echo "Todas as análises (time, gprof, perf) foram concluídas!"
+	@echo "Todas as análises (time, gprof, perf, valgrind, strace) foram concluídas!"
 	@echo "Os relatórios estão salvos na pasta reports/$(MACHINE_NAME)/"
 	@echo "========================================================="
 
