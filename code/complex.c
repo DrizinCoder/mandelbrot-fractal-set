@@ -1,9 +1,5 @@
 #include <stdio.h>
-
-typedef struct {
-	double real;
-	double imag;
-} Complex_number;
+#include "complex.h"
 
 double real_part(Complex_number number){
 	double real = number.real;
@@ -38,19 +34,4 @@ Complex_number complex_mult(Complex_number c1, Complex_number c2){
 	return result;
 }
 
-int main(){
 
-	Complex_number c1;
-	c1.real = 1.0;
-	c1.imag = 2.0;
-	
-	Complex_number c2;
-	c2.real = 2.0;
-	c2.imag = 1.0;
-
-	Complex_number c3;
-	c3 = complex_mult(c1, c2);
-
-	print_complex(c3);
-	return 0;
-}
