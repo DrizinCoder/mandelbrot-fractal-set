@@ -1,0 +1,205 @@
+--------------------------------------------------------------------------------
+Profile data file 'reports/debian/valgrind/callgrind.out' (creator: callgrind-3.19.0)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 1200674455
+Trigger: Program termination
+Profiled target:  ./build/programa 1620 1080 -2 1 -1 1 500 (PID 17429, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                      
+--------------------------------------------------------------------------------
+14,004,453,148 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                      file:function
+--------------------------------------------------------------------------------
+8,609,190,886 (61.47%)  code/mandelbrot.c:check_mandelbrot [/home/gui/Documentos/UEFS/HPC/mandelbrot-fractal-set/build/programa]
+5,074,760,416 (36.24%)  ???:__muldc3 [/home/gui/Documentos/UEFS/HPC/mandelbrot-fractal-set/build/programa]
+  106,725,600 ( 0.76%)  code/image_generator.c:mandelbrot [/home/gui/Documentos/UEFS/HPC/mandelbrot-fractal-set/build/programa]
+  104,974,719 ( 0.75%)  ./libio/./libio/fputc.c:fputc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: code/image_generator.c
+--------------------------------------------------------------------------------
+Ir                  
+
+         .           #include <stdio.h>
+         .           #include <stdlib.h>
+         .           #include <math.h>
+         .           #include <time.h>
+         .           #include "mandelbrot.h"
+         .           
+20,995,200 ( 0.15%)  int mandelbrot(int px, int py, int width, int height, double minX, double maxX, double minY, double maxY, int max_iter) {
+         .               double complex c;
+         .           
+ 5,248,800 ( 0.04%)      double unidades_largura = maxX - minX; // Quantidade de unidades de largura do plano
+ 5,248,800 ( 0.04%)      double unidades_altura = maxY - minY; // Quantidade de unidades de altura do plano
+         .           
+10,497,600 ( 0.07%)      double proporcao_x = (px / (double)width); // De 0 a 1
+10,497,600 ( 0.07%)      double proporcao_y = (py / (double)height); // De 0 a 1
+         .           
+         .               // Multiplica a proporção pelo tamanho total do plano matemático
+ 5,248,800 ( 0.04%)      double deslocamento_x = unidades_largura * proporcao_x; 
+ 5,248,800 ( 0.04%)      double deslocamento_y = unidades_altura * proporcao_y;
+         .           
+         .               // Soma o ponto de início (min) para achar a coordenada matemática exata
+ 5,248,800 ( 0.04%)      double enquadramento_eixo_x = deslocamento_x + minX;
+ 5,248,800 ( 0.04%)      double enquadramento_eixo_y = deslocamento_y + minY;
+         .           
+         .               // Número complexo que será calculado
+10,497,600 ( 0.07%)      c = enquadramento_eixo_x + enquadramento_eixo_y * I; 
+         .           
+13,996,800 ( 0.10%)      Mandelbrot_check_return result = check_mandelbrot(c, max_iter);
+13,683,951,302 (97.71%)  => /home/gui/Documentos/UEFS/HPC/mandelbrot-fractal-set/code/mandelbrot.c:check_mandelbrot (1,749,600x)
+         .               
+ 3,499,200 ( 0.02%)      int iter = result.iterations_to_scape;
+         .           
+ 1,749,600 ( 0.01%)      return iter;
+ 3,499,200 ( 0.02%)  }
+         .           
+         5 ( 0.00%)  int main(int argc, char *argv[]) {
+         2 ( 0.00%)      if (argc < 8) {
+         .                   printf("Uso: %s <width> <height> <minX> <maxX> <minY> <maxY> <max_iter>\n", argv[0]);
+         .                   return 1;
+         .               }
+         .           
+        11 ( 0.00%)      int width = atoi(argv[1]);
+       666 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+       169 ( 0.00%)  => ./stdlib/./stdlib/atoi.c:atoi (1x)
+        11 ( 0.00%)      printf("width: %d\n", width);
+     3,165 ( 0.00%)  => ./stdio-common/./stdio-common/printf.c:printf (1x)
+       660 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+         7 ( 0.00%)      int height = atoi(argv[2]);
+       169 ( 0.00%)  => ./stdlib/./stdlib/atoi.c:atoi (1x)
+         7 ( 0.00%)      printf("height: %d\n", height);
+       892 ( 0.00%)  => ./stdio-common/./stdio-common/printf.c:printf (1x)
+        12 ( 0.00%)      double minX = atof(argv[3]);
+       648 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+       403 ( 0.00%)  => ./stdlib/./stdlib/atof.c:atof (1x)
+         7 ( 0.00%)      printf("minX: %f\n", minX);
+     2,254 ( 0.00%)  => ./stdio-common/./stdio-common/printf.c:printf (1x)
+         8 ( 0.00%)      double maxX = atof(argv[4]);
+       402 ( 0.00%)  => ./stdlib/./stdlib/atof.c:atof (1x)
+         7 ( 0.00%)      printf("maxX: %f\n", maxX);
+     2,190 ( 0.00%)  => ./stdio-common/./stdio-common/printf.c:printf (1x)
+         8 ( 0.00%)      double minY = atof(argv[5]);
+       403 ( 0.00%)  => ./stdlib/./stdlib/atof.c:atof (1x)
+         7 ( 0.00%)      printf("minY: %f\n", minY);
+     2,254 ( 0.00%)  => ./stdio-common/./stdio-common/printf.c:printf (1x)
+         8 ( 0.00%)      double maxY = atof(argv[6]);
+       402 ( 0.00%)  => ./stdlib/./stdlib/atof.c:atof (1x)
+         7 ( 0.00%)      printf("maxY: %f\n", maxY);
+     2,190 ( 0.00%)  => ./stdio-common/./stdio-common/printf.c:printf (1x)
+         7 ( 0.00%)      int max_iter = atoi(argv[7]);
+       147 ( 0.00%)  => ./stdlib/./stdlib/atoi.c:atoi (1x)
+         7 ( 0.00%)      printf("max_iter: %d\n", max_iter);
+       886 ( 0.00%)  => ./stdio-common/./stdio-common/printf.c:printf (1x)
+         .           
+        11 ( 0.00%)      FILE *file_image = fopen("pictures/image.ppm", "wb");
+       688 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+       602 ( 0.00%)  => ./libio/./libio/iofopen.c:fopen@@GLIBC_2.2.5 (1x)
+         2 ( 0.00%)      if (!file_image) {
+         .                   perror("Erro ao abrir arquivo");
+         .                   return 1;
+         .               }
+         .           
+        12 ( 0.00%)      fprintf(file_image, "P6\n%d %d\n255\n", width, height);
+       773 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+     1,440 ( 0.00%)  => ./stdio-common/./stdio-common/fprintf.c:fprintf (1x)
+         .           
+         .               // --- Medição interna de tempo (clock_gettime) ---
+         .               struct timespec t_start, t_end;
+         9 ( 0.00%)      clock_gettime(CLOCK_MONOTONIC, &t_start);
+       712 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+        10 ( 0.00%)  => ./time/../sysdeps/unix/sysv/linux/clock_gettime.c:clock_gettime@@GLIBC_2.17 (1x)
+         .           
+     4,325 ( 0.00%)      for (int py = 0; py < height; py++) {
+         .           
+ 7,003,800 ( 0.05%)           for (int px = 0; px < width; px++) {
+         .           
+27,993,600 ( 0.20%)              int iter = mandelbrot(px, py, width, height, minX, maxX, minY, maxY, max_iter);
+13,790,676,902 (98.47%)  => code/image_generator.c:mandelbrot (1,749,600x)
+         .                      
+         .                       unsigned char r, g, b;
+         .           
+         .                       //  dentro do limite
+ 5,248,800 ( 0.04%)              if (iter == max_iter) { 
+ 2,650,062 ( 0.02%)                  r = g = b = 0;
+         .                       } 
+         .                       // fora do limite
+         .                       else {
+14,387,157 ( 0.10%)                  double t = sqrt((double)iter / max_iter);
+ 7,847,538 ( 0.06%)  => ./math/./math/w_sqrt_compat.c:sqrt (1,307,923x)
+       604 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+11,771,307 ( 0.08%)                  r = g = b = (unsigned char)(t * 255);
+         .                       }       
+         .           
+10,497,604 ( 0.07%)              fputc(r, file_image);
+35,064,590 ( 0.25%)  => ./libio/./libio/fputc.c:fputc (1,749,600x)
+       656 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+10,497,600 ( 0.07%)              fputc(g, file_image);
+35,064,590 ( 0.25%)  => ./libio/./libio/fputc.c:fputc (1,749,600x)
+10,497,600 ( 0.07%)              fputc(b, file_image);
+35,064,590 ( 0.25%)  => ./libio/./libio/fputc.c:fputc (1,749,600x)
+         .                    }
+         .               }
+         .           
+         5 ( 0.00%)      clock_gettime(CLOCK_MONOTONIC, &t_end);
+        10 ( 0.00%)  => ./time/../sysdeps/unix/sysv/linux/clock_gettime.c:clock_gettime@@GLIBC_2.17 (1x)
+         7 ( 0.00%)      double elapsed = (t_end.tv_sec - t_start.tv_sec) +
+         7 ( 0.00%)                       (t_end.tv_nsec - t_start.tv_nsec) / 1e9;
+         7 ( 0.00%)      printf("Tempo de processamento (clock_gettime): %.6f segundos\n", elapsed);
+     3,469 ( 0.00%)  => ./stdio-common/./stdio-common/printf.c:printf (1x)
+         .               // -------------------------------------------------
+         .           
+         8 ( 0.00%)      fclose(file_image);
+       668 ( 0.00%)  => ./elf/../sysdeps/x86_64/dl-trampoline.h:_dl_runtime_resolve_xsave (1x)
+       675 ( 0.00%)  => ./libio/./libio/iofclose.c:fclose@@GLIBC_2.2.5 (1x)
+         1 ( 0.00%)      return 0;
+         2 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: code/mandelbrot.c
+--------------------------------------------------------------------------------
+Ir                     
+
+            .           #include <stdio.h>
+            .           #include <stdlib.h>
+            .           #include <complex.h>
+            .           #include "mandelbrot.h"
+            .           
+   29,743,200 ( 0.21%)  Mandelbrot_check_return check_mandelbrot(double complex cpx_number, int max_iter){
+    6,998,400 ( 0.05%)      double complex f_x = 0.0;
+            .           
+  933,198,412 ( 6.66%)      for(int i = 0; i < max_iter; i++){
+4,844,089,488 (34.59%)          f_x = (f_x*f_x) + cpx_number;
+5,074,760,416 (36.24%)  => ???:__muldc3 (230,670,928x)
+  461,341,856 ( 3.29%)          double real = creal(f_x);
+  461,341,856 ( 3.29%)          double imag = cimag(f_x);
+1,845,367,424 (13.18%)          if (real * real + imag * imag > 4.0) {
+   15,695,100 ( 0.11%)              return (Mandelbrot_check_return){0, f_x, i+1};
+            .                   }
+            .               }
+            .           
+    4,858,425 ( 0.03%)      return (Mandelbrot_check_return){1, f_x, max_iter};
+    6,556,725 ( 0.05%)  }
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  ./libio/./libio/fputc.c
+
+--------------------------------------------------------------------------------
+Ir                     
+--------------------------------------------------------------------------------
+8,816,468,533 (62.95%)  events annotated
+

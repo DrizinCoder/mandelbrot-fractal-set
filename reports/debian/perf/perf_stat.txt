@@ -1,0 +1,20 @@
+# started on Thu Aug 13 21:14:49 2026
+
+
+ Performance counter stats for './build/programa 1620 1080 -2 1 -1 1 500':
+
+     6.617.853.885      cycles                                                             
+    14.035.627.828      instructions                     #    2,12  insn per cycle         
+           254.992      cache-misses                     #   26,778 % of all cache refs    
+           952.250      cache-references                                                   
+           811.710      branch-misses                    #    0,07% of all branches        
+     1.207.664.756      branches                                                           
+           846.949      L1-dcache-load-misses                                              
+            28.936      LLC-load-misses                                                    
+
+       1,716819840 seconds time elapsed
+
+       1,471726000 seconds user
+       0,003999000 seconds sys
+
+
