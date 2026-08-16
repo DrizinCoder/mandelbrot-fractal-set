@@ -10,13 +10,13 @@ compile:
 
 run:
 	mkdir -p pictures
-	./build/programa 1620 1080 -2 1 -1 1 500
+	./build/programa 1920 1080 -2 1 -1 1 3000
 
 # ── Medição de tempo com /usr/bin/time ───────────────────────────────────────
 analytics-time: compile hardware-info
 	mkdir -p pictures reports/$(MACHINE_NAME)/time
 	@echo "Executando com /usr/bin/time (medição detalhada de tempo e recursos)..."
-	/usr/bin/time -v ./build/programa 1620 1080 -2 1 -1 1 500 2>&1 | tee reports/$(MACHINE_NAME)/time/time_report.txt
+	/usr/bin/time -v ./build/programa 1920 1080 -2 1 -1 1 3000 2>&1 | tee reports/$(MACHINE_NAME)/time/time_report.txt
 	@echo "---------------------------------------------------------"
 	@echo "Relatório salvo em reports/$(MACHINE_NAME)/time/time_report.txt."
 	@echo "---------------------------------------------------------"
@@ -47,7 +47,7 @@ compile-profile:
 profile: compile-profile hardware-info
 	mkdir -p pictures reports/$(MACHINE_NAME)/gprof
 	@echo "Executando para coletar dados de profiling..."
-	./build/programa_profile 1620 1080 -2 1 -1 1 500
+	./build/programa_profile 1920 1080 -2 1 -1 1 3000
 	@if [ -f gmon.out ]; then mv gmon.out reports/$(MACHINE_NAME)/gprof/; fi
 	@echo "Gerando relatório do gprof..."
 	gprof ./build/programa_profile reports/$(MACHINE_NAME)/gprof/gmon.out > reports/$(MACHINE_NAME)/gprof/profiling_report.txt
@@ -61,9 +61,9 @@ profile: compile-profile hardware-info
 profile-perf: compile hardware-info
 	mkdir -p pictures reports/$(MACHINE_NAME)/perf
 	@echo "Executando com perf stat (coletando métricas de hardware)..."
-	perf stat -e cycles,instructions,cache-misses,cache-references,branch-misses,branches,L1-dcache-load-misses,LLC-load-misses -o reports/$(MACHINE_NAME)/perf/perf_stat.txt ./build/programa 1620 1080 -2 1 -1 1 500
+	perf stat -e cycles,instructions,cache-misses,cache-references,branch-misses,branches,L1-dcache-load-misses,LLC-load-misses -o reports/$(MACHINE_NAME)/perf/perf_stat.txt ./build/programa 1920 1080 -2 1 -1 1 3000
 	@echo "Executando com perf record (coletando call graph)..."
-	perf record -o reports/$(MACHINE_NAME)/perf/perf.data -g ./build/programa 1620 1080 -2 1 -1 1 500
+	perf record -o reports/$(MACHINE_NAME)/perf/perf.data -g ./build/programa 1920 1080 -2 1 -1 1 3000
 	@echo "Gerando relatório do perf..."
 	perf report -f -i reports/$(MACHINE_NAME)/perf/perf.data --stdio > reports/$(MACHINE_NAME)/perf/perf_report.txt
 	@echo "---------------------------------------------------------"
@@ -80,7 +80,7 @@ profile-valgrind: compile hardware-info
 	@echo "[Callgrind] Contando instruções e chamadas por função..."
 	valgrind --tool=callgrind \
 		--callgrind-out-file=reports/$(MACHINE_NAME)/valgrind/callgrind.out \
-		./build/programa 1620 1080 -2 1 -1 1 500
+		./build/programa 1920 1080 -2 1 -1 1 3000
 	@echo "[Callgrind] Gerando relatório de texto..."
 	callgrind_annotate --auto=yes reports/$(MACHINE_NAME)/valgrind/callgrind.out \
 		> reports/$(MACHINE_NAME)/valgrind/callgrind_report.txt
@@ -91,7 +91,7 @@ profile-valgrind: compile hardware-info
 	@echo "[Cachegrind] Analisando acessos e misses de cache (L1/L2)..."
 	valgrind --tool=cachegrind \
 		--cachegrind-out-file=reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
-		./build/programa 1620 1080 -2 1 -1 1 500
+		./build/programa 1920 1080 -2 1 -1 1 3000
 	@echo "[Cachegrind] Gerando relatório anotado por linha..."
 	cg_annotate --auto=yes reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
 		> reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
@@ -106,7 +106,7 @@ profile-strace: compile hardware-info
 	mkdir -p pictures reports/$(MACHINE_NAME)/strace
 	@echo "[strace] Rastreando syscalls do programa..."
 	strace -c -o reports/$(MACHINE_NAME)/strace/strace_report.txt \
-		./build/programa 1620 1080 -2 1 -1 1 500
+		./build/programa 1920 1080 -2 1 -1 1 3000
 	@echo "---------------------------------------------------------"
 	@echo "Resumo de syscalls:"
 	@cat reports/$(MACHINE_NAME)/strace/strace_report.txt
