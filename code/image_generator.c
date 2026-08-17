@@ -33,8 +33,8 @@ int mandelbrot(int px, int py, int width, int height, double minX, double maxX, 
 }
 
 int main(int argc, char *argv[]) {
-    if (argc < 8) {
-        printf("Uso: %s <width> <height> <minX> <maxX> <minY> <maxY> <max_iter>\n", argv[0]);
+    if (argc < 9) {
+        printf("Uso: %s <width> <height> <minX> <maxX> <minY> <maxY> <max_iter> <output_filename>\n", argv[0]);
         return 1;
     }
 
@@ -52,12 +52,14 @@ int main(int argc, char *argv[]) {
     printf("maxY: %f\n", maxY);
     int max_iter = atoi(argv[7]);
     printf("max_iter: %d\n", max_iter);
+    char *filename = argv[8];
 
-    FILE *file_image = fopen("pictures/image.ppm", "wb");
+    FILE *file_image = fopen(filename, "wb");
     if (!file_image) {
         perror("Erro ao abrir arquivo");
         return 1;
     }
+    printf("Salvando imagem em: %s\n", filename);
 
     fprintf(file_image, "P6\n%d %d\n255\n", width, height);
 

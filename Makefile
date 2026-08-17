@@ -9,23 +9,24 @@ MIN_X    ?= -2
 MAX_X    ?= 1
 MIN_Y    ?= -1
 MAX_Y    ?= 1
-MAX_ITER ?= 3000
-
-ARGS = $(WIDTH) $(HEIGHT) $(MIN_X) $(MAX_X) $(MIN_Y) $(MAX_Y) $(MAX_ITER)
+MAX_ITER ?= 1
 
 MACHINE_NAME := $(shell hostname)
+TIMESTAMP    := $(shell date +%Y%m%d_%H%M%S)
+
+ARGS = $(WIDTH) $(HEIGHT) $(MIN_X) $(MAX_X) $(MIN_Y) $(MAX_Y) $(MAX_ITER) pictures/$(MACHINE_NAME)/fractal_$(WIDTH)_$(HEIGHT)_iter$(MAX_ITER)_$(TIMESTAMP).ppm
 
 # ── Build principal (requisito do enunciado) ──────────────────────────────────
 compile:
 	$(CC) $(CFLAGS)  code/complex.c code/image_generator.c code/mandelbrot.c -o build/programa $(LIBS)
 
 run:
-	mkdir -p pictures
+	mkdir -p pictures/$(MACHINE_NAME)
 	./build/programa $(ARGS)
 
 # ── Medição de tempo com /usr/bin/time ───────────────────────────────────────
 analytics-time: compile hardware-info
-	mkdir -p pictures reports/$(MACHINE_NAME)/time
+	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/time
 	@echo "Executando com /usr/bin/time (medição detalhada de tempo e recursos)..."
 	/usr/bin/time -v ./build/programa $(ARGS) 2>&1 | tee reports/$(MACHINE_NAME)/time/time_report.txt
 	@echo "---------------------------------------------------------"
@@ -56,7 +57,7 @@ compile-profile:
 	$(CC) $(CFLAGS) -pg code/complex.c code/image_generator.c code/mandelbrot.c -o build/programa_profile $(LIBS)
 
 profile: compile-profile hardware-info
-	mkdir -p pictures reports/$(MACHINE_NAME)/gprof
+	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/gprof
 	@echo "Executando para coletar dados de profiling..."
 	./build/programa_profile $(ARGS)
 	@if [ -f gmon.out ]; then mv gmon.out reports/$(MACHINE_NAME)/gprof/; fi
@@ -70,7 +71,7 @@ profile: compile-profile hardware-info
 
 # ── perf ──────────────────────────────────────────────────────────────────────
 profile-perf: compile hardware-info
-	mkdir -p pictures reports/$(MACHINE_NAME)/perf
+	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/perf
 	@echo "Executando com perf stat (coletando métricas de hardware)..."
 	perf stat -e cycles,instructions,cache-misses,cache-references,branch-misses,branches,L1-dcache-load-misses,LLC-load-misses -o reports/$(MACHINE_NAME)/perf/perf_stat.txt ./build/programa $(ARGS)
 	@echo "Executando com perf record (coletando call graph)..."
@@ -87,7 +88,7 @@ profile-perf: compile hardware-info
 
 # ── Valgrind (Callgrind + Cachegrind) ────────────────────────────────────────
 profile-valgrind: compile hardware-info
-	mkdir -p pictures reports/$(MACHINE_NAME)/valgrind
+	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/valgrind
 	@echo "[Callgrind] Contando instruções e chamadas por função..."
 	valgrind --tool=callgrind \
 		--callgrind-out-file=reports/$(MACHINE_NAME)/valgrind/callgrind.out \
@@ -114,7 +115,7 @@ profile-valgrind: compile hardware-info
 
 # ── strace ───────────────────────────────────────────────────────────────────
 profile-strace: compile hardware-info
-	mkdir -p pictures reports/$(MACHINE_NAME)/strace
+	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/strace
 	@echo "[strace] Rastreando syscalls do programa..."
 	strace -c -o reports/$(MACHINE_NAME)/strace/strace_report.txt \
 		./build/programa $(ARGS)
