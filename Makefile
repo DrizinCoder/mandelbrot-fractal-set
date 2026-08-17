@@ -138,6 +138,17 @@ analyze-all: clean analytics-time profile profile-perf profile-valgrind profile-
 	@echo "Os relatórios estão salvos na pasta reports/$(MACHINE_NAME)/"
 	@echo "========================================================="
 
+# ── Benchmark de Iterações (Gráfico Log) ──────────────────────────────────────
+benchmark-iter: compile
+	mkdir -p reports/$(MACHINE_NAME)/benchmark pictures/$(MACHINE_NAME)
+	@echo "iter_max,tempo_segundos" > reports/$(MACHINE_NAME)/benchmark/iter_log.txt
+	@for iter in 10 100 1000 10000; do \
+		echo "Executando iter=$$iter..."; \
+		OUTPUT_FILE=pictures/$(MACHINE_NAME)/fractal_$(WIDTH)_$(HEIGHT)_iter$${iter}_$(TIMESTAMP).ppm; \
+		tempo=$$(./build/programa $(WIDTH) $(HEIGHT) $(MIN_X) $(MAX_X) $(MIN_Y) $(MAX_Y) $$iter $$OUTPUT_FILE | grep "clock_gettime" | awk '{print $$5}'); \
+		echo "$$iter,$$tempo" >> reports/$(MACHINE_NAME)/benchmark/iter_log.txt; \
+	done
+	@echo "Dados salvos em reports/$(MACHINE_NAME)/benchmark/iter_log.txt"
 # ── Limpeza ───────────────────────────────────────────────────────────────────
 clean:
 	rm -f build/programa build/programa_profile
