@@ -3,13 +3,13 @@ CFLAGS = -O0 -g
 LIBS   = -lm
 
 # ── Configurações do Fractal ──────────────────────────────────────────────────
-WIDTH    ?= 1620
-HEIGHT   ?= 1080
+WIDTH    ?= 7680
+HEIGHT   ?= 5120
 MIN_X    ?= -2
 MAX_X    ?= 1
 MIN_Y    ?= -1
 MAX_Y    ?= 1
-MAX_ITER ?= 3000
+MAX_ITER ?= 10
 
 MACHINE_NAME := $(shell hostname)
 TIMESTAMP    := $(shell date +%Y%m%d_%H%M%S)

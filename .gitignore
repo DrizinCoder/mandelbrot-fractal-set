@@ -3,4 +3,4 @@ build/
 gmon.out
 perf.data*
 pictures/*
-!pictures/images/
+*.ppm

@@ -1,0 +1,353 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 4K of event 'cpu_core/cycles/P'
+# Event count (approx.): 4727521479
+#
+# Children      Self  Command   Shared Object         Symbol                          
+# ........  ........  ........  ....................  ................................
+#
+    99.98%     0.00%  programa  programa              [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.62%--main
+                          |          
+                           --97.67%--mandelbrot
+                                     |          
+                                      --97.07%--check_mandelbrot
+
+    99.98%     0.00%  programa  libc.so.6             [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.62%--main
+                          |          
+                           --97.67%--mandelbrot
+                                     |          
+                                      --97.07%--check_mandelbrot
+
+    99.98%     0.00%  programa  libc.so.6             [.] call_init (inlined)
+            |
+            ---call_init (inlined)
+               __libc_start_call_main
+               |          
+                --99.62%--main
+                          |          
+                           --97.67%--mandelbrot
+                                     |          
+                                      --97.07%--check_mandelbrot
+
+    99.98%     0.00%  programa  libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               |          
+                --99.62%--main
+                          |          
+                           --97.67%--mandelbrot
+                                     |          
+                                      --97.07%--check_mandelbrot
+
+    99.75%     0.63%  programa  programa              [.] main
+            |          
+            |--99.12%--main
+            |          |          
+            |           --97.67%--mandelbrot
+            |                     |          
+            |                      --97.07%--check_mandelbrot
+            |          
+             --0.63%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+
+    97.89%     0.73%  programa  programa              [.] mandelbrot
+            |          
+            |--97.16%--mandelbrot
+            |          |          
+            |           --97.07%--check_mandelbrot
+            |          
+             --0.73%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       |          
+                        --0.66%--main
+                                  |          
+                                   --0.57%--mandelbrot
+
+    97.14%    97.05%  programa  programa              [.] check_mandelbrot
+            |          
+             --97.05%--_start
+                       __libc_start_main_impl (inlined)
+                       call_init (inlined)
+                       __libc_start_call_main
+                       main
+                       mandelbrot
+                       |          
+                        --97.03%--check_mandelbrot
+
+     0.53%     0.42%  programa  libc.so.6             [.] fputc
+     0.52%     0.00%  programa  [unknown]             [k] 0xffffffffb560012b
+            |
+            ---0xffffffffb560012b
+               0xffffffffb6d17b65
+
+     0.52%     0.00%  programa  [unknown]             [k] 0xffffffffb6d17b65
+            |
+            ---0xffffffffb6d17b65
+
+     0.49%     0.46%  programa  libm.so.6             [.] __sin_fma
+     0.46%     0.00%  programa  libc.so.6             [.] __syscall_cancel
+     0.46%     0.00%  programa  libc.so.6             [.] __internal_syscall_cancel (inlined)
+     0.42%     0.00%  programa  libc.so.6             [.] _IO_new_file_overflow (inlined)
+     0.42%     0.00%  programa  libc.so.6             [.] _IO_new_do_write (inlined)
+     0.42%     0.00%  programa  libc.so.6             [.] new_do_write (inlined)
+     0.42%     0.00%  programa  libc.so.6             [.] _IO_new_file_write (inlined)
+     0.42%     0.00%  programa  libc.so.6             [.] __libc_write (inlined)
+     0.42%     0.00%  programa  [unknown]             [.] 0xffffffffb5946e2f
+     0.42%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee5739
+     0.38%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee5691
+     0.25%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee509b
+     0.25%     0.00%  programa  [unknown]             [.] 0xffffffffb5fffbaf
+     0.20%     0.00%  programa  [unknown]             [.] 0xffffffffb5fff61d
+     0.18%     0.00%  programa  libm.so.6             [.] libc_feholdsetround_sse_ctx (inlined)
+     0.16%     0.11%  programa  programa              [.] fputc@plt
+     0.13%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee5127
+     0.13%     0.00%  programa  [unknown]             [.] 0xffffffffb5f5e0aa
+     0.11%     0.00%  programa  [unknown]             [.] 0xffffffffb5d82d3b
+     0.11%     0.00%  programa  [unknown]             [.] 0xffffffffb5f5cce5
+     0.11%     0.00%  programa  [unknown]             [.] 0xffffffffb5f5c81d
+     0.11%     0.00%  programa  [unknown]             [.] 0xffffffffb5f5c417
+     0.09%     0.00%  programa  libm.so.6             [.] do_sin (inlined)
+     0.09%     0.00%  programa  [unknown]             [.] 0xffffffffb5ebc83d
+     0.07%     0.07%  programa  [unknown]             [k] 0xffffffffb5b01ba7
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb5f6243c
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb5f5ec12
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb5af2557
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb5ae9fb1
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb6d3217e
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb5b01bab
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb5ebbcc8
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb6018e95
+     0.07%     0.00%  programa  [unknown]             [.] 0xffffffffb5d8762f
+     0.05%     0.00%  programa  libc.so.6             [.] _IO_new_fclose (inlined)
+     0.05%     0.00%  programa  libc.so.6             [.] __close_nocancel
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5948318
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5edd66e
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee7380
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee6a5d
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5ffe449
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb60133ec
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5d8131f
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5d811e5
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5d9406b
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb6017c18
+     0.05%     0.00%  programa  libm.so.6             [.] libc_feresetround_sse_ctx (inlined)
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5d82c9a
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee564b
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb6018efd
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb601633c
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5f55a1e
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5f5587a
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5f53371
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5e4def6
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5f07031
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5aa923a
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5aa8898
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5eb9aae
+     0.05%     0.02%  programa  [unknown]             [k] 0xffffffffb62dcd49
+     0.05%     0.00%  programa  [unknown]             [.] 0xffffffffb5d82c77
+     0.04%     0.00%  programa  [unknown]             [.] 0xffffffffb5fff606
+     0.04%     0.00%  programa  [unknown]             [.] 0xffffffffb5f14502
+     0.04%     0.00%  programa  [unknown]             [.] 0xffffffffb5f14430
+     0.04%     0.00%  programa  [unknown]             [.] 0xffffffffb5f3bad5
+     0.04%     0.02%  programa  programa              [.] sin@plt
+     0.04%     0.00%  programa  [unknown]             [.] 0xffffffffb5f62357
+     0.04%     0.00%  programa  [unknown]             [.] 0xffffffffb5e4f40e
+     0.04%     0.00%  programa  [unknown]             [.] 0xffffffffb5d82f8f
+     0.03%     0.00%  programa  libc.so.6             [.] _IO_new_fopen (inlined)
+     0.03%     0.00%  programa  libc.so.6             [.] __fopen_internal (inlined)
+     0.03%     0.00%  programa  libc.so.6             [.] _IO_new_file_fopen (inlined)
+     0.03%     0.00%  programa  libc.so.6             [.] _IO_file_open
+     0.03%     0.00%  programa  libc.so.6             [.] __libc_open64 (inlined)
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5948b4c
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee05bf
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5ee007a
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5f0012f
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5effec3
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5ef989f
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5ede345
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5f16038
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb601a6b4
+     0.03%     0.00%  programa  [unknown]             [.] 0xffffffffb5d9c775
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5f52bb7
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb601ae63
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb601ab6d
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5f54a15
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5f52bbb
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb600fe9e
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb601afdc
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb6016af9
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb60166db
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb6010879
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb600fea2
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb62dcd46
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffc0a326e0
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffc0a326e4
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5ac2e17
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5600f0b
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb6d1f894
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb59edf28
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5b76a14
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5b75b4c
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5b8f716
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5b747c0
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5aa51a9
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5ac335c
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5ac2e7f
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb600ee6e
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb601755f
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb6012e14
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb600ee71
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5d91004
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb60178b6
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb6016d21
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb600f192
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb600ed60
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5d9100b
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5eb8872
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5ebbc7c
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5bbd8a0
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5f19238
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5f1923c
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5eb8c24
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5eb8c2a
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5ebb4df
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5d82f2e
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5ebd7ef
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5ebbeb4
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5ebb4e6
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5d80054
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5d80059
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb601ae1b
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb601ae1f
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5f1924e
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5f19253
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5eb8c82
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5eb8c8f
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb62dcd4d
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5f5cc7f
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5f5cc4d
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb6076a8a
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb601afb9
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb6076a8c
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5f6cad2
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5af2542
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5eb8ce5
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5eb8ce7
+     0.02%     0.02%  programa  [unknown]             [k] 0xffffffffb5d7ff44
+     0.02%     0.00%  programa  [unknown]             [.] 0xffffffffb5d7ff47
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start_user
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] dl_main
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] rtld_timer_accum (inlined)
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] rtld_timer_stop (inlined)
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_start_final (inlined)
+     0.01%     0.01%  programa  [unknown]             [k] 0xffffffffb5bbd8f2
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d9c2ad
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d9accb
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d990c3
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d98d08
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d97ac1
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5eba026
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5bbd8f4
+     0.01%     0.01%  programa  [unknown]             [k] 0xffffffffb5e4b6a1
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d9c24c
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d9bd33
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb600e48b
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5f568b7
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d80ae5
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb600e3ac
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb60779f4
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5f54331
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5f53415
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5e4b6a5
+     0.01%     0.01%  programa  [unknown]             [k] 0xffffffffb5d88ebd
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d9c204
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d88ec3
+     0.01%     0.00%  programa  [unknown]             [k] 0x0000749f1d0f818b
+     0.01%     0.00%  programa  [unknown]             [k] 0xffffffffb5947863
+     0.01%     0.00%  programa  [unknown]             [k] 0xffffffffb5ef1a0e
+     0.01%     0.00%  programa  [unknown]             [k] 0xffffffffb5ef16fb
+     0.01%     0.00%  programa  [unknown]             [k] 0xffffffffb5eefc4a
+     0.01%     0.00%  programa  [unknown]             [k] 0xffffffffb5eefb60
+     0.01%     0.00%  programa  [unknown]             [k] 0xffffffffb5eef7fc
+     0.01%     0.01%  programa  ld-linux-x86-64.so.2  [.] _dl_relocate_object_no_relro
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_relocate_object
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_protect_relro (inlined)
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] elf_dynamic_do_Rela (inlined)
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] elf_machine_rela (inlined)
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] resolve_map (inlined)
+     0.01%     0.01%  programa  [unknown]             [k] 0xffffffffb6d0dd67
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_map_object_deps
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_catch_exception
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] set_catch (inlined)
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] openaux
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_map_new_object
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_load_cache_lookup
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] _dl_sysdep_read_whole_file
+     0.01%     0.00%  programa  ld-linux-x86-64.so.2  [.] __mmap64 (inlined)
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5948bc4
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb59a9596
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5e03fc3
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5dc2949
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5e05178
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5e28d92
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5e26de3
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d6cceb
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d5738d
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb6cda904
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb6cda678
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb6cda2d2
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb6cda072
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d87494
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb5d872e6
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb6d0eac1
+     0.01%     0.00%  programa  [unknown]             [.] 0xffffffffb6d0dd6b
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb63d042d
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5f999ac
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb63d0430
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5b9ff10
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb6cf8a54
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5f9926c
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5f994ea
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5ef0025
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5f98a55
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5e03910
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5e29cf4
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5e0c487
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5e299f1
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5e0beb2
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5e279d1
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5a1cf63
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5e277e2
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5a1cc88
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5e2546d
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5ba04b4
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb6cfad16
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb5b9ff12
+     0.00%     0.00%  programa  [unknown]             [k] 0xffffffffb6cf8a57
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

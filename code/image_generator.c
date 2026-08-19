@@ -18,9 +18,9 @@ int mandelbrot(int px, int py, int width, int height, double minX, double maxX, 
     double deslocamento_x = unidades_largura * proporcao_x; 
     double deslocamento_y = unidades_altura * proporcao_y;
 
-    // Soma o ponto de início (min) para achar a coordenada matemática exata
-    double enquadramento_eixo_x = deslocamento_x + minX;
-    double enquadramento_eixo_y = deslocamento_y + minY;
+    // Soma o ponto de início (minX) para o X, mas subtrai do topo (maxY) para o Y
+    double enquadramento_eixo_x = minX + deslocamento_x;
+    double enquadramento_eixo_y = maxY - deslocamento_y;
 
     // Número complexo que será calculado
     c = (Complex_number){enquadramento_eixo_x, enquadramento_eixo_y};
@@ -75,14 +75,16 @@ int main(int argc, char *argv[]) {
            
             unsigned char r, g, b;
 
-            //  dentro do limite
+            //  dentro do limite (faz parte do conjunto)
             if (iter == max_iter) { 
                 r = g = b = 0;
             } 
-            // fora do limite
+            // fora do limite (não faz parte do conjunto)
             else {
-                double t = sqrt((double)iter / max_iter);
-                r = g = b = (unsigned char)(t * 255);
+                double iterm = iter / (double)max_iter;
+                
+                unsigned char tom = (unsigned char)(sin(0.1 * iter) * 127.5 + 127.5);
+                r = g = b = tom;
             }       
 
             fputc(r, file_image);
