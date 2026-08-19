@@ -107,8 +107,13 @@ Como complemento refinado, o `perf` e seu subcomando `perf report` se mostraram 
 Para facilitar a compilação, execução e a coleta estruturada de dados, foi desenvolvido um `Makefile` robusto contendo os seguintes comandos (targets) principais:
 
 - **`make run`**: Compila e executa a versão padrão do programa.
-- **`make analyze-all`**: Compila o código com as flags necessárias para cada ferramenta e executa uma bateria completa de testes de profiling (`time`, `gprof`, `perf`, `Valgrind` e `strace`). Todos os relatórios gerados são salvos automaticamente na pasta `reports/$(HOSTNAME)/`, garantindo a separação e organização dos dados por ambiente/máquina de execução.
+- **`make time`**: Compila e mede o tempo e recursos utilizando `/usr/bin/time`.
+- **`make gprof`**: Compila com suporte a perfilamento e gera o flat profile e o call graph.
+- **`make perf`**: Compila e analisa métricas de hardware utilizando `perf stat` e `perf record`/`report`.
+- **`make valgrind`**: Executa análises rigorosas de instruções (Callgrind) e cache (Cachegrind).
+- **`make strace`**: Rastrea e resume as chamadas de sistema (syscalls).
+- **`make analyze-all`**: Executa a bateria completa de testes descritos acima (`time`, `gprof`, `perf`, `valgrind` e `strace`). Todos os relatórios gerados são salvos automaticamente na pasta `reports/$(HOSTNAME)/`, garantindo a separação e organização dos dados.
 - **`make hardware-info`**: Utiliza utilitários de sistema (`lscpu`, `dmidecode`, `lshw`) para extrair as especificações de CPU, Cache, RAM e GPU da máquina host, gerando um relatório descritivo (`README.md`) junto aos relatórios de profiling.
 - **`make clean`**: Remove os arquivos binários compilados e o diretório de relatórios.
 
-Essa infraestrutura como código garantiu que os testes pudessem ser reproduzidos de maneira rigorosa e sistemática. Eliminou-se o risco de erros de digitação nos parâmetros e nas flags durante a coleta, conferindo maior credibilidade e rastreabilidade aos resultados apresentados neste relatório.
+Essa infraestrutura como código garantiu que os testes pudessem ser reproduzidos de maneira rigorosa e sistemática de forma individual, assim como todos de uma vez. Eliminou-se o risco de erros de digitação nos parâmetros e nas flags durante a coleta, conferindo maior credibilidade e rastreabilidade aos resultados apresentados neste relatório.

@@ -9,12 +9,14 @@ MIN_X    ?= -2
 MAX_X    ?= 1
 MIN_Y    ?= -1
 MAX_Y    ?= 1
-MAX_ITER ?= 1
+MAX_ITER ?= 3000
 
 MACHINE_NAME := $(shell hostname)
 TIMESTAMP    := $(shell date +%Y%m%d_%H%M%S)
 
 ARGS = $(WIDTH) $(HEIGHT) $(MIN_X) $(MAX_X) $(MIN_Y) $(MAX_Y) $(MAX_ITER) pictures/$(MACHINE_NAME)/fractal_$(WIDTH)_$(HEIGHT)_iter$(MAX_ITER)_$(TIMESTAMP).ppm
+
+.PHONY: compile run hardware-info time gprof perf valgrind strace analyze-all benchmark-iter clean
 
 # ── Build principal (requisito do enunciado) ──────────────────────────────────
 compile:
@@ -25,7 +27,7 @@ run:
 	./build/programa $(ARGS)
 
 # ── Medição de tempo com /usr/bin/time ───────────────────────────────────────
-analytics-time: compile hardware-info
+time: compile hardware-info
 	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/time
 	@echo "Executando com /usr/bin/time (medição detalhada de tempo e recursos)..."
 	/usr/bin/time -v ./build/programa $(ARGS) 2>&1 | tee reports/$(MACHINE_NAME)/time/time_report.txt
@@ -56,7 +58,7 @@ hardware-info:
 compile-profile:
 	$(CC) $(CFLAGS) -pg code/complex.c code/image_generator.c code/mandelbrot.c -o build/programa_profile $(LIBS)
 
-profile: compile-profile hardware-info
+gprof: compile-profile hardware-info
 	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/gprof
 	@echo "Executando para coletar dados de profiling..."
 	./build/programa_profile $(ARGS)
@@ -70,7 +72,7 @@ profile: compile-profile hardware-info
 	@echo "---------------------------------------------------------"
 
 # ── perf ──────────────────────────────────────────────────────────────────────
-profile-perf: compile hardware-info
+perf: compile hardware-info
 	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/perf
 	@echo "Executando com perf stat (coletando métricas de hardware)..."
 	perf stat -e cycles,instructions,cache-misses,cache-references,branch-misses,branches,L1-dcache-load-misses,LLC-load-misses -o reports/$(MACHINE_NAME)/perf/perf_stat.txt ./build/programa $(ARGS)
@@ -87,7 +89,7 @@ profile-perf: compile hardware-info
 	@echo "---------------------------------------------------------"
 
 # ── Valgrind (Callgrind + Cachegrind) ────────────────────────────────────────
-profile-valgrind: compile hardware-info
+valgrind: compile hardware-info
 	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/valgrind
 	@echo "[Callgrind] Contando instruções e chamadas por função..."
 	valgrind --tool=callgrind \
@@ -114,7 +116,7 @@ profile-valgrind: compile hardware-info
 	@echo "Relatórios salvos em reports/$(MACHINE_NAME)/valgrind/"
 
 # ── strace ───────────────────────────────────────────────────────────────────
-profile-strace: compile hardware-info
+strace: compile hardware-info
 	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/strace
 	@echo "[strace] Rastreando syscalls do programa..."
 	strace -c -o reports/$(MACHINE_NAME)/strace/strace_report.txt \
@@ -132,7 +134,7 @@ profile-strace: compile hardware-info
 	@echo "Relatório salvo em reports/$(MACHINE_NAME)/strace/strace_report.txt"
 
 # ── Todas as análises ─────────────────────────────────────────────────────────
-analyze-all: clean analytics-time profile profile-perf profile-valgrind profile-strace
+analyze-all: clean time gprof perf valgrind strace
 	@echo "========================================================="
 	@echo "Todas as análises (time, gprof, perf, valgrind, strace) foram concluídas!"
 	@echo "Os relatórios estão salvos na pasta reports/$(MACHINE_NAME)/"
