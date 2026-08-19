@@ -1,0 +1,24 @@
+# started on Wed Aug 19 19:19:55 2026
+
+
+ Performance counter stats for './build/programa 1080 720 -2 1 -1 1 500 pictures/LOQ/benchmark/resolutions/fractal_HD_perf.ppm':
+
+     1,531,901,594      cpu_atom/cycles/                                                        (2.20%)
+     2,125,859,556      cpu_core/cycles/                                                        (97.80%)
+     2,368,107,060      cpu_atom/instructions/                                                  (2.20%)
+     3,446,237,623      cpu_core/instructions/                                                  (97.80%)
+         2,161,736      cpu_atom/cache-misses/                                                  (2.20%)
+           104,463      cpu_core/cache-misses/                                                  (97.80%)
+         4,143,862      cpu_atom/cache-references/                                              (2.20%)
+           224,764      cpu_core/cache-references/                                              (97.80%)
+           893,512      cpu_atom/branch-misses/                                                 (2.20%)
+           327,225      cpu_core/branch-misses/                                                 (97.80%)
+       216,652,990      cpu_atom/branches/                                                      (2.20%)
+       232,589,636      cpu_core/branches/                                                      (97.80%)
+
+       0.545658449 seconds time elapsed
+
+       0.492603000 seconds user
+       0.003996000 seconds sys
+
+

@@ -1,0 +1,24 @@
+# started on Wed Aug 19 19:20:08 2026
+
+
+ Performance counter stats for './build/programa 3240 2160 -2 1 -1 1 500 pictures/LOQ/benchmark/resolutions/fractal_4K_perf.ppm':
+
+    13,368,394,577      cpu_atom/cycles/                                                        (0.28%)
+    18,905,134,051      cpu_core/cycles/                                                        (99.72%)
+    15,880,637,590      cpu_atom/instructions/                                                  (0.28%)
+    30,808,417,969      cpu_core/instructions/                                                  (99.72%)
+        24,637,758      cpu_atom/cache-misses/                                                  (0.28%)
+           970,160      cpu_core/cache-misses/                                                  (99.72%)
+        35,682,679      cpu_atom/cache-references/                                              (0.28%)
+         1,857,510      cpu_core/cache-references/                                              (99.72%)
+         5,021,528      cpu_atom/branch-misses/                                                 (0.28%)
+         2,683,721      cpu_core/branch-misses/                                                 (99.72%)
+     1,382,905,311      cpu_atom/branches/                                                      (0.28%)
+     2,088,197,146      cpu_core/branches/                                                      (99.72%)
+
+       4.625867439 seconds time elapsed
+
+       4.375357000 seconds user
+       0.019992000 seconds sys
+
+

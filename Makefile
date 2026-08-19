@@ -3,20 +3,20 @@ CFLAGS = -O0 -g
 LIBS   = -lm
 
 # ── Configurações do Fractal ──────────────────────────────────────────────────
-WIDTH    ?= 7680
-HEIGHT   ?= 5120
+WIDTH    ?= 3240
+HEIGHT   ?= 2160
 MIN_X    ?= -2
 MAX_X    ?= 1
 MIN_Y    ?= -1
 MAX_Y    ?= 1
-MAX_ITER ?= 10
+MAX_ITER ?= 500
 
 MACHINE_NAME := $(shell hostname)
 TIMESTAMP    := $(shell date +%Y%m%d_%H%M%S)
 
 ARGS = $(WIDTH) $(HEIGHT) $(MIN_X) $(MAX_X) $(MIN_Y) $(MAX_Y) $(MAX_ITER) pictures/$(MACHINE_NAME)/fractal_$(WIDTH)_$(HEIGHT)_iter$(MAX_ITER)_$(TIMESTAMP).ppm
 
-.PHONY: compile run hardware-info time gprof perf valgrind strace analyze-all benchmark-iter clean
+.PHONY: compile run hardware-info time gprof perf valgrind cachegrind-pcore strace analyze-all benchmark-iter clean
 
 # ── Build principal (requisito do enunciado) ──────────────────────────────────
 compile:
@@ -92,7 +92,7 @@ perf: compile hardware-info
 valgrind: compile hardware-info
 	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/valgrind
 	@echo "[Callgrind] Contando instruções e chamadas por função..."
-	valgrind --tool=callgrind \
+	valgrind --tool=callgrind --cache-sim=yes \
 		--callgrind-out-file=reports/$(MACHINE_NAME)/valgrind/callgrind.out \
 		./build/programa $(ARGS)
 	@echo "[Callgrind] Gerando relatório de texto..."
@@ -103,7 +103,10 @@ valgrind: compile hardware-info
 	@head -n 40 reports/$(MACHINE_NAME)/valgrind/callgrind_report.txt
 	@echo "---------------------------------------------------------"
 	@echo "[Cachegrind] Analisando acessos e misses de cache (L1/L2)..."
-	valgrind --tool=cachegrind \
+	valgrind --tool=cachegrind --cache-sim=yes \
+		--I1=32768,8,64 \
+		--D1=49152,12,64 \
+		--LL=25165824,12,64 \
 		--cachegrind-out-file=reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
 		./build/programa $(ARGS)
 	@echo "[Cachegrind] Gerando relatório anotado por linha..."
@@ -114,6 +117,25 @@ valgrind: compile hardware-info
 	@head -n 30 reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
 	@echo "---------------------------------------------------------"
 	@echo "Relatórios salvos em reports/$(MACHINE_NAME)/valgrind/"
+
+# ── Cachegrind forçado no P-Core 0 ───────────────────────────────────────────
+cachegrind-pcore: compile hardware-info
+	mkdir -p pictures/$(MACHINE_NAME) reports/$(MACHINE_NAME)/valgrind
+	@echo "---------------------------------------------------------"
+	@echo "[Cachegrind] Rodando restrito ao P-Core 0 (taskset -c 0)..."
+	taskset -c 0 valgrind --tool=cachegrind --cache-sim=yes \
+		--I1=32768,8,64 \
+		--D1=49152,12,64 \
+		--LL=25165824,12,64 \
+		--cachegrind-out-file=reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
+		./build/programa $(ARGS)
+	@echo "[Cachegrind] Gerando relatório anotado por linha..."
+	cg_annotate --auto=yes reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
+		> reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
+	@echo "---------------------------------------------------------"
+	@echo "Resumo de cache (Cachegrind):"
+	@head -n 30 reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
+	@echo "---------------------------------------------------------"
 
 # ── strace ───────────────────────────────────────────────────────────────────
 strace: compile hardware-info
@@ -156,3 +178,46 @@ clean:
 	rm -f build/programa build/programa_profile
 	rm -rf reports/$(MACHINE_NAME)
 
+# ── Benchmark por Resoluções (Time, Gprof e Perf) ─────────────────────────────
+benchmark-resolutions: compile-profile compile hardware-info
+	@echo "Criando pastas de benchmark..."
+	mkdir -p reports/$(MACHINE_NAME)/benchmark/resolutions
+	mkdir -p pictures/$(MACHINE_NAME)/benchmark/resolutions
+	
+	@echo "========================================================="
+	@echo "Iniciando bateria de testes para HD (1080x720)..."
+	@echo "========================================================="
+	# HD - Time
+	/usr/bin/time -v ./build/programa 1080 720 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_HD.ppm 2>&1 | tee reports/$(MACHINE_NAME)/benchmark/resolutions/time_HD.txt
+	# HD - Gprof
+	./build/programa_profile 1080 720 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_HD_gprof.ppm
+	gprof ./build/programa_profile gmon.out > reports/$(MACHINE_NAME)/benchmark/resolutions/gprof_HD.txt
+	# HD - Perf
+	perf stat -e cycles,instructions,cache-misses,cache-references,branch-misses,branches -o reports/$(MACHINE_NAME)/benchmark/resolutions/perf_stat_HD.txt ./build/programa 1080 720 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_HD_perf.ppm
+	
+	@echo "========================================================="
+	@echo "Iniciando bateria de testes para FullHD (1620x1080)..."
+	@echo "========================================================="
+	# FullHD - Time
+	/usr/bin/time -v ./build/programa 1620 1080 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_FHD.ppm 2>&1 | tee reports/$(MACHINE_NAME)/benchmark/resolutions/time_FHD.txt
+	# FullHD - Gprof
+	./build/programa_profile 1620 1080 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_FHD_gprof.ppm
+	gprof ./build/programa_profile gmon.out > reports/$(MACHINE_NAME)/benchmark/resolutions/gprof_FHD.txt
+	# FullHD - Perf
+	perf stat -e cycles,instructions,cache-misses,cache-references,branch-misses,branches -o reports/$(MACHINE_NAME)/benchmark/resolutions/perf_stat_FHD.txt ./build/programa 1620 1080 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_FHD_perf.ppm
+	
+	@echo "========================================================="
+	@echo "Iniciando bateria de testes para 4K (3240x2160)..."
+	@echo "========================================================="
+	# 4K - Time
+	/usr/bin/time -v ./build/programa 3240 2160 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_4K.ppm 2>&1 | tee reports/$(MACHINE_NAME)/benchmark/resolutions/time_4K.txt
+	# 4K - Gprof
+	./build/programa_profile 3240 2160 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_4K_gprof.ppm
+	gprof ./build/programa_profile gmon.out > reports/$(MACHINE_NAME)/benchmark/resolutions/gprof_4K.txt
+	# 4K - Perf
+	perf stat -e cycles,instructions,cache-misses,cache-references,branch-misses,branches -o reports/$(MACHINE_NAME)/benchmark/resolutions/perf_stat_4K.txt ./build/programa 3240 2160 -2 1 -1 1 $(MAX_ITER) pictures/$(MACHINE_NAME)/benchmark/resolutions/fractal_4K_perf.ppm
+	
+	@echo "========================================================="
+	@echo "Benchmark concluído! Todos os relatórios gerados em:"
+	@echo "reports/$(MACHINE_NAME)/benchmark/resolutions/"
+	@echo "========================================================="

@@ -1,0 +1,24 @@
+# started on Wed Aug 19 19:19:58 2026
+
+
+ Performance counter stats for './build/programa 1620 1080 -2 1 -1 1 500 pictures/LOQ/benchmark/resolutions/fractal_FHD_perf.ppm':
+
+     3,465,948,829      cpu_atom/cycles/                                                        (0.67%)
+     4,765,902,885      cpu_core/cycles/                                                        (99.33%)
+     4,407,552,408      cpu_atom/instructions/                                                  (0.67%)
+     7,735,838,918      cpu_core/instructions/                                                  (99.33%)
+         1,544,745      cpu_atom/cache-misses/                                                  (0.67%)
+           283,960      cpu_core/cache-misses/                                                  (99.33%)
+         3,715,335      cpu_atom/cache-references/                                              (0.67%)
+           645,341      cpu_core/cache-references/                                              (99.33%)
+           736,726      cpu_atom/branch-misses/                                                 (0.67%)
+           747,926      cpu_core/branch-misses/                                                 (99.33%)
+       330,659,823      cpu_atom/branches/                                                      (0.67%)
+       526,397,291      cpu_core/branches/                                                      (99.33%)
+
+       1.137142971 seconds time elapsed
+
+       1.117600000 seconds user
+       0.006991000 seconds sys
+
+
