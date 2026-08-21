@@ -3,9 +3,10 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  ns/call  ns/call  name    
- 95.50      1.06     1.06  1749600   605.85   605.85  check_mandelbrot
-  2.70      1.09     0.03                             main
-  1.80      1.11     0.02  1749600    11.43   617.28  mandelbrot
+ 98.59     23.72    23.72 39321600   603.23   603.23  check_mandelbrot
+  0.60     23.86     0.14                             main
+  0.44     23.97     0.10 39321600     2.67   605.90  mandelbrot
+  0.37     24.06     0.09                             _init
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -43,19 +44,22 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 0.90% of 1.11 seconds
+granularity: each sample hit covers 4 byte(s) for 0.04% of 24.06 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.03    1.08                 main [1]
-                0.02    1.06 1749600/1749600     mandelbrot [2]
+[1]     99.6    0.14   23.82                 main [1]
+                0.10   23.72 39321600/39321600     mandelbrot [2]
 -----------------------------------------------
-                0.02    1.06 1749600/1749600     main [1]
-[2]     97.3    0.02    1.06 1749600         mandelbrot [2]
-                1.06    0.00 1749600/1749600     check_mandelbrot [3]
+                0.10   23.72 39321600/39321600     main [1]
+[2]     99.0    0.10   23.72 39321600         mandelbrot [2]
+               23.72    0.00 39321600/39321600     check_mandelbrot [3]
 -----------------------------------------------
-                1.06    0.00 1749600/1749600     mandelbrot [2]
-[3]     95.5    1.06    0.00 1749600         check_mandelbrot [3]
+               23.72    0.00 39321600/39321600     mandelbrot [2]
+[3]     98.6   23.72    0.00 39321600         check_mandelbrot [3]
+-----------------------------------------------
+                                                 <spontaneous>
+[4]      0.4    0.09    0.00                 _init [4]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -148,4 +152,5 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [3] check_mandelbrot        [1] main                    [2] mandelbrot
+   [4] _init                   [1] main
+   [3] check_mandelbrot        [2] mandelbrot

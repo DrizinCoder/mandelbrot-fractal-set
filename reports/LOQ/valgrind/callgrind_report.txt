@@ -1,204 +1,208 @@
 --------------------------------------------------------------------------------
 Profile data file 'reports/LOQ/valgrind/callgrind.out' (creator: callgrind-3.26.0)
 --------------------------------------------------------------------------------
-I1 cache: 
-D1 cache: 
-LL cache: 
-Timerange: Basic block 0 - 516982842
+I1 cache: 32768 B, 64 B, 8-way associative
+D1 cache: 49152 B, 64 B, 12-way associative
+LL cache: 12582912 B, 64 B, 12-way associative
+Timerange: Basic block 0 - 11627795702
 Trigger: Program termination
-Profiled target:  ./build/programa 1620 1080 -2 1 -1 1 500 pictures/LOQ/fractal_1620_1080_iter500_20260819_142717.ppm (PID 47241, part 1)
-Events recorded:  Ir
-Events shown:     Ir
-Event sort order: Ir
-Thresholds:       99
+Profiled target:  ./build/programa 7680 5120 -2 1 -1 1 500 pictures/LOQ/fractal_7680_5120_iter500_20260820_135104.ppm (PID 13423, part 1)
+Events recorded:  Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+Events shown:     Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+Event sort order: Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+Thresholds:       99 0 0 0 0 0 0 0 0
 Include dirs:     
 User annotated:   
 Auto-annotation:  on
 
 --------------------------------------------------------------------------------
-Ir                     
+Ir                       Dr                      Dw                      I1mr           D1mr           D1mw         ILmr           DLmr           DLmw         
 --------------------------------------------------------------------------------
-7,620,165,542 (100.0%)  PROGRAM TOTALS
+172,139,169,717 (100.0%) 71,574,995,442 (100.0%) 28,580,563,501 (100.0%) 1,791 (100.0%) 1,356 (100.0%) 731 (100.0%) 1,741 (100.0%) 1,128 (100.0%) 681 (100.0%)  PROGRAM TOTALS
 
 --------------------------------------------------------------------------------
-Ir                      file:function
+Ir                       Dr                      Dw                      I1mr        D1mr         D1mw         ILmr        DLmr         DLmw          file:function
 --------------------------------------------------------------------------------
-7,217,300,668 (94.71%)  code/mandelbrot.c:check_mandelbrot [/home/robson/Desktop/github/robson-carvalho/mandelbrot-fractal-set/build/programa]
-  118,972,800 ( 1.56%)  code/image_generator.c:mandelbrot [/home/robson/Desktop/github/robson-carvalho/mandelbrot-fractal-set/build/programa]
-  115,469,757 ( 1.52%)  ./libio/./libio/fputc.c:fputc [/usr/lib/x86_64-linux-gnu/libc.so.6]
-   93,995,284 ( 1.23%)  code/image_generator.c:main [/home/robson/Desktop/github/robson-carvalho/mandelbrot-fractal-set/build/programa]
+162,161,323,490 (94.20%) 67,838,678,757 (94.78%) 26,484,338,044 (92.67%)  6 ( 0.34%)   1 ( 0.07%)   0           6 ( 0.34%)   1 ( 0.09%)   .           code/mandelbrot.c:check_mandelbrot [/home/robson/Desktop/github/robson-carvalho/mandelbrot-fractal-set/build/programa]
+  2,673,868,800 ( 1.55%)  1,140,326,400 ( 1.59%)    943,718,400 ( 3.30%)  5 ( 0.28%)   0            0           5 ( 0.29%)   .            .           code/image_generator.c:mandelbrot [/home/robson/Desktop/github/robson-carvalho/mandelbrot-fractal-set/build/programa]
+  2,595,139,200 ( 1.51%)    825,724,800 ( 1.15%)    589,766,400 ( 2.06%)  4 ( 0.22%)   0           63 ( 8.62%)  4 ( 0.23%)   0           63 ( 9.25%)  ./libio/./libio/fputc.c:fputc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  2,288,760,127 ( 1.33%)  1,031,560,670 ( 1.44%)    442,098,910 ( 1.55%) 19 ( 1.06%)   1 ( 0.07%)   3 ( 0.41%) 19 ( 1.09%)   .            .           code/image_generator.c:main [/home/robson/Desktop/github/robson-carvalho/mandelbrot-fractal-set/build/programa]
+  1,826,062,078 ( 1.06%)    560,575,162 ( 0.78%)     61,075,876 ( 0.21%) 22 ( 1.23%)  63 ( 4.65%)   0          22 ( 1.26%)  63 ( 5.59%)   .           ./math/../sysdeps/ieee754/dbl-64/s_sin.c:__sin_fma [/usr/lib/x86_64-linux-gnu/libm.so.6]
 
 --------------------------------------------------------------------------------
 -- Auto-annotated source: code/image_generator.c
 --------------------------------------------------------------------------------
-Ir                  
+Ir                   Dr                   Dw                   I1mr       D1mr       D1mw       ILmr       DLmr DLmw 
 
-         .           #include <stdio.h>
-         .           #include <stdlib.h>
-         .           #include <math.h>
-         .           #include <time.h>
-         .           #include "complex.h"
-         .           #include "mandelbrot.h"
-         .           
-29,743,200 ( 0.39%)  int mandelbrot(int px, int py, int width, int height, double minX, double maxX, double minY, double maxY, int max_iter) {
-         .               Complex_number c;
-         .           
- 5,248,800 ( 0.07%)      double unidades_largura = maxX - minX; // Quantidade de unidades de largura do plano
- 5,248,800 ( 0.07%)      double unidades_altura = maxY - minY; // Quantidade de unidades de altura do plano
-         .           
-10,497,600 ( 0.14%)      double proporcao_x = (px / (double)width); // De 0 a 1
-10,497,600 ( 0.14%)      double proporcao_y = (py / (double)height); // De 0 a 1
-         .           
-         .               // Multiplica a proporção pelo tamanho total do plano matemático
- 5,248,800 ( 0.07%)      double deslocamento_x = unidades_largura * proporcao_x; 
- 5,248,800 ( 0.07%)      double deslocamento_y = unidades_altura * proporcao_y;
-         .           
-         .               // Soma o ponto de início (min) para achar a coordenada matemática exata
- 5,248,800 ( 0.07%)      double enquadramento_eixo_x = deslocamento_x + minX;
- 5,248,800 ( 0.07%)      double enquadramento_eixo_y = deslocamento_y + minY;
-         .           
-         .               // Número complexo que será calculado
- 6,998,400 ( 0.09%)      c = (Complex_number){enquadramento_eixo_x, enquadramento_eixo_y};
-         .           
-13,996,800 ( 0.18%)      Mandelbrot_check_return result = check_mandelbrot(c, max_iter);
-7,217,300,668 (94.71%)  => /home/robson/Desktop/github/robson-carvalho/mandelbrot-fractal-set/code/mandelbrot.c:check_mandelbrot (1,749,600x)
-         .               
- 3,499,200 ( 0.05%)      int iter = result.iterations_to_scape;
-         .           
- 1,749,600 ( 0.02%)      return iter;
-10,497,600 ( 0.14%)  }
-         .           
-         9 ( 0.00%)  int main(int argc, char *argv[]) {
-         2 ( 0.00%)      if (argc < 9) {
-         .                   printf("Uso: %s <width> <height> <minX> <maxX> <minY> <maxY> <max_iter> <output_filename>\n", argv[0]);
-         .                   return 1;
-         .               }
-         .           
-         6 ( 0.00%)      int width = atoi(argv[1]);
-       176 ( 0.00%)  => ???:0x0000000004001190 (1x)
-         6 ( 0.00%)      printf("width: %d\n", width);
-     2,018 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         6 ( 0.00%)      int height = atoi(argv[2]);
-       176 ( 0.00%)  => ???:0x0000000004001190 (1x)
-         6 ( 0.00%)      printf("height: %d\n", height);
-       894 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         7 ( 0.00%)      double minX = atof(argv[3]);
-       401 ( 0.00%)  => ???:0x00000000040010f0 (1x)
-         6 ( 0.00%)      printf("minX: %f\n", minX);
-     1,668 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         7 ( 0.00%)      double maxX = atof(argv[4]);
-       400 ( 0.00%)  => ???:0x00000000040010f0 (1x)
-         6 ( 0.00%)      printf("maxX: %f\n", maxX);
-     1,669 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         7 ( 0.00%)      double minY = atof(argv[5]);
-       401 ( 0.00%)  => ???:0x00000000040010f0 (1x)
-         6 ( 0.00%)      printf("minY: %f\n", minY);
-     1,668 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         7 ( 0.00%)      double maxY = atof(argv[6]);
-       400 ( 0.00%)  => ???:0x00000000040010f0 (1x)
-         6 ( 0.00%)      printf("maxY: %f\n", maxY);
-     1,669 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         6 ( 0.00%)      int max_iter = atoi(argv[7]);
-       156 ( 0.00%)  => ???:0x0000000004001190 (1x)
-         6 ( 0.00%)      printf("max_iter: %d\n", max_iter);
-       884 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         3 ( 0.00%)      char *filename = argv[8];
-         .           
-         6 ( 0.00%)      FILE *file_image = fopen(filename, "wb");
-       620 ( 0.00%)  => ???:0x0000000004001160 (1x)
-         2 ( 0.00%)      if (!file_image) {
-         .                   perror("Erro ao abrir arquivo");
-         .                   return 1;
-         .               }
-         6 ( 0.00%)      printf("Salvando imagem em: %s\n", filename);
-       786 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         .           
-         7 ( 0.00%)      fprintf(file_image, "P6\n%d %d\n255\n", width, height);
-     1,418 ( 0.00%)  => ???:0x0000000004001150 (1x)
-         .           
-         .               // --- Medição interna de tempo (clock_gettime) ---
-         .               struct timespec t_start, t_end;
-         4 ( 0.00%)      clock_gettime(CLOCK_MONOTONIC, &t_start);
-        13 ( 0.00%)  => ???:0x0000000004001100 (1x)
-         .           
-     4,325 ( 0.00%)      for (int py = 0; py < height; py++) {
-         .           
- 7,003,800 ( 0.09%)           for (int px = 0; px < width; px++) {
-         .           
-27,993,600 ( 0.37%)              int iter = mandelbrot(px, py, width, height, minX, maxX, minY, maxY, max_iter);
-7,336,273,468 (96.27%)  => code/image_generator.c:mandelbrot (1,749,600x)
-         .                      
-         .                       unsigned char r, g, b;
-         .           
-         .                       //  dentro do limite (faz parte do conjunto)
- 5,248,800 ( 0.07%)              if (iter == max_iter) { 
- 2,650,062 ( 0.03%)                  r = g = b = 0;
-         .                       } 
-         .                       // fora do limite (não faz parte do conjunto)
-         .                       else {
-17,002,999 ( 0.22%)                  unsigned char tom = (unsigned char)(sin(0.01 * iter) * 127.5 + 127.5);
-63,508,017 ( 0.83%)  => ???:0x0000000004001180 (1,307,923x)
- 7,847,538 ( 0.10%)                  r = g = b = tom;
-         .                       }       
-         .           
- 8,748,000 ( 0.11%)              fputc(r, file_image);
-42,065,125 ( 0.55%)  => ???:0x0000000004001140 (1,749,600x)
- 8,748,000 ( 0.11%)              fputc(g, file_image);
-42,065,125 ( 0.55%)  => ???:0x0000000004001140 (1,749,600x)
- 8,748,000 ( 0.11%)              fputc(b, file_image);
-42,065,125 ( 0.55%)  => ???:0x0000000004001140 (1,749,600x)
-         .                    }
-         .               }
-         .           
-         4 ( 0.00%)      clock_gettime(CLOCK_MONOTONIC, &t_end);
-        13 ( 0.00%)  => ???:0x0000000004001100 (1x)
-         7 ( 0.00%)      double elapsed = (t_end.tv_sec - t_start.tv_sec) +
-         7 ( 0.00%)                       (t_end.tv_nsec - t_start.tv_nsec) / 1e9;
-         6 ( 0.00%)      printf("Tempo de processamento (clock_gettime): %.6f segundos\n", elapsed);
-     2,679 ( 0.00%)  => ???:0x0000000004001130 (1x)
-         .               // -------------------------------------------------
-         .           
-         3 ( 0.00%)      fclose(file_image);
-       936 ( 0.00%)  => ???:0x0000000004001110 (1x)
-         1 ( 0.00%)      return 0;
-         5 ( 0.00%)  }
+          .                    .                    .          .          .          .          .          .          .           #include <stdio.h>
+          .                    .                    .          .          .          .          .          .          .           #include <stdlib.h>
+          .                    .                    .          .          .          .          .          .          .           #include <math.h>
+          .                    .                    .          .          .          .          .          .          .           #include <time.h>
+          .                    .                    .          .          .          .          .          .          .           #include "complex.h"
+          .                    .                    .          .          .          .          .          .          .           #include "mandelbrot.h"
+          .                    .                    .          .          .          .          .          .          .           
+668,467,200 ( 0.39%)  39,321,600 ( 0.05%) 471,859,200 ( 1.65%) 2 ( 0.11%) 0          0          2 ( 0.11%) .          .           int mandelbrot(int px, int py, int width, int height, double minX, double maxX, double minY, double maxY, int max_iter) {
+          .                    .                    .          .          .          .          .          .          .               Complex_number c;
+          .                    .                    .          .          .          .          .          .          .           
+117,964,800 ( 0.07%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) .          .          .          .          .          .               double unidades_largura = maxX - minX; // Quantidade de unidades de largura do plano
+117,964,800 ( 0.07%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double unidades_altura = maxY - minY; // Quantidade de unidades de altura do plano
+          .                    .                    .          .          .          .          .          .          .           
+235,929,600 ( 0.14%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) .          .          .          .          .          .               double proporcao_x = (px / (double)width); // De 0 a 1
+235,929,600 ( 0.14%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double proporcao_y = (py / (double)height); // De 0 a 1
+          .                    .                    .          .          .          .          .          .          .           
+          .                    .                    .          .          .          .          .          .          .               // Multiplica a proporção pelo tamanho total do plano matemático
+117,964,800 ( 0.07%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) .          .          .          .          .          .               double deslocamento_x = unidades_largura * proporcao_x; 
+117,964,800 ( 0.07%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) .          .          .          .          .          .               double deslocamento_y = unidades_altura * proporcao_y;
+          .                    .                    .          .          .          .          .          .          .           
+          .                    .                    .          .          .          .          .          .          .               // Soma o ponto de início (minX) para o X, mas subtrai do topo (maxY) para o Y
+117,964,800 ( 0.07%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double enquadramento_eixo_x = minX + deslocamento_x;
+117,964,800 ( 0.07%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) .          .          .          .          .          .               double enquadramento_eixo_y = maxY - deslocamento_y;
+          .                    .                    .          .          .          .          .          .          .           
+          .                    .                    .          .          .          .          .          .          .               // Número complexo que será calculado
+157,286,400 ( 0.09%)  78,643,200 ( 0.11%)  78,643,200 ( 0.28%) .          .          .          .          .          .               c = (Complex_number){enquadramento_eixo_x, enquadramento_eixo_y};
+          .                    .                    .          .          .          .          .          .          .           
+314,572,800 ( 0.18%) 117,964,800 ( 0.16%)  39,321,600 ( 0.14%) .          .          .          .          .          .               Mandelbrot_check_return result = check_mandelbrot(c, max_iter);
+162,161,323,490 (94.20%) 67,838,678,757 (94.78%) 26,484,338,044 (92.67%) 6 ( 0.34%) 1 ( 0.07%) 0          6 ( 0.34%) 1 ( 0.09%) .           => /home/robson/Desktop/github/robson-carvalho/mandelbrot-fractal-set/code/mandelbrot.c:check_mandelbrot (39,321,600x)
+          .                    .                    .          .          .          .          .          .          .               
+ 78,643,200 ( 0.05%)  39,321,600 ( 0.05%)  39,321,600 ( 0.14%) .          .          .          .          .          .               int iter = result.iterations_to_scape;
+          .                    .                    .          .          .          .          .          .          .           
+ 39,321,600 ( 0.02%)  39,321,600 ( 0.05%)           .          .          .          .          .          .          .               return iter;
+235,929,600 ( 0.14%) 196,608,000 ( 0.27%)           .          .          .          .          .          .          .           }
+          .                    .                    .          .          .          .          .          .          .           
+          9 ( 0.00%)           1 ( 0.00%)           4 ( 0.00%) 2 ( 0.11%) 0          1 ( 0.14%) 2 ( 0.11%) .          .           int main(int argc, char *argv[]) {
+          2 ( 0.00%)           1 ( 0.00%)           .          .          .          .          .          .          .               if (argc < 9) {
+          .                    .                    .          .          .          .          .          .          .                   printf("Uso: %s <width> <height> <minX> <maxX> <minY> <maxY> <max_iter> <output_filename>\n", argv[0]);
+          .                    .                    .          .          .          .          .          .          .                   return 1;
+          .                    .                    .          .          .          .          .          .          .               }
+          .                    .                    .          .          .          .          .          .          .           
+          6 ( 0.00%)           2 ( 0.00%)           2 ( 0.00%) 1 ( 0.06%) 0          1 ( 0.14%) 1 ( 0.06%) .          .               int width = atoi(argv[1]);
+        176 ( 0.00%)          23 ( 0.00%)          13 ( 0.00%) 11 ( 0.61%) 3 ( 0.22%) 2 ( 0.27%) 11 ( 0.63%) 1 ( 0.09%) .           => ???:0x0000000004001190 (1x)
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               printf("width: %d\n", width);
+      2,018 ( 0.00%)         472 ( 0.00%)         284 ( 0.00%) 148 ( 8.26%) 13 ( 0.96%) 10 ( 1.37%) 148 ( 8.50%) 9 ( 0.80%) 2 ( 0.29%)  => ???:0x0000000004001130 (1x)
+          6 ( 0.00%)           2 ( 0.00%)           2 ( 0.00%) .          .          .          .          .          .               int height = atoi(argv[2]);
+        176 ( 0.00%)          23 ( 0.00%)          13 ( 0.00%) .          .          .          .          .          .           => ???:0x0000000004001190 (1x)
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               printf("height: %d\n", height);
+        894 ( 0.00%)         198 ( 0.00%)         148 ( 0.00%) 6 ( 0.34%) 0          0          6 ( 0.34%) .          .           => ???:0x0000000004001130 (1x)
+          7 ( 0.00%)           2 ( 0.00%)           2 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double minX = atof(argv[3]);
+        401 ( 0.00%)          73 ( 0.00%)          44 ( 0.00%) 49 ( 2.74%) 4 ( 0.29%) 0          49 ( 2.81%) 3 ( 0.27%) .           => ???:0x00000000040010f0 (1x)
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               printf("minX: %f\n", minX);
+      1,668 ( 0.00%)         368 ( 0.00%)         282 ( 0.00%) 68 ( 3.80%) 5 ( 0.37%) 13 ( 1.78%) 68 ( 3.91%) 4 ( 0.35%) .           => ???:0x0000000004001130 (1x)
+          7 ( 0.00%)           2 ( 0.00%)           2 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double maxX = atof(argv[4]);
+        400 ( 0.00%)          72 ( 0.00%)          44 ( 0.00%) .          .          .          .          .          .           => ???:0x00000000040010f0 (1x)
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               printf("maxX: %f\n", maxX);
+      1,669 ( 0.00%)         365 ( 0.00%)         280 ( 0.00%) 3 ( 0.17%) 1 ( 0.07%) 0          3 ( 0.17%) 1 ( 0.09%) .           => ???:0x0000000004001130 (1x)
+          7 ( 0.00%)           2 ( 0.00%)           2 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double minY = atof(argv[5]);
+        401 ( 0.00%)          73 ( 0.00%)          44 ( 0.00%) .          .          .          .          .          .           => ???:0x00000000040010f0 (1x)
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               printf("minY: %f\n", minY);
+      1,668 ( 0.00%)         368 ( 0.00%)         282 ( 0.00%) .          .          .          .          .          .           => ???:0x0000000004001130 (1x)
+          7 ( 0.00%)           2 ( 0.00%)           2 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double maxY = atof(argv[6]);
+        400 ( 0.00%)          72 ( 0.00%)          44 ( 0.00%) .          .          .          .          .          .           => ???:0x00000000040010f0 (1x)
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               printf("maxY: %f\n", maxY);
+      1,669 ( 0.00%)         365 ( 0.00%)         280 ( 0.00%) .          .          .          .          .          .           => ???:0x0000000004001130 (1x)
+          6 ( 0.00%)           2 ( 0.00%)           2 ( 0.00%) 1 ( 0.06%) 1 ( 0.07%) 0          1 ( 0.06%) .          .               int max_iter = atoi(argv[7]);
+        156 ( 0.00%)          22 ( 0.00%)          13 ( 0.00%) .          .          .          .          .          .           => ???:0x0000000004001190 (1x)
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               printf("max_iter: %d\n", max_iter);
+        884 ( 0.00%)         197 ( 0.00%)         147 ( 0.00%) .          .          .          .          .          .           => ???:0x0000000004001130 (1x)
+          3 ( 0.00%)           2 ( 0.00%)           1 ( 0.00%) 0          0          1 ( 0.14%) .          .          .               char *filename = argv[8];
+          .                    .                    .          .          .          .          .          .          .           
+          6 ( 0.00%)           1 ( 0.00%)           2 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               FILE *file_image = fopen(filename, "wb");
+        620 ( 0.00%)         134 ( 0.00%)         127 ( 0.00%) 47 ( 2.62%) 4 ( 0.29%) 7 ( 0.96%) 47 ( 2.70%) 4 ( 0.35%) 6 ( 0.88%)  => ???:0x0000000004001160 (1x)
+          2 ( 0.00%)           1 ( 0.00%)           .          .          .          .          .          .          .               if (!file_image) {
+          .                    .                    .          .          .          .          .          .          .                   perror("Erro ao abrir arquivo");
+          .                    .                    .          .          .          .          .          .          .                   return 1;
+          .                    .                    .          .          .          .          .          .          .               }
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               printf("Salvando imagem em: %s\n", filename);
+        786 ( 0.00%)         185 ( 0.00%)         136 ( 0.00%) 7 ( 0.39%) 3 ( 0.22%) 1 ( 0.14%) 7 ( 0.40%) 1 ( 0.09%) 1 ( 0.15%)  => ???:0x0000000004001130 (1x)
+          .                    .                    .          .          .          .          .          .          .           
+          7 ( 0.00%)           3 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               fprintf(file_image, "P6\n%d %d\n255\n", width, height);
+      1,418 ( 0.00%)         288 ( 0.00%)         220 ( 0.00%) 6 ( 0.34%) 0          2 ( 0.27%) 6 ( 0.34%) 0          2 ( 0.29%)  => ???:0x0000000004001150 (1x)
+          .                    .                    .          .          .          .          .          .          .           
+          .                    .                    .          .          .          .          .          .          .               // --- Medição interna de tempo (clock_gettime) ---
+          .                    .                    .          .          .          .          .          .          .               struct timespec t_start, t_end;
+          4 ( 0.00%)           0                    1 ( 0.00%) .          .          .          .          .          .               clock_gettime(CLOCK_MONOTONIC, &t_start);
+         13 ( 0.00%)           4 ( 0.00%)           0          2 ( 0.11%) 0          0          2 ( 0.11%) .          .           => ???:0x0000000004001100 (1x)
+          .                    .                    .          .          .          .          .          .          .           
+     20,485 ( 0.00%)      10,242 ( 0.00%)       5,121 ( 0.00%) 2 ( 0.11%) 0          0          2 ( 0.11%) .          .               for (int py = 0; py < height; py++) {
+          .                    .                    .          .          .          .          .          .          .           
+157,312,000 ( 0.09%)  78,653,440 ( 0.11%)  39,326,720 ( 0.14%) .          .          .          .          .          .                    for (int px = 0; px < width; px++) {
+          .                    .                    .          .          .          .          .          .          .           
+629,145,600 ( 0.37%) 353,894,400 ( 0.49%)  78,643,200 ( 0.28%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .                       int iter = mandelbrot(px, py, width, height, minX, maxX, minY, maxY, max_iter);
+164,835,192,290 (95.76%) 68,979,005,157 (96.37%) 27,428,056,444 (95.97%) 11 ( 0.61%) 1 ( 0.07%) 0          11 ( 0.63%) 1 ( 0.09%) .           => code/image_generator.c:mandelbrot (39,321,600x)
+          .                    .                    .          .          .          .          .          .          .                      
+          .                    .                    .          .          .          .          .          .          .                       unsigned char r, g, b;
+          .                    .                    .          .          .          .          .          .          .           
+          .                    .                    .          .          .          .          .          .          .                       //  dentro do limite (faz parte do conjunto)
+117,964,800 ( 0.07%)  78,643,200 ( 0.11%)           .          .          .          .          .          .          .                       if (iter == max_iter) { 
+ 59,541,132 ( 0.03%)  19,847,044 ( 0.03%)  29,770,566 ( 0.10%) .          .          .          .          .          .                           r = g = b = 0;
+          .                    .                    .          .          .          .          .          .          .                       } 
+          .                    .                    .          .          .          .          .          .          .                       // fora do limite (não faz parte do conjunto)
+          .                    .                    .          .          .          .          .          .          .                       else {
+176,388,468 ( 0.10%)  58,796,156 ( 0.08%)  29,398,078 ( 0.10%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .                           double iterm = iter / (double)max_iter;
+          .                    .                    .          .          .          .          .          .          .                           
+382,175,014 ( 0.22%) 117,592,312 ( 0.16%)  58,796,156 ( 0.21%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .                           unsigned char tom = (unsigned char)(sin(0.1 * iter) * 127.5 + 127.5);
+2,178,839,014 ( 1.27%) 619,371,318 ( 0.87%) 119,872,032 ( 0.42%) 24 ( 1.34%) 63 ( 4.65%) 0          24 ( 1.38%) 63 ( 5.59%) .           => ???:0x0000000004001180 (29,398,078x)
+176,388,468 ( 0.10%)  88,194,234 ( 0.12%)  88,194,234 ( 0.31%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .                           r = g = b = tom;
+          .                    .                    .          .          .          .          .          .          .                       }       
+          .                    .                    .          .          .          .          .          .          .           
+196,608,000 ( 0.11%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) .          .          .          .          .          .                       fputc(r, file_image);
+945,398,400 ( 0.55%) 315,004,800 ( 0.44%) 196,838,400 ( 0.69%) 3 ( 0.17%) 0          21 ( 2.87%) 3 ( 0.17%) 0          21 ( 3.08%)  => ???:0x0000000004001140 (39,321,600x)
+196,608,000 ( 0.11%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) .          .          .          .          .          .                       fputc(g, file_image);
+945,398,400 ( 0.55%) 315,004,800 ( 0.44%) 196,838,400 ( 0.69%) 0          0          21 ( 2.87%) 0          0          21 ( 3.08%)  => ???:0x0000000004001140 (39,321,600x)
+196,608,000 ( 0.11%)  78,643,200 ( 0.11%)  39,321,600 ( 0.14%) .          .          .          .          .          .                       fputc(b, file_image);
+945,398,400 ( 0.55%) 315,004,800 ( 0.44%) 196,838,400 ( 0.69%) 4 ( 0.22%) 0          21 ( 2.87%) 4 ( 0.23%) 0          21 ( 3.08%)  => ???:0x0000000004001140 (39,321,600x)
+          .                    .                    .          .          .          .          .          .          .                    }
+          .                    .                    .          .          .          .          .          .          .               }
+          .                    .                    .          .          .          .          .          .          .           
+          4 ( 0.00%)           0                    1 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               clock_gettime(CLOCK_MONOTONIC, &t_end);
+         13 ( 0.00%)           4 ( 0.00%)           .          .          .          .          .          .          .           => ???:0x0000000004001100 (1x)
+          7 ( 0.00%)           2 ( 0.00%)           1 ( 0.00%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double elapsed = (t_end.tv_sec - t_start.tv_sec) +
+          7 ( 0.00%)           3 ( 0.00%)           .          .          .          .          .          .          .                                (t_end.tv_nsec - t_start.tv_nsec) / 1e9;
+          6 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               printf("Tempo de processamento (clock_gettime): %.6f segundos\n", elapsed);
+      3,050 ( 0.00%)         738 ( 0.00%)         483 ( 0.00%) 44 ( 2.46%) 9 ( 0.66%) 2 ( 0.27%) 42 ( 2.41%) 9 ( 0.80%) .           => ???:0x0000000004001130 (1x)
+          .                    .                    .          .          .          .          .          .          .               // -------------------------------------------------
+          .                    .                    .          .          .          .          .          .          .           
+          3 ( 0.00%)           1 ( 0.00%)           1 ( 0.00%) .          .          .          .          .          .               fclose(file_image);
+        936 ( 0.00%)         222 ( 0.00%)         235 ( 0.00%) 60 ( 3.35%) 1 ( 0.07%) 0          58 ( 3.33%) 1 ( 0.09%) .           => ???:0x0000000004001110 (1x)
+          1 ( 0.00%)           .                    .          .          .          .          .          .          .               return 0;
+          5 ( 0.00%)           4 ( 0.00%)           .          .          .          .          .          .          .           }
 
 --------------------------------------------------------------------------------
 -- Auto-annotated source: code/mandelbrot.c
 --------------------------------------------------------------------------------
-Ir                     
+Ir                      Dr                      Dw                     I1mr       D1mr       D1mw       ILmr       DLmr       DLmw 
 
-            .           #include <stdio.h>
-            .           #include "complex.h"
-            .           #include "mandelbrot.h"
-            .           
-   19,245,600 ( 0.25%)  Mandelbrot_check_return check_mandelbrot(Complex_number c, int max_iter){
-    6,998,400 ( 0.09%)      double fr = 0.0, fi = 0.0;
-            .           
-  926,200,012 (12.15%)      for(int i = 0; i < max_iter; i++){
-            .                   // (fr + fi*i)² + c  →  (fr²-fi²) + (2·fr·fi)·i + c
-  692,012,784 ( 9.08%)          double fr2 = fr * fr;
-  692,012,784 ( 9.08%)          double fi2 = fi * fi;
-1,614,696,496 (21.19%)          fi = 2.0 * fr * fi + c.imag;
-1,384,025,568 (18.16%)          fr = fr2 - fi2 + c.real;
-            .           
-1,845,367,424 (24.22%)          if (fr * fr + fi * fi > 4.0) {
-    5,231,700 ( 0.07%)              Complex_number fval = {fr, fi};
-   17,003,025 ( 0.22%)              return (Mandelbrot_check_return){0, fval, i+1};
-            .                   }
-            .               }
-            .           
-    1,766,700 ( 0.02%)      Complex_number fval = {fr, fi};
-    6,183,450 ( 0.08%)      return (Mandelbrot_check_return){1, fval, max_iter};
-    6,556,725 ( 0.09%)  }
+             .                       .                      .          .          .          .          .          .          .           #include <stdio.h>
+             .                       .                      .          .          .          .          .          .          .           #include "complex.h"
+             .                       .                      .          .          .          .          .          .          .           #include "mandelbrot.h"
+             .                       .                      .          .          .          .          .          .          .           
+   432,537,600 ( 0.25%)              0            196,608,000 ( 0.69%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .           Mandelbrot_check_return check_mandelbrot(Complex_number c, int max_iter){
+   157,286,400 ( 0.09%)              0             78,643,200 ( 0.28%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               double fr = 0.0, fi = 0.0;
+             .                       .                      .          .          .          .          .          .          .           
+20,810,206,316 (12.09%) 10,385,442,358 (14.51%) 5,192,721,179 (18.17%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .               for(int i = 0; i < max_iter; i++){
+             .                       .                      .          .          .          .          .          .          .                   // (fr + fi*i)² + c  →  (fr²-fi²) + (2·fr·fi)·i + c
+15,548,393,286 ( 9.03%)  5,182,797,762 ( 7.24%) 5,182,797,762 (18.13%) .          .          .          .          .          .                   double fr2 = fr * fr;
+15,548,393,286 ( 9.03%)  5,182,797,762 ( 7.24%) 5,182,797,762 (18.13%) .          .          .          .          .          .                   double fi2 = fi * fi;
+36,279,584,334 (21.08%) 15,548,393,286 (21.72%) 5,182,797,762 (18.13%) 1 ( 0.06%) 0          0          1 ( 0.06%) .          .                   fi = 2.0 * fr * fi + c.imag;
+31,096,786,572 (18.06%) 15,548,393,286 (21.72%) 5,182,797,762 (18.13%) .          .          .          .          .          .                   fr = fr2 - fi2 + c.real;
+             .                       .                      .          .          .          .          .          .          .           
+41,462,382,096 (24.09%) 15,548,393,286 (21.72%)             0          1 ( 0.06%) 1 ( 0.07%) 0          1 ( 0.06%) 1 ( 0.09%) .                   if (fr * fr + fi * fi > 4.0) {
+   117,592,732 ( 0.07%)     58,796,366 ( 0.08%)    58,796,366 ( 0.21%) .          .          .          .          .          .                       Complex_number fval = {fr, fi};
+   382,176,379 ( 0.22%)    176,389,098 ( 0.25%)   146,990,915 ( 0.51%) .          .          .          .          .          .                       return (Mandelbrot_check_return){0, fval, i+1};
+             .                       .                      .          .          .          .          .          .          .                   }
+             .                       .                      .          .          .          .          .          .          .               }
+             .                       .                      .          .          .          .          .          .          .           
+    39,693,668 ( 0.02%)     19,846,834 ( 0.03%)    19,846,834 ( 0.07%) .          .          .          .          .          .               Complex_number fval = {fr, fi};
+   138,927,838 ( 0.08%)     69,463,919 ( 0.10%)    59,540,502 ( 0.21%) .          .          .          .          .          .               return (Mandelbrot_check_return){1, fval, max_iter};
+   147,362,983 ( 0.09%)    117,964,800 ( 0.16%)             0          1 ( 0.06%) 0          0          1 ( 0.06%) .          .           }
 
 --------------------------------------------------------------------------------
 The following files chosen for auto-annotation could not be found:
 --------------------------------------------------------------------------------
   ./libio/./libio/fputc.c
+  ./math/../sysdeps/ieee754/dbl-64/s_sin.c
 
 --------------------------------------------------------------------------------
-Ir                     
+Ir                       Dr                      Dw                      I1mr        D1mr       D1mw       ILmr        DLmr       DLmw 
 --------------------------------------------------------------------------------
-7,430,268,752 (97.51%)  events annotated
+167,123,952,417 (97.09%) 70,010,565,827 (97.81%) 27,870,155,354 (97.51%) 30 ( 1.68%) 2 ( 0.15%) 3 ( 0.41%) 30 ( 1.72%) 1 ( 0.09%) .           events annotated
 

@@ -1,6 +1,6 @@
 build/
 *out
 gmon.out
-perf.data*
+reports/*/perf/perf.data
 pictures/*
 *.ppm

@@ -3,13 +3,15 @@ CFLAGS = -O0 -g
 LIBS   = -lm
 
 # ── Configurações do Fractal ──────────────────────────────────────────────────
-WIDTH    ?= 3240
-HEIGHT   ?= 2160
+WIDTH    ?= 7680
+HEIGHT   ?= 5120
 MIN_X    ?= -2
 MAX_X    ?= 1
 MIN_Y    ?= -1
 MAX_Y    ?= 1
 MAX_ITER ?= 500
+
+
 
 MACHINE_NAME := $(shell hostname)
 TIMESTAMP    := $(shell date +%Y%m%d_%H%M%S)
@@ -110,7 +112,7 @@ valgrind: compile hardware-info
 		--cachegrind-out-file=reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
 		./build/programa $(ARGS)
 	@echo "[Cachegrind] Gerando relatório anotado por linha..."
-	cg_annotate --auto=yes reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
+	cg_annotate --auto=yes --show=Ir,Dr,D1mr,Dw,D1mw reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
 		> reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
 	@echo "---------------------------------------------------------"
 	@echo "Resumo de cache (Cachegrind):"
@@ -130,7 +132,7 @@ cachegrind-pcore: compile hardware-info
 		--cachegrind-out-file=reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
 		./build/programa $(ARGS)
 	@echo "[Cachegrind] Gerando relatório anotado por linha..."
-	cg_annotate --auto=yes reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
+	cg_annotate --auto=yes --show=Ir,Dr,D1mr,Dw,D1mw reports/$(MACHINE_NAME)/valgrind/cachegrind.out \
 		> reports/$(MACHINE_NAME)/valgrind/cachegrind_report.txt
 	@echo "---------------------------------------------------------"
 	@echo "Resumo de cache (Cachegrind):"
